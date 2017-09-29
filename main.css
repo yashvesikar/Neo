@@ -1,5 +1,5 @@
-.body {
-    color: white;
+h1, h2, h3, h4, h5, h6, p {
+  font-weight: 100;
 }
 
 #header {
@@ -8,17 +8,4 @@
 
 .form-section {
     margin: auto;
-}
-
-.card-content, .card-action {
-    background-color: rgb(19, 130, 195);
-    color: white;
-}
-
-.card-action {
-    text-align: center;
-}
-
-p label {
-    color: white;
 }
