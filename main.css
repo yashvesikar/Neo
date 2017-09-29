@@ -15,10 +15,20 @@
     color: white;
 }
 
+.card-title {
+    text-align: center;
+    border-bottom: thin solid black;
+}
+
 .card-action {
     text-align: center;
+    color: white;
 }
 
 p label {
     color: white;
+}
+
+.page-footer {
+    background-color: rgb(19, 130, 195);
 }
