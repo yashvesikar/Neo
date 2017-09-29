@@ -1,7 +1,24 @@
+.body {
+    color: white;
+}
+
 #header {
     text-align: center;
 }
 
 .form-section {
     margin: auto;
+}
+
+.card-content, .card-action {
+    background-color: rgb(19, 130, 195);
+    color: white;
+}
+
+.card-action {
+    text-align: center;
+}
+
+p label {
+    color: white;
 }
