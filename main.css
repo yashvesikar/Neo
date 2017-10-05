@@ -30,6 +30,11 @@ p label {
     color: white;
 }
 
-.page-footer {
+.page-footer, .nav-wrapper {
     background-color: rgb(19, 130, 195);
+}
+
+#logo {
+    width: 50%;
+    height: 50%;
 }
