@@ -38,3 +38,9 @@ p label {
     width: 50%;
     height: 50%;
 }
+#form2 {
+  display: none;
+}
+
+#form3 {
+  display: none;
