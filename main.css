@@ -26,7 +26,7 @@ h1, h2, h3, h4, h5, h6, p {
     color: white;
 }
 
-p label {
+label {
     color: white;
 }
 
@@ -44,3 +44,18 @@ p label {
 
 #form3 {
   display: none;
+}
+#form4 {
+  display: none;
+}
+
+/*Section 4*/
+.sarnat {
+  text-align: center;
+}
+/*.sarnat {
+  display: inline-flex;
+}
+.sarnat p {
+  padding: 5px;
+}*/
