@@ -66,9 +66,26 @@ class form2 {
 
     event.preventDefault();
   }
+}
 
+class form4 {
+  constructor(){}
 
+  submitForm() {
+      //This returns an array of objects of the checked checkboxes
+      let seizured = $("#s4q1").checked;
+      //Super basic check to see if all 7 boxes were checked
+      if (seizured){
+        //For now we are supposed to let them keep going, but recc do not cool
+        console.log("Should recommend to cooling");
+      } else {
+        console.log("Continue to the SARNAT questions");
+        $("#form4").fadeIn();
+      }
+      event.preventDefault();
+  }
 }
 
 var qualifyingQuestions = new form1();
 var bloodGasQuestions = new form2();
+var neurologicExams = new form4();

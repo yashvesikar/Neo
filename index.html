@@ -65,8 +65,7 @@
                                   </p>
                                   <button class="btn waves-effect waves-light btn-flat"
                                           type="submit"
-                                          name="action"
-                                          onClick="qualifyingQuestions.submitForm()">Continue
+                                          name="action">Continue
                                           <i class="material-icons right">send</i>
                                   </button>
                               </form>
@@ -98,7 +97,7 @@
                                     <div class="col s12">
                                         Enter Cord or Postnatal Blood Gas pH obtained within 1hr of age:
                                         <div class="input-field inline">
-                                            <input id="s2q2" type="email" class="validate">
+                                            <input id="s2q2" type="number" class="validate">
                                             <label for="email" data-error="wrong" data-success="right">8.0</label>
                                         </div>
                                     </div>
@@ -108,7 +107,7 @@
                                     <div class="col s12">
                                         Enter Base Deficit:
                                         <div class="input-field inline">
-                                            <input id="s2q3" type="email" class="validate">
+                                            <input id="s2q3" type="number" class="validate">
                                             <label for="email" data-error="wrong" data-success="right">8.0</label>
                                         </div>
                                     </div>
@@ -116,8 +115,7 @@
                                     <button class="btn waves-effect waves-light btn-flat"
                                             id="submit"
                                             type="submit"
-                                            name="action"
-                                            onClick="bloodGasQuestions.submitForm()">Continue
+                                            name="action">Continue
                                             <i class="material-icons right">send</i>
                                     </button>
                               </form>
@@ -140,7 +138,7 @@
                                       <label for="s3q1">History of an acute event?</label>
                                       <label>
                                         No
-                                        <input type="checkbox" id="s2q1">
+                                        <input type="checkbox" id="s3q1">
                                         <span class="lever"></span>
                                         Yes
                                       </label>
@@ -150,28 +148,28 @@
                                         <div class="col s12">
                                             Enter 10 minute Apgar score:
                                             <div class="input-field inline">
-                                                <input id="s3q2" type="email" class="validate">
+                                                <input id="s3q2" type="number" class="validate">
                                                 <label for="email" data-error="wrong" data-success="right">8.0</label>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="switch">
-                                        <label for="s1q1">Ventilation from birth continued for at least 10 min?</label>
+                                        <label for="s3q3">Ventilation from birth continued for at least 10 min?</label>
                                         <label id="lev">
                                           No
                                           <input type="checkbox" id="s3q3">
                                           <span class="lever"></span>
                                           Yes
                                         </label>
-                                    </div>
-                                    <button class="btn waves-effect waves-light btn-flat"
-                                            id="submit"
-                                            type="submit"
-                                            name="action"
-                                            onClick="bloodGasQuestions.submitForm()">Continue
-                                            <i class="material-icons right">send</i>
-                                    </button>
+                                   </div>
+
+                                  <button class="btn waves-effect waves-light btn-flat"
+                                          id="submit"
+                                          type="submit"
+                                          name="action">Continue
+                                          <i class="material-icons right">send</i>
+                                  </button>
                               </form>
                           </div>
                       </div>
@@ -497,12 +495,13 @@
             </div>
           </footer>
       </div>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
       <script src="https://code.jquery.com/jquery-3.2.1.min.js"
               integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
               crossorigin="anonymous">
       </script>
-      <script src="main.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+      <script src="main2.js"></script>
 
 </body>
 </html>
