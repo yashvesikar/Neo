@@ -60,7 +60,6 @@ $("#s2").submit(function( event ) {
   if (valid) {
     // Move to next section
     var form = "#form" + nextSection;
-    console.log(form);
     $(form).fadeIn();
   } else {
     // Display error
@@ -74,7 +73,6 @@ $("s3").submit(function( event ) {
   alert( "Form 3 submitted." );
   event.preventDefault();
 
-  //validate() {
   var valid = false;
   var nextSection = 4;
   var acuteEventHistory = ("#s3q1").val(); // History of an acute event? (Yes or No)
@@ -89,14 +87,12 @@ $("s3").submit(function( event ) {
   if (apgarScore <= 5) { valid = true; }
   // If ventilated from birth, continue to neural
   if (ventFromBirth == true) { valid = true; }
-
+  // Next section is invalid if form wasn't valid
   if (valid == false) { nextSection = -1; }
-    //return [valid, nextSection];
-
-  //}
 
   if (valid) {
-    var form = "form" + nextSection;
+    // Move to next section
+    var form = "#form" + nextSection;
     $(form).fadeIn();
   } else {
     // Display error
