@@ -7,16 +7,6 @@
 
   </head>
 
-  <!--<nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo"><img id="logo" src="img/childrens_hospital_wisconsin.png" alt="Children's Hospital of Wisconsin Logo"></a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="sass.html">Home</a></li>
-        <li><a href="badges.html">About</a></li>
-      </ul>
-    </div>
-  </nav>-->
-
   <body>
       <div class="container">
           <div clas="row" id="header">
@@ -35,6 +25,20 @@
                               <span class="card-title">Qualifying Questions</span>
                               <span id="results"></span>
                               <form id="s1" action="#">
+
+                                <!-- Switch 
+                                <label for="s1q1">Admitting diagnosis of neonatal depression, acute perinatal asphyxia, or encephalopathy?</label>
+                                <div class="switch">
+
+                                  <label>
+                                    No
+                                    <input type="checkbox">
+                                    <span class="lever"></span>
+                                    Yes
+                                  </label>
+                                </div>-->
+
+
                                   <p class="question">
                                       <input name="s1q1" type="checkbox" id="s1q1" />
                                       <label for="s1q1">Admitting diagnosis of neonatal depression, acute perinatal asphyxia, or encephalopathy</label>
@@ -63,11 +67,15 @@
                                       <input name="s1q7" type="checkbox" id="s1q7" />
                                       <label for="s1q7">Absence of alternate cause for encephalopathy?</label>
                                   </p>
-                                  <button class="btn waves-effect waves-light btn-flat"
-                                          type="submit"
-                                          name="action">Continue
-                                          <i class="material-icons right">send</i>
-                                  </button>
+
+                                  <div class="card-action">
+                                    <button class="btn waves-effect waves-light btn-flat"
+                                            type="submit"
+                                            name="action">Continue
+                                            <i class="material-icons right">send</i>
+                                    </button>
+                                  </div>
+
                               </form>
                           </div>
                       </div>
@@ -98,7 +106,7 @@
                                         Enter Cord or Postnatal Blood Gas pH obtained within 1hr of age:
                                         <div class="input-field inline">
                                             <input id="s2q2" type="number" class="validate">
-                                            <label for="email" data-error="wrong" data-success="right">8.0</label>
+                                            <!--<label for="email" data-error="wrong" data-success="right">8.0</label>-->
                                         </div>
                                     </div>
                                 </div>
@@ -108,16 +116,17 @@
                                         Enter Base Deficit:
                                         <div class="input-field inline">
                                             <input id="s2q3" type="number" class="validate">
-                                            <label for="email" data-error="wrong" data-success="right">8.0</label>
+                                            <!--<label for="email" data-error="wrong" data-success="right">8.0</label>-->
                                         </div>
                                     </div>
                                     </div>
-                                    <button class="btn waves-effect waves-light btn-flat"
-                                            id="submit"
-                                            type="submit"
-                                            name="action">Continue
-                                            <i class="material-icons right">send</i>
-                                    </button>
+                                    <div class="card-action">
+                                      <button class="btn waves-effect waves-light btn-flat"
+                                              type="submit"
+                                              name="action">Continue
+                                              <i class="material-icons right">send</i>
+                                      </button>
+                                    </div>
                               </form>
                           </div>
                       </div>
@@ -164,12 +173,13 @@
                                         </label>
                                    </div>
 
-                                  <button class="btn waves-effect waves-light btn-flat"
-                                          id="submit"
-                                          type="submit"
-                                          name="action">Continue
-                                          <i class="material-icons right">send</i>
-                                  </button>
+                                   <div class="card-action">
+                                     <button class="btn waves-effect waves-light btn-flat"
+                                             type="submit"
+                                             name="action">Continue
+                                             <i class="material-icons right">send</i>
+                                     </button>
+                                   </div>
                               </form>
                           </div>
                       </div>
