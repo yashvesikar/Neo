@@ -1,3 +1,15 @@
+submitForm(valid, nextSection) {
+  if (valid) {
+    // Move to next section
+    var form = "#form" + nextSection;
+    $(form).fadeIn();
+  } else {
+    // Display error
+    alert("There was an error in your form");
+  }
+}
+
+
 // Section 1 Form: Qualifying Questions
 $("#s1").submit(function( event ) {
   console.log("Form 1 submitted");
@@ -19,14 +31,7 @@ $("#s1").submit(function( event ) {
   // Next section is invalid if form wasn't valid
   if (valid == false) { nextSection = -1; }
 
-  if (valid) {
-    // Move to next section
-    var form = "#form" + nextSection;
-    $(form).fadeIn();
-  } else {
-    // Display error
-    alert("There was an error in your form");
-  }
+  submitForm(valid, nextSection);
 
 });
 
@@ -57,14 +62,7 @@ $("#s2").submit(function( event ) {
   // Next section is invalid if form wasn't valid
   if (valid == false) { nextSection = -1; }
 
-  if (valid) {
-    // Move to next section
-    var form = "#form" + nextSection;
-    $(form).fadeIn();
-  } else {
-    // Display error
-    alert("There was an error in your form");
-  }
+  submitForm(valid, nextSection);
 
 });
 
@@ -90,13 +88,6 @@ $("s3").submit(function( event ) {
   // Next section is invalid if form wasn't valid
   if (valid == false) { nextSection = -1; }
 
-  if (valid) {
-    // Move to next section
-    var form = "#form" + nextSection;
-    $(form).fadeIn();
-  } else {
-    // Display error
-    alert("There was an error in your form");
-  }
+  submitForm(valid, nextSection);
 
 });
