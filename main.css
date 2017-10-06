@@ -59,3 +59,12 @@ label {
 .sarnat p {
   padding: 5px;
 }*/
+
+
+.switch {
+  display: inline;
+}
+
+.question label {
+  font-weight: bold;
+}

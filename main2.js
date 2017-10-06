@@ -1,4 +1,7 @@
-submitForm(valid, nextSection) {
+/**
+ ** If valid, moves to the appropriate section. Otherwise displays error.
+**/
+function submitForm(valid, nextSection) {
   if (valid) {
     // Move to next section
     var form = "#form" + nextSection;
@@ -9,8 +12,9 @@ submitForm(valid, nextSection) {
   }
 }
 
-
-// Section 1 Form: Qualifying Questions
+/**
+ ** Section 1 Form: Qualifying Questions
+ **/
 $("#s1").submit(function( event ) {
   console.log("Form 1 submitted");
   event.preventDefault();
@@ -35,7 +39,9 @@ $("#s1").submit(function( event ) {
 
 });
 
-// Section 2 Form:  Blood Gas Questions
+/**
+ ** Section 2 Form: Blood Gas Questions
+ **/
 $("#s2").submit(function( event ) {
   console.log("Form 2 submitted");
   event.preventDefault();
@@ -46,8 +52,6 @@ $("#s2").submit(function( event ) {
   var bloodGasPH = parseInt($("#s2q2").val());  // Blood Gas PH
   var baseDeficit = parseInt($("#s2q3").val()); // Base Deficit
 
-  console.log(availablePH, bloodGasPH, baseDeficit);
-
   // If under 7 or above 16 skip history and go to neural
   if ((bloodGasPH < 7) || (bloodGasPH > 16)) { valid = true; nextSection = 4; }
   // If over 16 skip history and go to neural
@@ -57,8 +61,6 @@ $("#s2").submit(function( event ) {
   // If between 9.99 and 16 (non inclusive) continue to history
   if (9.99 > bloodGasPH < 16) { valid = true; }
 
-  console.log(valid, nextSection);
-
   // Next section is invalid if form wasn't valid
   if (valid == false) { nextSection = -1; }
 
@@ -66,7 +68,9 @@ $("#s2").submit(function( event ) {
 
 });
 
-// Section 3 Form: History Questions
+/**
+ ** Section 3 Form: History Questions
+ **/
 $("s3").submit(function( event ) {
   alert( "Form 3 submitted." );
   event.preventDefault();
