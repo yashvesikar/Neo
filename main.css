@@ -6,14 +6,16 @@ h1, h2, h3, h4, h5, h6, p {
     text-align: center;
 }
 
-.form-section {
-    margin: auto;
-}
+/*#form2 {
+  display: none;
+}*/
 
-.card-content, .card-action {
-    background-color: rgb(19, 130, 195);
-    color: white;
-}
+/*#form3 {
+  display: none;
+}*/
+/*#form4 {
+  display: none;
+}*/
 
 .card-title {
     text-align: center;
@@ -21,50 +23,58 @@ h1, h2, h3, h4, h5, h6, p {
     padding-bottom: 0.5em;
 }
 
+.card-content, .card-action {
+    background-color: rgb(19, 130, 195);
+    color: white;
+}
+
 .card-action {
     text-align: center;
-    color: white;
 }
 
-label {
-    color: white;
+.card-action button {
+  color: white;
 }
 
-.page-footer, .nav-wrapper {
-    background-color: rgb(19, 130, 195);
+.question {
+  margin: 1.5em;
 }
 
-#logo {
-    width: 50%;
-    height: 50%;
-}
-#form2 {
-  display: none;
-}
-
-#form3 {
-  display: none;
-}
-#form4 {
-  display: none;
+.input-field input {
+    border-color: white !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
-/*Section 4*/
-.sarnat {
-  text-align: center;
-}
-/*.sarnat {
-  display: inline-flex;
-}
-.sarnat p {
-  padding: 5px;
-}*/
+.input-field {
+    display: inline-block;
+    float: right;
+    width: 10%;
+    height: 90%;
+    margin: 0;
+    padding: 0;
 
+}
 
 .switch {
-  display: inline;
+  float: right;
+  margin-left: auto;
+  margin-right: 0;
 }
 
 .question label {
-  font-weight: bold;
+  color: white;
+}
+
+.switch, .question p{
+  display: inline-block;
+}
+
+#sarnat {
+    font-weight: bold;
+}
+
+.page-footer {
+    background-color: rgb(19, 130, 195);
 }
