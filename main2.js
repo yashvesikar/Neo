@@ -71,7 +71,7 @@ $("#s2").submit(function( event ) {
 /**
  ** Section 3 Form: History Questions
  **/
-$("s3").submit(function( event ) {
+$("#s3").submit(function( event ) {
   alert( "Form 3 submitted." );
   event.preventDefault();
 
@@ -93,5 +93,67 @@ $("s3").submit(function( event ) {
   if (valid == false) { nextSection = -1; }
 
   submitForm(valid, nextSection);
+
+});
+
+var hadSeizure = $("#s4q1").is(":checked");
+//Only show form 4 questions if had seizures.
+$('#s4q1').on('change', function() {
+  hadSeizure = $("#s4q1").is(":checked");
+  if (!hadSeizure) {
+    $('.seizureQuestions').fadeIn();
+  } else {
+    $('.seizureQuestions').fadeOut();
+  }
+})
+
+
+$("#s4").submit(function( event ) {
+  // alert( "Form 4 submitted." );
+  event.preventDefault();
+  if (hadSeizure) {
+    alert("Cooling advised.");
+    return;
+  }
+  var valid = false;
+  var nextSection = 4;
+  var points = 0;
+  //Breaking into categories
+  //Categories 1 and 2
+  for (var i = 1; i <= 2; i++) {
+    if($("input:radio[name='question"+i+"']:checked").val() >=3) {
+      points++;
+    }
+  }
+  //Category 3
+  for (var i = 3; i <= 5; i++) {
+    if($("input:radio[name='question"+i+"']:checked").val() >=3) {
+      points++;
+      break;
+    }
+  }
+  //Category 4
+  for (var i = 6; i <= 8; i++) {
+    if($("input:radio[name='question"+i+"']:checked").val() >=3) {
+      points++;
+      break;
+    }
+  }
+  //Category 5
+  for (var i = 9; i <= 10; i++) {
+    if($("input:radio[name='question"+i+"']:checked").val() >=3) {
+      points++;
+      break;
+    }
+  }
+  //Points system
+  if (points>=3) {
+    alert("Cooling advised.");
+  } else{
+    alert("Cooling not advised")
+  }
+  if (valid == false) { nextSection = -1; }
+
+  // submitForm(valid, nextSection);
 
 });
