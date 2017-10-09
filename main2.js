@@ -30,7 +30,7 @@ $("#s1").submit(function( event ) {
   var q7 = $("#s1q7").is(":checked");
 
   // All questions must be yes to pass
-  if (q1 && q2 && q3 && q4 && q5 && q6 && q7) { console.log("trueee"); valid = true; }
+  if (q1 && q2 && q3 && q4 && q5 && q6 && q7) { console.log("true"); valid = true; }
 
   // Next section is invalid if form wasn't valid
   if (valid == false) { nextSection = -1; }
@@ -49,21 +49,16 @@ $("#s2").submit(function( event ) {
   var valid = false;
   var nextSection = 3;
   var availablePH = $("#s2q1").is(":checked"); // Available Cord or Postnatal Blood Gas pH obtained within 1hr of age? (Yes or no)
-  var bloodGasPH = parseInt($("#s2q2").val());  // Blood Gas PH
+  var bloodGasPH = parseFloat($("#s2q2").val());  // Blood Gas PH
   var baseDeficit = parseInt($("#s2q3").val()); // Base Deficit
-
-  // If under 7 or above 16 skip history and go to neural
-  if ((bloodGasPH < 7) || (bloodGasPH > 16)) { valid = true; nextSection = 4; }
-  // If over 16 skip history and go to neural
-  if (bloodGasPH >= 16) { valid = true; nextSection = 4; }
-  // If between 7 and 7.16 (non inclusive) continue to history
-  if (7 > bloodGasPH < 7.16) { valid = true; }
-  // If between 9.99 and 16 (non inclusive) continue to history
-  if (9.99 > bloodGasPH < 16) { valid = true; }
-
+  // If under 7 or above 7.16 skip history and go to neural
+  if ((bloodGasPH > 7) && (bloodGasPH < 7.16)) { valid = true; nextSection = 3; }
+  else {valid = true; nextSection = 4;}
+  // If under 10 or above 16 then skip history and go straight to neural
+  if ((baseDeficit > 10 ) && (baseDeficit < 16 )) {valid = true; nextSection = 3;}
+  else {valid = true; nextSection = 4;}
   // Next section is invalid if form wasn't valid
   if (valid == false) { nextSection = -1; }
-
   submitForm(valid, nextSection);
 
 });
@@ -72,14 +67,13 @@ $("#s2").submit(function( event ) {
  ** Section 3 Form: History Questions
  **/
 $("#s3").submit(function( event ) {
-  alert( "Form 3 submitted." );
   event.preventDefault();
 
   var valid = false;
   var nextSection = 4;
-  var acuteEventHistory = ("#s3q1").val(); // History of an acute event? (Yes or No)
-  var apgarScore = ("#s3q2").val();        // 10 minute Apgar score
-  var ventFromBirth = ("#s3q3").val();     // Ventilation from birth continued for at least 10 min? (yes or no)
+  var acuteEventHistory = $("#s3q1").val(); // History of an acute event? (Yes or No)
+  var apgarScore = $("#s3q2").val();        // 10 minute Apgar score
+  var ventFromBirth = $("#s3q3").val();     // Ventilation from birth continued for at least 10 min? (yes or no)
 
   // If acute event or if 6+ apgar score and no vent, continue to neural
   if (acuteEventHistory == true) { valid = true; }

@@ -6,16 +6,16 @@ h1, h2, h3, h4, h5, h6, p {
     text-align: center;
 }
 
-/*#form2 {
+#form2 {
   display: none;
-}*/
+}
 
-/*#form3 {
+#form3 {
   display: none;
-}*/
-/*#form4 {
+}
+#form4 {
   display: none;
-}*/
+}
 
 .card-title {
     text-align: center;
@@ -80,6 +80,6 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 /*Section 4*/
-/*.seizureQuestions {
+.seizureQuestions {
   display: none;
-}*/
+}
