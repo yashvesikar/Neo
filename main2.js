@@ -17,7 +17,7 @@ function submitForm(valid, nextSection) {
  **/
 $("#s1").submit(function( event ) {
   console.log("Form 1 submitted");
-  event.preventDefault();
+  //event.preventDefault();
 
   var valid = false;
   var nextSection = 2;
@@ -44,7 +44,7 @@ $("#s1").submit(function( event ) {
  **/
 $("#s2").submit(function( event ) {
   console.log("Form 2 submitted");
-  event.preventDefault();
+  //event.preventDefault();
 
   var valid = false;
   var nextSection = 3;
@@ -67,7 +67,7 @@ $("#s2").submit(function( event ) {
  ** Section 3 Form: History Questions
  **/
 $("#s3").submit(function( event ) {
-  event.preventDefault();
+  //event.preventDefault();
 
   var valid = false;
   var nextSection = 4;
