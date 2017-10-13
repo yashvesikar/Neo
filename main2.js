@@ -6,6 +6,10 @@ function submitForm(valid, nextSection) {
     // Move to next section
     var form = "#form" + nextSection;
     $(form).fadeIn();
+    //Scrolling animation to next section
+    $('html, body').animate({
+        scrollTop: $(form).offset().top
+    }, 2000);
   } else {
     // Display error
     alert("There was an error in your form");
@@ -19,21 +23,25 @@ $("#s1").submit(function( event ) {
   console.log("Form 1 submitted");
   //event.preventDefault();
 
-  var valid = false;
-  var nextSection = 2;
-  var q1 = $("#s1q1").is(":checked");
-  var q2 = $("#s1q2").is(":checked");
-  var q3 = $("#s1q3").is(":checked");
-  var q4 = $("#s1q4").is(":checked");
-  var q5 = $("#s1q5").is(":checked");
-  var q6 = $("#s1q6").is(":checked");
-  var q7 = $("#s1q7").is(":checked");
+  /*** For now let the user move through the questions without this check  ***/
+  // var valid = false;
+  let valid  = true;
+  let nextSection = 2;
+  let q1 = $("#s1q1").is(":checked");
+  let q2 = $("#s1q2").is(":checked");
+  let q3 = $("#s1q3").is(":checked");
+  let q4 = $("#s1q4").is(":checked");
+  let q5 = $("#s1q5").is(":checked");
+  let q6 = $("#s1q6").is(":checked");
+  let q7 = $("#s1q7").is(":checked");
 
   // All questions must be yes to pass
   if (q1 && q2 && q3 && q4 && q5 && q6 && q7) { console.log("true"); valid = true; }
 
   // Next section is invalid if form wasn't valid
-  if (valid == false) { nextSection = -1; }
+
+  /*** For now let the user move through the questions without this check  ***/
+  // if (valid == false) { nextSection = -1; }
 
   submitForm(valid, nextSection);
 
