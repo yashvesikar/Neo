@@ -1,3 +1,5 @@
+var PAGES = [1,]
+
 /**
  ** If valid, moves to the appropriate section. Otherwise displays error.
 **/
@@ -5,6 +7,8 @@ function submitForm(valid, nextSection) {
   if (valid) {
     // Move to next section
     var form = "#form" + nextSection;
+    PAGES.push(nextSection);
+    console.log(PAGES);
     $(form).fadeIn();
     //Scrolling animation to next section
     $('html, body').animate({
@@ -21,7 +25,7 @@ function submitForm(valid, nextSection) {
  **/
 $("#s1").submit(function( event ) {
   console.log("Form 1 submitted");
-  event.preventDefault();
+  //event.preventDefault();
 
   /*** For now let the user move through the questions without this check  ***/
   // var valid = false;
@@ -52,7 +56,7 @@ $("#s1").submit(function( event ) {
  **/
 $("#s2").submit(function( event ) {
   console.log("Form 2 submitted");
-  event.preventDefault();
+  //event.preventDefault();
 
   var valid = false;
   var nextSection = 3;
@@ -75,7 +79,7 @@ $("#s2").submit(function( event ) {
  ** Section 3 Form: History Questions
  **/
 $("#s3").submit(function( event ) {
-  event.preventDefault();
+  //event.preventDefault();
 
   var valid = false;
   var nextSection = 4;
@@ -159,3 +163,22 @@ $("#s4").submit(function( event ) {
   // submitForm(valid, nextSection);
 
 });
+
+
+$(".back").click(function() {
+    console.log("Back");
+    console.log(PAGES);
+    var last = PAGES.pop();
+    console.log(PAGES);
+    //console.log(PAGES);
+    var form = "#form" + last;
+    //console.log(form);
+    var dest = "#form" + PAGES[PAGES.length - 1];
+    //console.log(PAGES[PAGES.length - 1]);
+    console.log(dest);
+    $(form).fadeOut();
+    $('html, body').animate({
+        scrollTop: $(dest).offset().top
+    }, 2000);
+
+})
