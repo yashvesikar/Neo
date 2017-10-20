@@ -1,3 +1,5 @@
+var PAGES = [1,]
+
 /**
  ** If valid, moves to the appropriate section. Otherwise displays error.
 **/
@@ -5,6 +7,8 @@ function submitForm(valid, nextSection) {
   if (valid) {
     // Move to next section
     var form = "#form" + nextSection;
+    PAGES.push(nextSection);
+    console.log(PAGES);
     $(form).fadeIn();
     //Scrolling animation to next section
     $('html, body').animate({
@@ -159,3 +163,22 @@ $("#s4").submit(function( event ) {
   // submitForm(valid, nextSection);
 
 });
+
+
+$(".back").click(function() {
+    console.log("Back");
+    console.log(PAGES);
+    var last = PAGES.pop();
+    console.log(PAGES);
+    //console.log(PAGES);
+    var form = "#form" + last;
+    //console.log(form);
+    var dest = "#form" + PAGES[PAGES.length - 1];
+    //console.log(PAGES[PAGES.length - 1]);
+    console.log(dest);
+    $(form).fadeOut();
+    $('html, body').animate({
+        scrollTop: $(dest).offset().top
+    }, 2000);
+
+})
