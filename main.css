@@ -52,6 +52,18 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 
+.bg-questions {
+  display: none;
+}
+
+.acute-event {
+  display: none;
+}
+
+.seizureQuestions {
+  display: none;
+}
+
 .switch {
   float: right;
   margin-left: auto;
