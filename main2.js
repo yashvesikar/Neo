@@ -8,14 +8,25 @@ var RECOMMENDATION = false;
 function submitForm(valid, nextSection) {
   if (valid) {
     // Move to next section
-    var form = "#form" + nextSection;
-    PAGES.push(nextSection);
-    console.log(PAGES);
-    $(form).fadeIn();
-    //Scrolling animation to next section
-    $('html, body').animate({
-        scrollTop: $(form).offset().top
-    }, 2000);
+
+    if (nextSection == 5){
+
+      $('html, body').animate({
+          scrollTop: $("#result").offset().top
+      }, 2000);
+
+    } else {
+      let form = "#form" + nextSection;
+      PAGES.push(nextSection);
+      console.log(PAGES);
+
+      $(form).fadeIn();
+      //Scrolling animation to next section
+      $('html, body').animate({
+          scrollTop: $(form).offset().top
+      }, 2000);
+    }
+
   } else {
     // Display error
     alert("There was an error in your form");
@@ -167,9 +178,12 @@ $("#s3").submit(function( event ) {
   if (acuteEventHistory == 0) {
     if (apgarScore >=6 && ventFromBirth == false) {
       if (histResponse.submitted >=1){back();}
-      valid = false; //************** This should be true **********************
-      // nextSection = -1; //******** This should be the final reccomendation section ***********
-      alert("Do Not Cool");
+      valid = true; //************** This should be true **********************
+      nextSection = 5; //******** This should be the final reccomendation section ***********
+      // alert("Do Not Cool");
+      $('#result h3').attr("id","hot");
+      $('#result h3').html('NOT COOL');
+      $('#result').fadeIn();
     }
   } else {
     //Continue to Neural
@@ -206,7 +220,9 @@ $("#s4q1n").click(function() {
 $("#s4").submit(function( event ) {
   // alert( "Form 4 submitted." );
   event.preventDefault();
-  if (hadSeizure) {
+  let hadSeizure = $("input:radio[name='seizures1']:checked").val()
+
+  if (hadSeizure == 1) {
     //alert("Cooling advised.");
     $('#result h3').attr("id","cool");
     $('#result h3').html('COOL');
