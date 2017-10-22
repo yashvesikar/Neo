@@ -1,12 +1,15 @@
-h1, h2, h3, h4, h5, h6, p {
+h1, h2, h3, h4, h5, h6 {
   font-weight: 100;
 }
 
 #header {
     text-align: center;
 }
-
-#form2, #form3, #form4 {
+#logo {
+    width: 20%;
+    height: 20%;
+}
+#form2, #form3, #form4, #result {
   display: none;
 }
 
@@ -17,7 +20,6 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .card-content, .card-action {
-    background-color: rgb(19, 130, 195);
     color: white;
 }
 
@@ -34,7 +36,7 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .input-field input {
-    border-color: white !important;
+    border-color: black !important;
     height: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
@@ -57,11 +59,14 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 label {
-  color: white;
-  font-weight: 100;
+  color: black;
+  font-weight: 110;
+  font-size: 1em;
 }
 
 .switch, .question p{
+    font-size: 1.3em;
+    font-weight: 120;
   display: inline-block;
 }
 
@@ -71,4 +76,51 @@ label {
 
 .page-footer {
     background-color: rgb(19, 130, 195);
+}
+
+
+#thermo {
+    width: 7%;
+    height: 7%;
+    display: inline;
+}
+
+#hot {
+    color: red;
+}
+
+#cool {
+    color: blue;
+}
+
+.result-title, .result-title h2, .result-title h3 {
+    text-align: center;
+    display: inline;
+}
+
+.result-title h2 {
+    padding-right: 1em;
+}
+
+
+.collection {
+    width: 50%;
+    display: inline;
+}
+
+
+.collection, .collection-item {
+    border: 0 !important;
+    background-color: #eeeeee !important;
+    margin-right: 0 !important;
+}
+
+.result-body, {
+    display: inline;
+}
+.result-body p {
+    padding-top: 1em !important;
+}
+.collection li {
+    margin-left: 21em !important;
 }

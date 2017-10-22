@@ -118,7 +118,11 @@ $("#s4").submit(function( event ) {
   // alert( "Form 4 submitted." );
   event.preventDefault();
   if (hadSeizure) {
-    alert("Cooling advised.");
+    //alert("Cooling advised.");
+    $('#result h3').attr("id","cool");
+    $('#result h3').html('COOL');
+    $('.result-body').html("");
+    $('#result').fadeIn();
     return;
   }
   var valid = false;
@@ -154,9 +158,16 @@ $("#s4").submit(function( event ) {
   }
   //Points system
   if (points>=3) {
-    alert("Cooling advised.");
+    //alert("Cooling advised.");
+    $('#result h3').attr("id","cool");
+    $('#result h3').html('COOL');
+    $('.result-body').html("");
+    $('#result').fadeIn();
   } else{
-    alert("Cooling not advised")
+    //alert("Cooling not advised")
+    $('#result h3').attr("id","hot");
+    $('#result h3').html('NOT COOL');
+    $('#result').fadeIn();
   }
   if (valid == false) { nextSection = -1; }
 
@@ -176,6 +187,7 @@ $(".back").click(function() {
     var dest = "#form" + PAGES[PAGES.length - 1];
     //console.log(PAGES[PAGES.length - 1]);
     console.log(dest);
+    $('#result').fadeOut();s
     $(form).fadeOut();
     $('html, body').animate({
         scrollTop: $(dest).offset().top
