@@ -75,6 +75,9 @@ label {
   font-weight: 110;
   font-size: 1em;
 }
+td label {
+  color: lightgrey;
+}
 
 .switch, .question p{
     font-size: 1.3em;

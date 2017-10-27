@@ -209,10 +209,10 @@ $("#s3q1n").click(function() {
  ** Section 4 Form: Neural Questions
  **/
 
-$("#s4q1y").click(function() {
+$("#s4q1").click(function() {
   $(".seizureQuestions").fadeOut();
 });
-$("#s4q1n").click(function() {
+$("#s4q1").click(function() {
   $(".seizureQuestions").fadeIn();
 });
 
