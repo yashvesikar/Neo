@@ -79,10 +79,10 @@ $("#s1").submit(function( event ) {
  ** Section 2 Form: Neural Questions
  **/
 
-$("#s2q1").click(function() {
+$("#s2q1n").click(function() {
   $(".seizureQuestions").fadeOut();
 });
-$("#s2q1").click(function() {
+$("#s2q1y").click(function() {
   $(".seizureQuestions").fadeIn();
 });
 
@@ -91,6 +91,7 @@ $("#s2").submit(function( event ) {
   // alert( "Form 4 submitted." );
   event.preventDefault();
   let hadSeizure = $("input:radio[name='seizures1']:checked").val()
+  // let hadSeizure = $("input:radio[name='qualifying1']:checked").val();
 
   if (hadSeizure == 1) {
     //alert("Cooling advised.");
@@ -286,20 +287,6 @@ $("#s5").submit(function( event ) {
     $('#result h3').html('NOT COOL');
     $('#result').fadeIn();
   }
-
-  // if (acuteEventHistory == 0) {
-  //   if (apgarScore >5 && ventFromBirth == false) {
-  //     if (histResponse.submitted >=1){back();}
-  //     valid = true; //************** This should be true **********************
-  //     nextSection = 6; //******** This should be the final reccomendation section ***********
-  //     // alert("Do Not Cool");
-  //
-  //   }
-  // } else {
-  //   //Continue to Neural
-  //   valid = true;
-  //
-  // }
 
   histResponse.acuteEventHistory = acuteEventHistory;
   histResponse.apgarScore = apgarScore;
