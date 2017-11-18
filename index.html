@@ -306,7 +306,7 @@
                                <!-- Question 1 -->
                                  <div class="question">
                                      <div class="row">
-                                       <span><p>Is the infant’s gestational age 36 weeks or more?</p></span>
+                                       <span><p>Is the infant's gestational age 36 weeks or more?</p></span>
                                          <div style="float: right;">
                                              <p>
                                                  <input class="with-gap" name="s4q1" type="radio" id="s4q1_no" value="1" />
@@ -435,36 +435,16 @@
                                    <span><p>Is there an available Cord or Postnatal Blood Gas pH obtained within 1hr of age?</p></span>
                                    <div style="float: right;">
                                      <p>
-                                         <input class="with-gap" name="s5q1" type="radio" id="s5q1_no" value="0" />
-                                         <label for="s5q1_no">No</label>
+                                         <input class="with-gap" name="s5q1" type="radio" id="s5q1n" value="0" />
+                                         <label for="s5q1n">No</label>
                                      </p>
                                      <p>
-                                         <input class="with-gap" name="s5q1" type="radio" id="s5q1_yes" value="1" />
-                                         <label for="s5q1_yes">Yes</label>
+                                         <input class="with-gap" name="s5q1" type="radio" id="s5q1y" value="1" />
+                                         <label for="s5q1y">Yes</label>
                                      </p>
                                  </div>
                              </div>
                            </div>
-
-                           <!-- Extra Blood Gas Questions -->
-                           <div class="bg-questions">
-                               <!-- Question 2 -->
-                               <div class="question">
-                                   <p>Enter Cord or Postnatal Blood Gas pH obtained within 1hr of age:</p>
-                                   <div class="input-field">
-                                       <input id="s5q2" type="text">
-                                   </div>
-                               </div>
-
-
-                               <!-- Question 3 -->
-                               <div class="question">
-                                   <p>Enter Base Deficit:</p>
-                                   <div class="input-field">
-                                       <input id="s5q3" type="number" />
-                                   </div>
-                               </div>
-                         </div>
                        </div><!-- ./CARD-CONTENT -->
 
                        <div class="card-action"><!-- CARD-ACTION -->
@@ -524,6 +504,95 @@
            </div><!-- ./COL -->
        </div><!-- ./ROW -->
        <!-- SECTION 6 -->
+
+       <!-- SECTION 7 -->
+       <div class="row section" id="form7"> <!-- ROW -->
+           <div class="col s12"><!-- COL -->
+               <div class="card blue-grey darken-1"> <!-- CARD -->
+                   <form id="s7" action="#"><!-- FORM -->
+                       <div class="card-content grey lighten-3 black-text"><!-- CARD-CONTENT -->
+                           <span class="card-title">History Questions</span>
+                           <!-- Question 1 -->
+                           <div class="question">
+                             <div class="row">
+                                   <span><p>History of an acute event?</p></span>
+                                   <div style="float: right;">
+                                     <p>
+                                         <input class="with-gap" name="hist1" type="radio" id="s7q1n" value="0" />
+                                         <label for="s7q1n">No</label>
+                                     </p>
+                                     <p>
+                                         <input class="with-gap" name="hist1" type="radio" id="s7q1y" value="1" />
+                                         <label for="s7q1y">Yes</label>
+                                     </p>
+                                 </div>
+                             </div>
+                           </div>
+                           <!-- Question 2 -->
+                           <div class="acute-event">
+                             <div class="question">
+                               <div class="row">
+                                     <span><p>Acute Event</p></span>
+                                     <div style="float: right;">
+                                         <!-- <label>Browser Select</label> -->
+                                         <select class="browser-default" style=";background-color: rgb(84, 110, 122); height: 2rem;">
+                                           <option value="" disabled selected>Choose your option</option>
+                                           <option value="1">Abruptio Placenta</option>
+                                           <option value="2">Cord Prolapse</option>
+                                           <option value="3">Severe Fetal HR Abnormality</option>
+                                           <option value="4">Uterine Rupture</option>
+                                           <option value="5">Maternal Trauma</option>
+                                           <option value="6">Maternal Cardiac Arrest</option>
+                                           <option value="7">Other</option>
+                                         </select>
+                                   </div>
+                               </div>
+                             </div>
+                           </div>
+
+                           <!-- Question 3 -->
+                           <div class="question">
+                               <p>Enter 10 minute Apgar score:</p>
+                               <div class="input-field">
+                                   <input id="s7q2" type="number">
+                               </div>
+                           </div>
+
+                           <!-- Question 4 -->
+
+                           <div class="question">
+                             <div class="row">
+                                   <span><p>Ventilation from birth continued for at least 10 min?</p></span>
+                                   <div style="float: right;">
+                                     <p>
+                                         <input class="with-gap" name="hist2" type="radio" id="s7q3n" value="0" />
+                                         <label for="s7q3n">No</label>
+                                     </p>
+                                     <p>
+                                         <input class="with-gap" name="hist2" type="radio" id="s7q3y" value="1" />
+                                         <label for="s7q3y">Yes</label>
+                                     </p>
+                                 </div>
+                             </div>
+                           </div>
+                       </div><!-- ./CARD-CONTENT -->
+
+                       <div class="card-action"><!-- CARD-ACTION -->
+                           <button class="btn waves-effect waves-light btn-flat back"
+                                   type="reset" name="action">
+                                   <i class="material-icons left">navigate_before</i>
+                                   Back
+                           </button>
+                           <button class="btn waves-effect waves-light btn-flat"
+                                   type="submit" name="action">Continue
+                                   <i class="material-icons right">navigate_next</i>
+                           </button>
+                       </div><!-- ./CARD-ACTION -->
+                   </form><!-- ./FORM -->
+               </div><!-- ./CARD -->
+           </div><!-- ./COL -->
+       </div><!-- ./ROW -->
+       <!-- SECTION 7 -->
 
 
         <!-- RESULT -->

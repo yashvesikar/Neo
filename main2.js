@@ -45,11 +45,11 @@ function getSection(sectionNumber) {
 }
 
 function showResults() {
-
+    console.log(RECCOMENDATION);
     if(RECCOMENDATION == true){
       $("#result h3").attr("id","cool");
       $("#result h3").html('COOL');
-      $("#result p").html('Based on our criteria, our recommendation is: Initiate therapeutic hypothermia');
+      $("#result p span").html('Based on our criteria, our recommendation is: Initiate therapeutic hypothermia for the following reasons:');
     }
     $("#result").fadeIn();
 }
@@ -163,10 +163,11 @@ class QualifyingSection {
 class BloodGasSection {
     constructor() {
         this.isAvailableBloodGasPH = $("input:radio[name='s5q1']:checked").val();
+        console.log(this.isAvailableBloodGasPH);
     }
 
     validate() {
-        if (this.isAvailableBloodGasPH) { return 6;}
+        if (this.isAvailableBloodGasPH == 1) { return 6;}
         else { return 7; }
     }
 }
@@ -192,9 +193,19 @@ class BloodGasSection2 {
  **/
 class HistorySection {
     constructor() {
+      this.acuteEventHistory = $("input:radio[name='hist1']:checked").val(); // History of an acute event? (Yes or No)
+      this.apgarScore = $("#s7q2").val();        // 10 minute Apgar score
+      this.ventFromBirth = $("input:radio[name='hist2']:checked").val();     // Ventilation from birth continued for at least 10 min? (yes or no)
+      console.log(this.acuteEventHistory, this.apgarScore, this.ventFromBirth);
     }
 
     validate() {
+      if(this.acuteEventHistory == 1 || this.apgarScore<=5 || this.ventFromBirth ==1){
+        RECCOMENDATION = true;
+        console.log(RECCOMENDATION);
+      } else if (this.acuteEventHistory == 0 && this.apgarScore>5 && this.ventFromBirth ==0) {
+        RECCOMENDATION = false
+      }
         return 8;
     }
 }
