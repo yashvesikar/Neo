@@ -33,7 +33,7 @@
                                 <!-- Question 1 -->
                                 <div id="s1q1" class="question">
                                     <div class="row">
-                                          <span><p>Perinatal event suggesting encephalopathy?</p></span>
+                                          <span><p>Is the neonate’s condition suggestive of encephalopathy?</p></span>
                                           <div style="float: right;">
                                             <p>
                                                 <input class="with-gap" name="s1q1" type="radio" id="s1q1_no" value="0" />
@@ -169,18 +169,18 @@
                                         <td>NM Control - Muscle Tone</td>
                                         <td>
                                             <input class="with-gap" name="question4" type="radio" id="tone" value="1"/><!-- Change the id to "tone1" later and fix subsequent id's-->
-                                            <label for="tone1">Strong flexor tone in all extremities</label>
+                                            <label for="tone">Strong flexor tone in all extremities</label>
                                         </td>
                                         <td>
-                                            <input class="with-gap" name="question4" type="radio" id="tone1" value="1"/>
+                                            <input class="with-gap" name="question4" type="radio" id="tone1" value="2"/>
                                             <label for="tone1">Slightly increased peripheral tone </label>
                                         </td>
                                         <td>
-                                            <input class="with-gap" name="question4" type="radio" id="tone2" value="2" />
+                                            <input class="with-gap" name="question4" type="radio" id="tone2" value="3" />
                                             <label for="tone2">Hypotonia, Hypertonia</label>
                                         </td>
                                         <td>
-                                            <input class="with-gap" name="question4" type="radio" id="tone3" value="3" />
+                                            <input class="with-gap" name="question4" type="radio" id="tone3" value="4" />
                                             <label for="tone3">Flaccid, Rigid</label>
                                         </td>
                                     </tr>
@@ -217,7 +217,7 @@
                                               <label for="moro3">Incomplete</label>
                                           </td>
                                           <td>
-                                              <input class="with-gap" name="group2" type="radio" id="moro4" value="4" />
+                                              <input class="with-gap" name="question7" type="radio" id="moro4" value="4" />
                                               <label for="moro4">Absent</label>
                                           </td>
                                       </tr>
@@ -262,20 +262,20 @@
                                       <tr>
                                           <td>Autonomic System - Respirations</td>
                                           <td>
-                                              <input class="with-gap" name="question10" type="radio" id="rate1" value="1" />
-                                              <label for="rate1">Normal</label>
+                                              <input class="with-gap" name="question11" type="radio" id="resp1" value="1" />
+                                              <label for="resp1">Normal</label>
                                           </td>
                                           <td>
-                                              <input class="with-gap" name="question10" type="radio" id="rate2" value="2" />
-                                              <label for="rate2">Hyperventilation (> 80/min) </label>
+                                              <input class="with-gap" name="question11" type="radio" id="resp2" value="2" />
+                                              <label for="resp2">Hyperventilation (> 80/min) </label>
                                           </td>
                                           <td>
-                                              <input class="with-gap" name="question10" type="radio" id="rate3" value="3" />
-                                              <label for="rate3">Periodic breathing</label>
+                                              <input class="with-gap" name="question11" type="radio" id="resp3" value="3" />
+                                              <label for="resp3">Periodic breathing</label>
                                           </td>
                                           <td>
-                                              <input class="with-gap" name="question10" type="radio" id="rate4" value="4" />
-                                              <label for="rate4">Apnea or on ventilator with or without spontaneous respirations</label>
+                                              <input class="with-gap" name="question11" type="radio" id="resp4" value="4" />
+                                              <label for="resp4">Apnea or on ventilator with or without spontaneous respirations</label>
                                           </td>
                                       </tr>
                                 </tbody>
@@ -306,7 +306,7 @@
                                <!-- Question 1 -->
                                  <div class="question">
                                      <div class="row">
-                                       <span><p> Is the infant 36 Weeks or older?</p></span>
+                                       <span><p>Is the infant’s gestational age 36 weeks or more?</p></span>
                                          <div style="float: right;">
                                              <p>
                                                  <input class="with-gap" name="s4q1" type="radio" id="s4q1_no" value="1" />
@@ -528,22 +528,37 @@
 
         <!-- RESULT -->
          <div id="result" class="row section"> <!-- ROW -->
-             <div class="card grey lighten-3">
-                 <div class="card-content grey  black-text"><!-- CARD-CONTENT -->
+             <div class="card">
+                 <div class="card-content black-text" style="background-color: #eeeeee;"><!-- CARD-CONTENT -->
                      <div class="row">
                          <div class="col s12 result-title">
                              <h2>Reccomendation:</h2><h3 id="hot">NOT COOL</h3>
                          </div>
                      </div>
                      <div class="row">
-                         <div class="col s12 result-body grey lighten-3">
-                             <p class="center"><span style="font-weight:bold">We recommend not cooling for the following reasons:</span></p>
-                                 <ol class="collection">
-                                     <li class="collection-item">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                                     <li class="collection-item">Sed scelerisque a tortor ut euismod. Curabitur eu.</li>
-                                     <li class="collection-item">Curabitur at sem vel mauris commodo consectetur a ut orci.</li>
-                                 </ol>
+                         <div class="col s12 result-body lighten-3">
+                             <p class="center">
+                               <span style="font-weight:bold">
+                               Based on our criteria, our recommendation is: DO NOT initiate therapeutic hypothermia for the following reasons:
+                               </span>
+                             </p>
+                               <ol class="collection">
+                                   <li class="collection-item">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                                   <li class="collection-item">Sed scelerisque a tortor ut euismod. Curabitur eu.</li>
+                                   <li class="collection-item">Curabitur at sem vel mauris commodo consectetur a ut orci.</li>
+                               </ol>
+                               <p id="showSummary" class="center">Click to see summary</p>
                          </div>
+                    </div>
+                    <div id="summary" class="row">
+                      <span class="summary-text col s10"><p>Summary:
+This patient meets the criteria to initiate therapeutic hypothermia based on the following. Presence of moderate/severe encephalopathy based on Sarnat. The patient’s gestational age is 36 weeks, is 5 hours old, 1900g, has no congenital or chromosomal abnormalities, and there is no alternate cause for encephalopathy. The cord blood gas pH within 1hr of age is 7.1 and the base deficit is -12. There is history of an acute event – cord prolapse, the Apgar score is 4, and the patient was not ventilated from birth.
+</p></span>
+                    </div>
+                    <div class="row">
+                      <span class="restart col s12">
+                        <button id="restart" class="waves-effect waves-light btn"><i class="material-icons left">cached</i>Restart</button>
+                      </span>
                     </div>
                  </div>
              </div>

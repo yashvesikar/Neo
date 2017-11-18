@@ -1,4 +1,5 @@
 var PAGES = [1,]
+var RECCOMENDATION = null;
 
 function navigateForward(to) {
     PAGES.push(to);
@@ -44,15 +45,27 @@ function getSection(sectionNumber) {
 }
 
 function showResults() {
+
+    if(RECCOMENDATION == true){
+      $("#result h3").attr("id","cool");
+      $("#result h3").html('COOL');
+      $("#result p").html('Based on our criteria, our recommendation is: Initiate therapeutic hypothermia');
+    }
     $("#result").fadeIn();
 }
 
+function showSummary() {
+  // Need to add logic to create a summary paragraph later
+    $("#summary").fadeToggle(150);
+    $("#showSummary").css("color", "purple");
+}
 /**
  ** Section 1 **
  **/
 class InitialSection {
     constructor() {
         this.perinatalEvent = parseInt($("input:radio[name='s1q1']:checked").val());
+        console.log("PERINATAL",this.perinatalEvent);
     }
 
     validate() {
@@ -66,12 +79,14 @@ class InitialSection {
  **/
 class NeurologicSection {
     constructor() {
-        this.hasSeizures = $("input:radio[name='s1q2']:checked").val();
+        this.hasSeizures = $("input:radio[name='s2q1']:checked").val();
+        console.log("SEIZURES: ", this.hasSeizures);
     }
 
     validate() {
-        if(this.hasSeizures) { return 4; }
-        else { return 3; }
+
+      if(this.hasSeizures == 1) { return 4; }
+      else { return 3; }
     }
 }
 
@@ -80,10 +95,47 @@ class NeurologicSection {
  **/
 class SarnatSection {
     constructor() {
+      this.points = 0;
     }
 
     validate() {
+      //Breaking into categories
+      //Categories 1 and 2
+      for (var i = 1; i <= 2; i++) {
+        if($("input:radio[name='question"+i+"']:checked").val() >=3) {
+          this.points++;
+        }
+      }
+      //Category 3
+      for (var i = 3; i <= 5; i++) {
+        if($("input:radio[name='question"+i+"']:checked").val() >=3) {
+          this.points++;
+          break;
+        }
+      }
+      //Category 4
+      for (var i = 6; i <= 8; i++) {
+        if($("input:radio[name='question"+i+"']:checked").val() >=3) {
+          this.points++;
+          break;
+        }
+      }
+      //Category 5
+      for (var i = 9; i <= 10; i++) {
+        if($("input:radio[name='question"+i+"']:checked").val() >=3) {
+          this.points++;
+          break;
+        }
+      }
+      //Points system
+      if (this.points>=3) {
+        RECCOMENDATION = true;
         return 4;
+      } else{
+        RECCOMENDATION = false;
+        return 8;
+      }
+        console.log("recc", RECCOMENDATION)
     }
 }
 
@@ -129,9 +181,9 @@ class BloodGasSection2 {
     }
 
     validate() {
-        if ((bloodGasPH <= 7) || (baseDeficit>=16)){ return 8;}
-        else if (((bloodGasPH >7) && (bloodGasPH<=7.15)) || ((baseDeficit>10)&&(baseDeficit<=15.9))){ return 7; }
-        else if ((bloodGasPH > 7.15) || (baseDeficit<10)){ return 8; }
+        if ((this.bloodGasPH <= 7) || (this.baseDeficit>=16)){ return 8;}
+        else if (((this.bloodGasPH >7) && (this.bloodGasPH<=7.15)) || ((baseDeficit>10)&&(baseDeficit<=15.9))){ return 7; }
+        else if ((this.bloodGasPH > 7.15) || (this.baseDeficit<10)){ return 8; }
     }
 }
 
@@ -167,3 +219,13 @@ $(".back").click(function( event ) {
     console.log("BACK");
     navigateBack();
 });
+
+$("#showSummary").click(function() {
+  console.log("Summary link")
+  showSummary();
+})
+
+$("#restart").click(function() {
+  window.location.reload();
+  console.log("form restart");
+})

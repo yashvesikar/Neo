@@ -108,6 +108,7 @@ td label {
     color: blue;
 }
 
+
 .result-title, .result-title h2, .result-title h3 {
     text-align: center;
     display: inline;
@@ -137,5 +138,23 @@ td label {
     padding-top: 1em !important;
 }
 .collection li {
-    margin-left: 21em !important;
+    margin-left: 8% !important;
+}
+
+#showSummary {
+  cursor: pointer;
+  color: blue;
+}
+
+#summary {
+  display: none;
+}
+
+.summary-text {
+  margin-left: 8% !important;
+  text-align: center;
+}
+
+.restart {
+  text-align: center;
 }
