@@ -272,6 +272,14 @@ class HistorySection {
       return 8;
     }
 }
+
+$("#s7q1y").click(function() {
+  $(".acute-event").fadeIn();
+});
+$("#s7q1n").click(function() {
+  $(".acute-event").fadeOut();
+});
+
 /** Section 8 : Results **/
 
 
