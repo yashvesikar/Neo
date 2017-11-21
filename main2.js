@@ -152,6 +152,7 @@ class SarnatSection {
           break;
         }
       }
+      console.log(this.points);
       //Points system
       if (this.points>=3) {
         RECCOMENDATION = true;
@@ -182,16 +183,14 @@ class QualifyingSection {
       if(this.is36WksOrOlder == 1 && this.is6HrsOrYounger==1 && this.is1800gOrMore==1
         && this.hasCongenitalAbnormalities==1 && this.hasChromosomalAbnormalities==1
         && this.hasAlternateCauseForEnceph==1){
+          RECCOMENDATION = true;
           MEETS_CRITERIA.push(3);
           return 5;
       }
       else {
-        // If the RECCOMENDATION was updated anywhere else then ignore the new RECCOMENDATION
-        if (UPDATED ===0){
           RECCOMENDATION = false;
           UPDATED = 4;
         }
-      }
         return 5;
     }
 }
@@ -225,8 +224,11 @@ class BloodGasSection2 {
         if ((this.bloodGasPH <= 7) || (this.baseDeficit>=16)){
           MEETS_CRITERIA.push(4);
           //Checks that Inital, seizures, and qualifying and blood gas all meet the criteria to cool
-          if(MEETS_CRITERIA.length === 4){
+          if(MEETS_CRITERIA.length >= 4){
             RECCOMENDATION = true;
+            return 8;
+          } else {
+            RECCOMENDATION = false;
             return 8;
           }
         }
@@ -257,7 +259,7 @@ class HistorySection {
         if(this.apgarScore<=5 || this.ventFromBirth ==1){
           MEETS_CRITERIA.push(5);
           //Checks that Inital, seizures, and qualifying and History all meet the criteria to cool
-          if(MEETS_CRITERIA.length === 4){
+          if(MEETS_CRITERIA.length >= 4){
             RECCOMENDATION = true;
             return 8;
 
@@ -286,7 +288,9 @@ $("#s7q1n").click(function() {
 $("form").submit(function( event ) {
     event.preventDefault();
     sectionNum = $(this).closest("form").attr("id").slice(-1);
-    console.log(sectionNum);
+    console.log("r",RECCOMENDATION);
+    console.log("m",MEETS_CRITERIA);
+
     section = getSection(parseInt(sectionNum));
     nextPage = section.validate();
     if(nextPage == 8) {
