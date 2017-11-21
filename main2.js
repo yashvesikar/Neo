@@ -1,5 +1,10 @@
 var PAGES = [1,]
 var RECCOMENDATION = null;
+var UPDATED = 0; // When was the Reccomendation last updated
+//TODO: Make it so that going "Back" will remove stuff from MEETS_CRITERIA
+var MEETS_CRITERIA = [];
+
+var REASONS = [];
 
 function navigateForward(to) {
     PAGES.push(to);
@@ -45,16 +50,22 @@ function getSection(sectionNumber) {
 }
 
 function showResults() {
+
+  for(let reason of REASONS){
+    console.log(reason);
+    $("#reasons").append('<li class="collection-item">'+reason+'</li>');
+  }
     console.log(RECCOMENDATION);
     if(RECCOMENDATION == true){
-      $("#result h3").attr("id","cool");
-      $("#result h3").html('COOL');
-      $("#result p span").html('Based on our criteria, our recommendation is: Initiate therapeutic hypothermia for the following reasons:');
+      $("#result span").attr("id","cool");
+      $("#result span").html('Initiate Therapeutic Hypothermia');
+      // $("#result p span").html('Based on our criteria, our recommendation is: Initiate therapeutic hypothermia for the following reasons:');
     }
     $("#result").fadeIn();
 }
 
 function showSummary() {
+
   // Need to add logic to create a summary paragraph later
     $("#summary").fadeToggle(150);
     $("#showSummary").css("color", "purple");
@@ -69,8 +80,16 @@ class InitialSection {
     }
 
     validate() {
-        if(this.perinatalEvent) { return 2; }
-        else { return 8; }
+        if(this.perinatalEvent) {
+          MEETS_CRITERIA.push(1);
+          return 2;
+        }
+        else {
+          UPDATED =1;
+          RECCOMENDATION = false;
+          REASONS.push("Neonates condition is not suggestive of Encephalopathy.");
+          return 8;
+        }
     }
 }
 
@@ -85,7 +104,13 @@ class NeurologicSection {
 
     validate() {
 
-      if(this.hasSeizures == 1) { return 4; }
+      if(this.hasSeizures == 1) {
+        RECCOMENDATION=true;
+        MEETS_CRITERIA.push(2);
+        // Meets criteria
+        // UPDATED = 2;
+        return 4;
+      }
       else { return 3; }
     }
 }
@@ -130,12 +155,13 @@ class SarnatSection {
       //Points system
       if (this.points>=3) {
         RECCOMENDATION = true;
-        return 4;
+        MEETS_CRITERIA.push(2); // Either nuero is yes, or SARNAT is, not both
       } else{
         RECCOMENDATION = false;
-        return 8;
+        UPDATED = 3;
       }
-        console.log("recc", RECCOMENDATION)
+
+      return 4;
     }
 }
 
@@ -153,6 +179,19 @@ class QualifyingSection {
     }
 
     validate() {
+      if(this.is36WksOrOlder == 1 && this.is6HrsOrYounger==1 && this.is1800gOrMore==1
+        && this.hasCongenitalAbnormalities==1 && this.hasChromosomalAbnormalities==1
+        && this.hasAlternateCauseForEnceph==1){
+          MEETS_CRITERIA.push(3);
+          return 5;
+      }
+      else {
+        // If the RECCOMENDATION was updated anywhere else then ignore the new RECCOMENDATION
+        if (UPDATED ===0){
+          RECCOMENDATION = false;
+          UPDATED = 4;
+        }
+      }
         return 5;
     }
 }
@@ -177,14 +216,28 @@ class BloodGasSection {
  **/
 class BloodGasSection2 {
     constructor() {
-        this.bloodGasPH = parseFloat($("#s5q2").val());
-        this.baseDeficit= parseFloat($("#s5q3").val());
+        this.bloodGasPH = parseFloat($("#s6q1").val());
+        this.baseDeficit= parseFloat($("#s6q2").val());
+        console.log("Blood ", this.bloodGasPH, "Base ", this.baseDeficit);
     }
 
     validate() {
-        if ((this.bloodGasPH <= 7) || (this.baseDeficit>=16)){ return 8;}
-        else if (((this.bloodGasPH >7) && (this.bloodGasPH<=7.15)) || ((baseDeficit>10)&&(baseDeficit<=15.9))){ return 7; }
-        else if ((this.bloodGasPH > 7.15) || (this.baseDeficit<10)){ return 8; }
+        if ((this.bloodGasPH <= 7) || (this.baseDeficit>=16)){
+          MEETS_CRITERIA.push(4);
+          //Checks that Inital, seizures, and qualifying and blood gas all meet the criteria to cool
+          if(MEETS_CRITERIA.length === 4){
+            RECCOMENDATION = true;
+            return 8;
+          }
+        }
+        else if (((this.bloodGasPH >7) && (this.bloodGasPH<=7.15))
+                  || ((this.baseDeficit>10)&&(this.baseDeficit<=15.9))){
+          return 7;
+        }
+        else if ((this.bloodGasPH > 7.15) && (this.baseDeficit<10)){
+          RECCOMENDATION = false; // Rest of the form doesn't matter here, overrides any other RECCOMENDATION
+          return 8;
+        }
     }
 }
 
@@ -200,22 +253,32 @@ class HistorySection {
     }
 
     validate() {
-      if(this.acuteEventHistory == 1 || this.apgarScore<=5 || this.ventFromBirth ==1){
-        RECCOMENDATION = true;
-        console.log(RECCOMENDATION);
+      if(this.acuteEventHistory == 1){
+        if(this.apgarScore<=5 || this.ventFromBirth ==1){
+          MEETS_CRITERIA.push(5);
+          //Checks that Inital, seizures, and qualifying and History all meet the criteria to cool
+          if(MEETS_CRITERIA.length === 4){
+            RECCOMENDATION = true;
+            return 8;
+
+          }
+        } else {
+          RECCOMENDATION = false; // Ignore the rest of the form, Do not cool
+          return 8;
+        }
       } else if (this.acuteEventHistory == 0 && this.apgarScore>5 && this.ventFromBirth ==0) {
         RECCOMENDATION = false
       }
-        return 8;
+      return 8;
     }
 }
-
 /** Section 8 : Results **/
 
 
 $("form").submit(function( event ) {
     event.preventDefault();
     sectionNum = $(this).closest("form").attr("id").slice(-1);
+    console.log(sectionNum);
     section = getSection(parseInt(sectionNum));
     nextPage = section.validate();
     if(nextPage == 8) {

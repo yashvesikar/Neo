@@ -33,7 +33,7 @@
                                 <!-- Question 1 -->
                                 <div id="s1q1" class="question">
                                     <div class="row">
-                                          <span><p>Is the neonate’s condition suggestive of encephalopathy?</p></span>
+                                          <span><p>Is the neonate's condition suggestive of encephalopathy?</p></span>
                                           <div style="float: right;">
                                             <p>
                                                 <input class="with-gap" name="s1q1" type="radio" id="s1q1_no" value="0" />
@@ -483,7 +483,9 @@
                            <div class="question">
                                <p>Enter Base Deficit:</p>
                                <div class="input-field">
-                                   <input id="s6q1" type="number" />
+                                 <!-- <p>-</p> -->
+                                   <input id="s6q2" type="text"/>
+                                   <!-- <p>mEq/L</p> -->
                                </div>
                            </div>
                        </div><!-- ./CARD-CONTENT -->
@@ -599,29 +601,27 @@
          <div id="result" class="row section"> <!-- ROW -->
              <div class="card">
                  <div class="card-content black-text" style="background-color: #eeeeee;"><!-- CARD-CONTENT -->
-                     <div class="row">
-                         <div class="col s12 result-title">
-                             <h2>Reccomendation:</h2><h3 id="hot">NOT COOL</h3>
-                         </div>
-                     </div>
+                     <!-- <div class="row"> -->
+                         <!-- <div class="col s12 result-title"> -->
+                             <!-- <h2>Reccomendation:</h2><h2 id="hot"> Do Not Initiate Therapeutic Hypothermia</h2> -->
+                         <!-- </div> -->
+                     <!-- </div> -->
                      <div class="row">
                          <div class="col s12 result-body lighten-3">
                              <p class="center">
                                <span style="font-weight:bold">
-                               Based on our criteria, our recommendation is: DO NOT initiate therapeutic hypothermia for the following reasons:
+                               Based on our criteria, our recommendation is: <span id="hot">Do Not Initiate Therapeutic Hypothermia</span> for the following reasons:
                                </span>
                              </p>
-                               <ol class="collection">
-                                   <li class="collection-item">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                                   <li class="collection-item">Sed scelerisque a tortor ut euismod. Curabitur eu.</li>
-                                   <li class="collection-item">Curabitur at sem vel mauris commodo consectetur a ut orci.</li>
+                               <ol class="collection" id="reasons">
+                                 <!-- List items for Reccomendation go here -->
                                </ol>
                                <p id="showSummary" class="center">Click to see summary</p>
                          </div>
                     </div>
                     <div id="summary" class="row">
                       <span class="summary-text col s10"><p>Summary:
-This patient meets the criteria to initiate therapeutic hypothermia based on the following. Presence of moderate/severe encephalopathy based on Sarnat. The patient’s gestational age is 36 weeks, is 5 hours old, 1900g, has no congenital or chromosomal abnormalities, and there is no alternate cause for encephalopathy. The cord blood gas pH within 1hr of age is 7.1 and the base deficit is -12. There is history of an acute event – cord prolapse, the Apgar score is 4, and the patient was not ventilated from birth.
+This patient meets the criteria to initiate therapeutic hypothermia based on the following. Presence of moderate/severe encephalopathy based on Sarnat. The patient's gestational age is 36 weeks, is 5 hours old, 1900g, has no congenital or chromosomal abnormalities, and there is no alternate cause for encephalopathy. The cord blood gas pH within 1hr of age is 7.1 and the base deficit is -12. There is history of an actue event - cord prolapse, the Apgar score is 4, and the patient was not ventilated from birth.
 </p></span>
                     </div>
                     <div class="row">
