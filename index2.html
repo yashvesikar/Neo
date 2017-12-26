@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>NECP</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <!-- Roboto Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+
+    <link rel="stylesheet" href="main2.css"/>
+  </head>
+  <body>
+    <!-- Image and text -->
+    <nav class="navbar navbar-light bg-light" style="background-color: #f0f0f0;">
+      <a href="https://www.chw.org/" class="brand-logo">
+        <img  id="logo" src="img/childrens_hospital_wisconsin.png" width="150" alt="Children's Hospital of Wisconsin Logo">
+      </a>
+    </nav>
+    <div class="container">
+
+      <h2 class="header">Neonatal Encephalopathy Cooling Protocol</h2>
+
+      <!-- Info -->
+      <div class="row">
+        <div class="col-9 mx-auto">
+          <div class="row">
+            <div class="btn-group" data-toggle="buttons">
+              <button class="btn btn-primary" type="button" onclick="showHow()">How</button>
+              <button class="btn btn-primary" type="button" onclick="showPitfalls()">Pitfalls</button>
+              <button class="btn btn-primary" type="button" onclick="showWhy()">Why</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="collapse multi-collapse" id="How">
+                <div class="card card-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="collapse multi-collapse" id="Pitfalls">
+                <div class="card card-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="collapse multi-collapse" id="Why">
+                <div class="card card-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+      <!-- Info -->
+
+      <!-- Section One -->
+      <div class="row" id="form1">
+        <div class="col 12">
+          <form id="s1">
+            <div class="card border-top-0 border-bottom-0 mt-2 mb-2 mx-auto content-cards"> <!-- Card -->
+              <h4 class="card-header" style="text-align: center;">Qualifying Questions</h4> <!-- Card Header -->
+              <div class="card-body"> <!-- Card body -->
+                <div class="row mt-1"> <!-- Form Group -->
+                  <div class="col-8 my-auto">
+                    <span class="text-card"><p class="card-text">Is the neonate's condition suggestive of encephalopathy?</p></span>
+                  </div>
+                  <div class="col-4 my-auto"><!-- Radio Buttons -->
+                    <fieldset class="form-group">
+                      <div class="btn-group radio-buttons" data-toggle="buttons">
+                        <label name="s1q1_label" class="btn btn-secondary">
+                          <input type="radio" name="s1q1" id="s1q1_no" autocomplete="off" value="0">No
+                        </label>
+                        <label name="s1q1_label" class="btn btn-secondary">
+                          <input type="radio" name="s1q1" id="s1q1_yes" autocomplete="off" value="1">Yes
+                        </label>
+                      </div>
+                    </fieldset>
+                  </div><!-- Radio buttons -->
+                </div> <!-- Form Group -->
+              </div> <!-- Card body -->
+              <div class="card-footer text-center"> <!-- Card Footer -->
+                <button id="submit1" type="submit" class="btn mx-auto submit-button" disabled="true">Continue</button>
+              </div> <!-- Card Footer -->
+            </div> <!-- Card -->
+          </form>
+        </div>
+      </div>
+      <!-- Section One -->
+
+
+      <!-- Section Two -->
+      <div class="row" id="form2">
+        <div class="col 12">
+          <form id="s2">
+            <div class="card border-top-0 border-bottom-0 mt-2 mb-2 mx-auto content-cards"> <!-- Card -->
+              <h4 class="card-header" style="text-align: center;">Nuerological Questions: Seizures</h4> <!-- Card Header -->
+              <div class="card-body"> <!-- Card body -->
+                <div class="row mt-2"> <!-- Form Group -->
+                  <div class="col-8 my-auto">
+                    <span class="text-card align-bottom"><p class="card-text">Is the neonate's condition suggestive of seizures?</p></span>
+                  </div>
+                  <div class="col-4 my-auto"><!-- Radio Buttons -->
+                    <fieldset class="form-group">
+                      <div class="btn-group radio-buttons" data-toggle="buttons">
+                        <label name="s2q1_label" class="btn btn-secondary">
+                          <input type="radio" name="s2q1" id="s2q1_no" autocomplete="off" value="0">No
+                        </label>
+                        <label name="s2q1_label" class="btn btn-secondary">
+                          <input type="radio" name="s2q1" id="s2q1_yes" autocomplete="off" value="1">Yes
+                        </label>
+                      </div>
+                    </fieldset>
+                  </div><!-- Radio buttons -->
+                </div> <!-- Form Group -->
+              </div> <!-- Card body -->
+              <div class="card-footer text-center"> <!-- Card Footer -->
+                <button id="submit2" type="submit" class="btn mx-auto submit-button" disabled="true">Continue</button>
+              </div> <!-- Card Footer -->
+            </div> <!-- Card -->
+          </form>
+        </div>
+      </div>
+      <!-- Section Two -->
+
+      <!-- Section Three -->
+      <div class="row section" id="form3">
+        <div class="col-12">
+          <form id="s3">
+            <div class="card border-top-0 border-bottom-0 mt-2 mb-2 mx-auto content-cards"> <!-- Card -->
+              <h4 class="card-header" style="text-align: center;">Nuerological Questions: SARNAT</h4> <!-- Card Header -->
+              <div class="card-body"> <!-- Card body -->
+                <div class="col-6">
+                  <div class="form-row mt-2"><!-- Question 1 -->
+                      <fieldset class="form-group">
+                        <label for="consciousness" class="select-label">Level of Consciousness</label>
+                          <select class="form-control custom-select" name="question1" id="consciousness">
+                            <option selected disabled>Select one</option>
+                            <option id="consciousness1" value="1">Alert, responsive to external stimuli</option>
+                            <option id="consciousness2" value="2">Hyper-alert, has a stare, jitteriness, high pitched cry, exaggerated response to minimal stimuli, inconsolable</option>
+                            <option id="consciousness3" value="3">Lethargic/Obtunded</option>
+                            <option id="consciousness4" value="4">Stupor/Coma</option>
+                          </select>
+                      </fieldset>
+                  </div><!-- Question 1 -->
+
+                  <div class="form-row mt-2"><!-- Question 2 -->
+                      <fieldset class="form-group">
+                        <label for="activity" class="select-label">Level of Consciousness</label>
+                          <select class="form-control custom-select" name="question2" id="activity">
+                            <option selected disabled>Select one</option>
+                            <option id="activity1" value="1">Normal</option>
+                            <option id="activity2" value="2">Decreased, with or without periods of excessive activity</option>
+                            <option id="activity3" value="3">Decreased</option>
+                            <option id="activity4" value="4">No activity</option>
+                          </select>
+                      </fieldset>
+                  </div><!-- Question 2 -->
+
+                  <div class="form-row mt-2"><!-- Question 3 -->
+                      <fieldset class="form-group">
+                        <label for="posture" class="select-label">NM Control - Posture</label>
+                          <select class="form-control custom-select" name="question3" id="posture">
+                            <option selected disabled>Select one</option>
+                            <option id="posture1" value="1">Predominantly flexed when quiet</option>
+                            <option id="posture2" value="2">Mild flexion of distal joints (fingers, wrist)</option>
+                            <option id="posture3" value="3">Strong distal flexion, complete extension</option>
+                            <option id="posture4" value="4">Intermittent decerebration</option>
+                          </select>
+                      </fieldset>
+                  </div><!-- Question 3 -->
+
+                  <div class="form-row mt-2"><!-- Question 4 -->
+                      <fieldset class="form-group">
+                        <label for="tone" class="select-label">NM Control - Muscle Tone</label>
+                          <select class="form-control custom-select" name="question4" id="tone">
+                            <option selected disabled>Select one</option>
+                            <option id="tone1" value="1">Strong flexor tone in all extremities</option>
+                            <option id="tone2" value="2">Slightly increased peripheral tone</option>
+                            <option id="tone3" value="3">Hypotonia, Hypertonia</option>
+                            <option id="tone4" value="4">Flaccid, Rigid</option>
+                          </select>
+                      </fieldset>
+                  </div><!-- Question 4 -->
+
+                  <div class="form-row mt-2"><!-- Question 5 -->
+                      <fieldset class="form-group">
+                        <label for="suck" class="select-label">Primitive Reflexes - Suck</label>
+                          <select class="form-control custom-select" name="question5" id="suck">
+                            <option selected disabled>Select one</option>
+                            <option id="suck1" value="1">Strong, easy to elicit</option>
+                            <option id="suck2" value="2">Weak, Poor</option>
+                            <option id="suck3" value="3">Weak or has bite</option>
+                            <option id="suck4" value="4">Absent</option>
+                          </select>
+                      </fieldset>
+                  </div><!-- Question 5 -->
+
+                  <div class="form-row mt-2"><!-- Question 6 -->
+                      <fieldset class="form-group">
+                        <label for="moro" class="select-label">Primitive Reflexes - Moro</label>
+                          <select class="form-control custom-select" name="question6" id="moro">
+                            <option selected disabled>Select one</option>
+                            <option id="moro1" value="1">Strong, easy to elicit</option>
+                            <option id="moro2" value="2">Low threshold to elicit</option>
+                            <option id="moro3" value="3">Incomplete</option>
+                            <option id="moro4" value="4">Absent</option>
+                          </select>
+                      </fieldset>
+                  </div><!-- Question 6 -->
+
+                  <div class="form-row mt-2"><!-- Question 7 -->
+                      <fieldset class="form-group">
+                        <label for="pupils" class="select-label">Primitive Reflexes - Moro</label>
+                          <select class="form-control custom-select" name="question7" id="pupils">
+                            <option selected disabled>Select one</option>
+                            <option id="pupils1" value="1">Normal size</option>
+                            <option id="pupils2" value="2">Mydriasis (> 5mm)</option>
+                            <option id="pupils3" value="3">Miosis (< 3mm)</option>
+                            <option id="pupils4" value="4">Deviation/Dilated/Non-reactive</option>
+                          </select>
+                      </fieldset>
+                  </div><!-- Question 7 -->
+
+                  <div class="form-row mt-2"><!-- Question 8 -->
+                      <fieldset class="form-group">
+                        <label for="rate" class="select-label">Autonomic System - Heart Rate</label>
+                          <select class="form-control custom-select" name="question8" id="rate">
+                            <option selected disabled>Select one</option>
+                            <option id="rate1" value="1">Normal heart rate</option>
+                            <option id="rate2" value="2">Tachycardia (> 160 bpm)</option>
+                            <option id="rate3" value="3">Bradycardia (< 100 bpm)</option>
+                            <option id="rate4" value="4">Variable heart rate</option>
+                          </select>
+                      </fieldset>
+                  </div><!-- Question 8 -->
+
+                  <div class="form-row mt-2 mb-2"><!-- Question 9 -->
+                      <fieldset class="form-group">
+                        <label for="resp" class="select-label">Autonomic System - Respirations</label>
+                          <select class="form-control custom-select" name="question9" id="resp">
+                            <option selected disabled>Select one</option>
+                            <option id="resp1" value="1">Normal</option>
+                            <option id="resp2" value="2">Hyperventilation (> 80/min)</option>
+                            <option id="resp3" value="3">Periodic breathing</option>
+                            <option id="resp4" value="4">Apnea or on ventilator with or without spontaneous respirations</option>
+                          </select>
+                      </fieldset>
+                  </div><!-- Question 9 -->
+                </div>
+
+                <!-- <table class="table table-hover table-responsive-sm">
+                  <tbody>
+                    <tr>
+                      <th scope="row">Level of Consciousness</th>
+                      <td>Alert, responsive to external stimuli</td>
+                      <td>Hyper-alert, has a stare, jitteriness, high pitched cry, exaggerated response to minimal stimuli, inconsolable</td>
+                      <td>Lethargic/Obtunded</td>
+                      <td>Stupor/Coma</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Spontaneous Activity</th>
+                      <td>Normal</td>
+                      <td>Decreased, with or without periods of excessive activity</td>
+                      <td>Decreased</td>
+                      <td>No activity</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">NM Control - Posture</th>
+                      <td>Predominantly flexed when quiet</td>
+                      <td>Mild flexion of distal joints (fingers, wrist)</td>
+                      <td>Strong distal flexion, complete extension</td>
+                      <td>Intermittent decerebration</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">NM Control - Muscle Tone</th>
+                      <td>Strong flexor tone in all extremities</td>
+                      <td>Slightly increased peripheral tone</td>
+                      <td>Hypotonia, Hypertonia</td>
+                      <td>Flaccid, Rigid</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Primitive Reflexes - Suck</th>
+                      <td>Strong, easy to elicit</td>
+                      <td>Weak, Poor</td>
+                      <td>Weak or has bite</td>
+                      <td>Absent</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Primitive Reflexes - Moro</th>
+                      <td>Strong, easy to elicit</td>
+                      <td>Low threshold to elicit</td>
+                      <td>Incomplete</td>
+                      <td>Absent</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Autonomic System - Pupils</th>
+                      <td>Normal size</td>
+                      <td>Mydriasis (> 5mm)</td>
+                      <td>Miosis (< 3mm)</td>
+                      <td>Deviation/Dilated/Non-reactive</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Autonomic System - Heart Rate</th>
+                      <td>Normal heart rate</td>
+                      <td>Tachycardia (> 160 bpm)</td>
+                      <td>Bradycardia (< 100 bpm)</td>
+                      <td>Variable heart rate</td>
+                    </tr>
+
+                    <tr>
+                      <th scope="row">Autonomic System - Respirations</th>
+                      <td>Normal</td>
+                      <td>Hyperventilation (> 80/min)</td>
+                      <td>Periodic breathing</td>
+                      <td>Apnea or on ventilator with or without spontaneous respirations</td>
+                    </tr>
+
+                  </tbody>
+                </table> -->
+
+              </div> <!-- Card body -->
+              <div class="card-footer text-center"> <!-- Card Footer -->
+                <button id="submit3" type="submit" class="btn mx-auto submit-button" disabled="true">Continue</button>
+              </div> <!-- Card Footer -->
+            </div> <!-- Card -->
+          </form>
+        </div>
+      </div>
+      <!-- Section Three -->
+
+      <!-- Section Four -->
+      <div class="row" id="form4">
+        <div class="col 12">
+          <form id="s4">
+            <div class="card border-top-0 border-bottom-0 mt-2 mb-2 mx-auto content-cards"> <!-- Card -->
+              <h4 class="card-header" style="text-align: center;">Qualifying Questions</h4> <!-- Card Header -->
+              <div class="card-body"> <!-- Card body -->
+
+                <div class="form-row q-question"> <!-- Question 1 -->
+                  <div class="col-8 my-auto">
+                    <p class="card-text">Is the infant's gestational age 36 weeks or more?</p>
+                  </div>
+                  <div class="col-4 my-a"><!-- Radio Buttons -->
+                    <fieldset class="form-group">
+                      <div class="btn-group radio-buttons" data-toggle="buttons">
+                        <label class="btn btn-secondary">
+                          <input type="radio" name="s4q1" id="s4q1_no" autocomplete="off" value="0">No
+                        </label>
+                        <label class="btn btn-secondary">
+                          <input type="radio" name="s4q1" id="s4q1_yes" autocomplete="off" value="1">Yes
+                        </label>
+                      </div>
+                    </fieldset>
+                  </div><!-- Radio buttons -->
+                </div> <!-- Question 1  -->
+
+                <div class="form-row q-question"> <!-- Question 2 -->
+                  <div class="col-8 my-auto">
+                    <p class="card-text align-text-bottom">Is the infant 6 hours old or less?</p>
+                  </div>
+                  <div class="col-4 my-auto"><!-- Radio Buttons -->
+                    <fieldset class="form-group">
+                      <div class="btn-group radio-buttons" data-toggle="buttons">
+                        <label class="btn btn-secondary">
+                          <input type="radio" name="s4q2" id="s4q2_no" autocomplete="off" value="0">No
+                        </label>
+                        <label class="btn btn-secondary">
+                          <input type="radio" name="s4q2" id="s4q2_yes" autocomplete="off" value="1">Yes
+                        </label>
+                      </div>
+                    </fieldset>
+                  </div><!-- Radio buttons -->
+                </div> <!-- Question 2  -->
+
+                <div class="form-row q-question"> <!-- Question 3 -->
+                  <div class="col-8 my-auto">
+                    <p class="card-text">Is the infant's birth weight 1800g or more?</p>
+                  </div>
+                  <div class="col-4 my-auto"><!-- Radio Buttons -->
+                    <fieldset class="form-group">
+                      <div class="btn-group radio-buttons" data-toggle="buttons">
+                        <label class="btn btn-secondary">
+                          <input type="radio" name="s4q3" id="s4q3_no" autocomplete="off" value="0">No
+                        </label>
+                        <label class="btn btn-secondary">
+                          <input type="radio" name="s4q3" id="s4q3_yes" autocomplete="off" value="1">Yes
+                        </label>
+                      </div>
+                    </fieldset>
+                  </div><!-- Radio buttons -->
+                </div> <!-- Question 3  -->
+
+                <div class="form-row q-question"> <!-- Question 4 -->
+                  <div class="col-8 my-auto">
+                    <p class="card-text">Absence of congenital abnormalities?</p>
+                  </div>
+                  <div class="col-4 my-auto"><!-- Radio Buttons -->
+                    <fieldset class="form-group">
+                      <div class="btn-group radio-buttons" data-toggle="buttons">
+                        <label class="btn btn-secondary">
+                          <input type="radio" name="s4q4" id="s4q4_no" autocomplete="off" value="0">No
+                        </label>
+                        <label class="btn btn-secondary">
+                          <input type="radio" name="s4q4" id="s4q4_yes" autocomplete="off" value="1">Yes
+                        </label>
+                      </div>
+                    </fieldset>
+                  </div><!-- Radio buttons -->
+                </div> <!-- Question 4  -->
+
+                <div class="form-row q-question"> <!-- Question 5 -->
+                  <div class="col-8 my-auto">
+                    <p class="card-text">Absence of chromosomal anomalies?</p>
+                  </div>
+                  <div class="col-4 my-auto"><!-- Radio Buttons -->
+                    <fieldset class="form-group">
+                      <div class="btn-group radio-buttons" data-toggle="buttons">
+                        <label class="btn btn-secondary">
+                          <input type="radio" name="s4q5" id="s4q5_no" autocomplete="off" value="0">No
+                        </label>
+                        <label class="btn btn-secondary">
+                          <input type="radio" name="s4q5" id="s4q5_yes" autocomplete="off" value="1">Yes
+                        </label>
+                      </div>
+                    </fieldset>
+                  </div><!-- Radio buttons -->
+                </div> <!-- Question 5  -->
+
+                <div class="form-row q-question"> <!-- Question 6 -->
+                  <div class="col-8 my-auto">
+                    <p class="card-text">Absence of alternate cause for encephalopathy?</p>
+                  </div>
+                  <div class="col-4 my-auto"><!-- Radio Buttons -->
+                    <fieldset class="form-group">
+                      <div class="btn-group radio-buttons" data-toggle="buttons">
+                        <label class="btn btn-secondary">
+                          <input type="radio" name="s4q6" id="s4q6_no" autocomplete="off" value="0">No
+                        </label>
+                        <label class="btn btn-secondary">
+                          <input type="radio" name="s4q6" id="s4q6_yes" autocomplete="off" value="1">Yes
+                        </label>
+                      </div>
+                    </fieldset>
+                  </div><!-- Radio buttons -->
+                </div> <!-- Question 6  -->
+
+              </div> <!-- Card body -->
+              <div class="card-footer text-center"> <!-- Card Footer -->
+                <button id="submit4" type="submit" class="btn mx-auto submit-button" disabled="true">Continue</button>
+              </div> <!-- Card Footer -->
+            </div> <!-- Card -->
+          </form>
+        </div>
+      </div>
+      <!-- Section Four -->
+
+      <!-- Section Five -->
+      <div class="row" id="form5">
+        <div class="col 12">
+          <form id="s5">
+            <div class="card border-top-0 border-bottom-0 mt-2 mb-2 mx-auto content-cards"> <!-- Card -->
+              <h4 class="card-header" style="text-align: center;">Blood Gas Questions</h4> <!-- Card Header -->
+              <div class="card-body"> <!-- Card body -->
+
+                <div class="form-row mt-2"> <!-- Question 1 -->
+                  <div class="col-8">
+                    <span class="text-card align-bottom"><p class="card-text">Is there an available Cord or Postnatal Blood Gas pH obtained within 1hr of age?</p></span>
+                  </div>
+                  <div class="col-4"><!-- Radio Buttons -->
+                    <fieldset class="form-group">
+                      <div id="s5q1" class="btn-group radio-buttons" data-toggle="buttons">
+                        <label class="btn btn-secondary" onclick="hideBloodGas()">
+                          <input type="radio" name="s5q1" id="s5q1_no" autocomplete="off" value="0">No
+                        </label>
+                        <label class="btn btn-secondary" onclick="showBloodGas()">
+                          <input type="radio" name="s5q1" id="s5q1_yes" autocomplete="off" value="1">Yes
+                        </label>
+                      </div>
+                    </fieldset>
+                  </div><!-- Radio buttons -->
+                </div> <!-- Question 1  -->
+
+                <div class="collapse" id="bloodgas2"> <!-- Collapse -->
+
+                  <div class="card card-body"> <!-- Inner card -->
+
+                    <div class="form-row mt-2">
+                      <div class="col-6 my-auto">
+                        <span class="text-card align-bottom"><p class="card-text">Enter Base Deficit:</p></span>
+                      </div>
+                      <div class="col-6 my-auto">
+                        <div class="input-group input-group-sm">
+                          <span class="input-group-addon">-</span>
+                          <input id="baseDeficit" type="text" class="form-control">
+                          <span class="input-group-addon">mEq/L</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-row mt-4">
+                      <div class="col-8 my-auto">
+                        <span class="text-card align-bottom"><p class="card-text">Enter Cord or Postnatal Blood Gas pH obtained within 1hr of age:</p></span>
+                      </div>
+                      <div class="col-4 my-auto">
+                        <div class="input-group">
+                          <input id="pH" type="text" class="form-control" placeholder="pH" aria-describedby="basic-addon2">
+                        </div>
+                      </div>
+                    </div>
+
+                  </div> <!-- Inner card -->
+
+                </div> <!-- Collapse -->
+
+              </div> <!-- Card body -->
+              <div class="card-footer text-center"> <!-- Card Footer -->
+                <button id="submit5" type="submit" class="btn mx-auto submit-button" disabled="true">Continue</button>
+              </div> <!-- Card Footer -->
+            </div> <!-- Card -->
+          </form>
+        </div>
+      </div>
+      <!-- Section Five -->
+
+
+      <!-- Section Six -->
+      <div class="row" id="form6">
+        <div class="col 12">
+          <form id="s6">
+            <div class="card border-top-0 border-bottom-0 mt-2 mb-2 mx-auto content-cards"> <!-- Card -->
+              <h4 class="card-header" style="text-align: center;">History Questions</h4> <!-- Card Header -->
+              <div class="card-body"> <!-- Card body -->
+
+                <div class="form-row mt-2"> <!-- Question 1 -->
+                  <div class="col-8">
+                    <span class="text-card align-bottom"><p class="card-text">History of an acute event?</p></span>
+                  </div>
+                  <div class="col-4"><!-- Radio Buttons -->
+                    <fieldset class="form-group">
+                      <div id="s6q1" class="btn-group radio-buttons" data-toggle="buttons">
+                        <label class="btn btn-secondary" onclick="hideAcuteHistory()">
+                          <input type="radio" name="s6q1" id="s6q1_no" autocomplete="off" value="0">No
+                        </label>
+                        <label class="btn btn-secondary" onclick="showAcuteHistory()">
+                          <input type="radio" name="s6q1" id="s6q1_yes" autocomplete="off" value="1">Yes
+                        </label>
+                      </div>
+                    </fieldset>
+                  </div><!-- Radio buttons -->
+                </div> <!-- Question 1  -->
+
+                <div class="collapse" id="acuteHistory"> <!-- Collapse -->
+
+                  <div class="card card-body"> <!-- Inner card -->
+                    <div class="col-6">
+                      <div class="form-row mt-2"><!-- Acute Event Select -->
+                          <fieldset class="form-group">
+                            <label for="acute" class="select-label">Level of Consciousness</label>
+                              <select class="form-control custom-select" name="acuteEvent" id="acute">
+                                <option id="acute0" value="0">Select one</option>
+                                <option id="acute1" value="1">Abruptio Placenta</option>
+                                <option id="acute2" value="2">Cord Prolapse</option>
+                                <option id="acute3" value="3">Severe Fetal HR Abnormality</option>
+                                <option id="acute4" value="4">Uterine Rupture</option>
+                                <option id="acute5" value="5">Maternal Trauma</option>
+                                <option id="acute6" value="6">Maternal Cardiac Arrest</option>
+                                <option id="acute7" value="7">Other</option>
+                              </select>
+                          </fieldset>
+                      </div><!-- Acute Event Select -->
+                  </div>
+
+                  </div> <!-- Inner card -->
+
+                </div> <!-- Collapse -->
+
+                <div class="form-row mt-4"> <!-- Question 3 -->
+                  <div class="col-8">
+                    <span class="text-card align-bottom"><p class="card-text">Enter 10 minute APGAR score: </p></span>
+                  </div>
+                  <div class="col-4">
+                    <div class="input-group">
+                      <input id="apgar" type="text" class="form-control" placeholder="APGAR">
+                    </div>
+                  </div>
+                </div> <!-- Question 3 -->
+
+                <div class="form-row mt-4 "> <!-- Question 4 -->
+                  <div class="col-8">
+                    <span class="text-card align-bottom"><p class="card-text">Ventilation from birth continued for at least 10 min?</p></span>
+                  </div>
+                  <div class="col-4"><!-- Radio Buttons -->
+                    <fieldset class="form-group">
+                      <div id="s6q4" class="btn-group radio-buttons" data-toggle="buttons">
+                        <label class="btn btn-secondary">
+                          <input type="radio" name="s6q4" id="s6q4_no" autocomplete="off" value="0">No
+                        </label>
+                        <label class="btn btn-secondary" >
+                          <input type="radio" name="s6q4" id="s6q4_yes" autocomplete="off" value="1">Yes
+                        </label>
+                      </div>
+                    </fieldset>
+                  </div><!-- Radio buttons -->
+                </div> <!-- Question 4  -->
+
+
+              </div> <!-- Card body -->
+              <div class="card-footer text-center"> <!-- Card Footer -->
+                <button id="submit6" type="submit" class="btn mx-auto submit-button" disabled="true">Continue</button>
+              </div> <!-- Card Footer -->
+            </div> <!-- Card -->
+          </form>
+        </div>
+      </div>
+      <!-- Section Six -->
+
+
+
+    </div>
+
+    <!-- <footer class="footer">
+      <div class="container">
+        <span class="text-muted">Place sticky footer content here.</span>
+      </div>
+    </footer> -->
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="main3.js"></script>
+  </body>
+</html>

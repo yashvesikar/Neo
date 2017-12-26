@@ -1,0 +1,98 @@
+/* Extra small devices (portrait phones, less than 576px)
+   No media query since this is the default in Bootstrap */
+
+ .header {
+     text-align: center;
+     font-weight:300;
+     margin-top: 30px;
+     margin-bottom: 30px;
+ }
+
+ .content-cards {
+    box-shadow: 1px 2px rgba(0,0,0,0.2);
+ }
+
+ /* .radio-buttons{
+   float: right;
+ } */
+
+ .submit-button {
+   /* margin-top: 5%; */
+   width: 70%;
+   background-color: #0181B6;
+   border-color: #0181B6;
+   color: white;
+ }
+.q-question {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+  .header {
+      text-align: center;
+      font-weight:300;
+      margin-top: 30px;
+      margin-bottom: 30px;
+  }
+
+  .content-cards {
+    width: 75%;
+  }
+
+  .radio-buttons{
+    float: right;
+    margin-top: 5%;
+  }
+
+  .select-label {
+    font-size: 1.25em;
+    font-weight: 300;
+  }
+
+  .custom-select {
+    width: 100%;
+  }
+
+  .submit-button {
+    /* margin-top: 5%; */
+    width: 70%;
+    background-color: #0181B6;
+    border-color: #0181B6;
+    color: white;
+  }
+
+  .q-question{
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+ }
+
+/* Extra large devices (large desktops, 1200px and up) */
+/* @media (min-width: 1200px) {  } */
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+p {
+  font-size: 1.25em;
+  font-weight: 300;
+}
+
+td {
+  font-size: 0.8em;
+  font-weight: 300;
+}
+#form2, #form3, #form4, #form5, #form6 {
+  display: none;
+}
