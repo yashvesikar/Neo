@@ -1,4 +1,4 @@
-var PAGES = [1];
+var PAGES = [];
 var RECCOMENDATION = null;
 var REASONS = [];
 
@@ -26,49 +26,12 @@ function showWhy(){
    $('#How').collapse('hide');
 }
 //******************************************************************************
-
-function navigateForward(to) {
-    PAGES.push(to);
-    let form = "#form" + to;
-    console.log(form);
-    $(form).fadeIn();
-
-    //Scrolling animation to next section
-    $('html, body').animate({
-        scrollTop: $(form).offset().top
-    }, 500);
-}
-
-function getSection(sectionNumber) {
-    switch (sectionNumber) {
-        case 1:
-            return new InitialSection();
-            break;
-        case 2:
-            return new NeurologicSection();
-            break;
-        case 3:
-            return new SarnatSection();
-            break;
-        case 4:
-            return new QualifyingSection();
-            break;
-        case 5:
-            return new BloodGasSection();
-            break;
-        case 6:
-            return new HistorySection();
-            break;
-    }
-}
-
 //******************************************************************************
 
 /**
  ** Section 1 - Initial Questions **
  **/
 $("label[name='s1q1_label']").click(function() {
-  console.log("Submit 1 enabled");
   $("#submit1").prop("disabled",false);
 });
 
@@ -80,8 +43,10 @@ class InitialSection {
 
     validate(){
       // console.log(this.perinatalEvent);
+      this.perinatalEvent = parseInt($("input:radio[name='s1q1']:checked").val());
       this.submitted+=1
-      console.log("submitted",this.submitted);
+      console.log("Submitted Section: ",this.submitted);
+      console.log("Value of radio 1: ", this.perinatalEvent);
       $("#submit1").prop("disabled",true);
       if(this.perinatalEvent === 1) {
         // PAGES.push(2)
@@ -90,9 +55,9 @@ class InitialSection {
       }
       else {
         RECCOMENDATION = false;
-        PAGES.push(8)
+        // PAGES.push(7)
         // REASONS.push("Neonates condition is not suggestive of Encephalopathy.");
-        return 8;
+        return 7;
       }
 
     }
@@ -124,13 +89,10 @@ class InitialSection {
  class NeurologicSection {
      constructor() {
          this.hasSeizures = $("input:radio[name='s2q1']:checked").val();
-         // console.log("SEIZURES: ", this.hasSeizures);
-         this.submitted = 0
      }
 
      validate() {
-       this.submitted+=1;
-       console.log("submitted form 2",this.submitted);
+       this.hasSeizures = $("input:radio[name='s2q1']:checked").val();
        $("#submit2").prop("disabled",true);
        if(this.hasSeizures == 1) {
          // RECCOMENDATION=true;
@@ -395,19 +357,121 @@ class BloodGasSection {
      }
  }
 
-
+class ResultSection{
+  constructor(){}
+  show(){
+    console.log("results");
+  }
+}
 
 //******************************************************************************
+var section1;
+var section2;
+var section3;
+var section4;
+var section5;
+var section6;
+// Submit Logic
 $("form").submit(function(event){
   event.preventDefault();
-  sectionNum = $(this).closest("form").attr("id").slice(-1);
-  console.log(sectionNum);
-  section = getSection(parseInt(sectionNum));
+  sectionNum = parseInt($(this).closest("form").attr("id").slice(-1));
+  console.log("Section: ",sectionNum);
+  var nextPage;
 
-  nextPage = section.validate();
+  switch (sectionNum) {
+
+    case 1:
+      try {
+        nextPage = section1.validate();
+        PAGES = [];
+        $("#form2, #form3, #form4, #form5, #form6").css("display", "none");
+      } catch(err) {
+        console.log("Err: ",err);
+        section1 = new InitialSection();
+        nextPage = section1.validate();
+      }
+      PAGES.push(section1);
+      break;
+    case 2:
+      try {
+        nextPage = section2.validate();
+        PAGES = PAGES.slice(0,1);
+        $("#form3, #form4, #form5, #form6").css("display", "none");
+      } catch(err) {
+        console.log("Err: ",err);
+        section2 = new NeurologicSection();
+        nextPage = section2.validate();
+      }
+      PAGES.push(section2);
+      break;
+    case 3:
+     try{
+       nextPage = section3.validate();
+       PAGES = PAGES.slice(0,2);
+       $("#form4, #form5, #form6").css("display", "none");
+     } catch(err) {
+       console.log("Err: ",err);
+       section3 = new SarnatSection();
+       nextPage = section3.validate();
+     }
+     PAGES.push(section3);
+     break;
+    case 4:
+      try{
+        nextPage = section4.validate();
+        if(PAGES.length === 3){
+          PAGES = PAGES.slice(0,2);
+        } else {
+          PAGES = PAGES.slice(0,3);
+        }
+
+       $("#form5, #form6").css("display", "none");
+     } catch(err) {
+       console.log("Err: ",err);
+       section4 = new QualifyingSection();
+       nextPage = section4.validate();
+     }
+     PAGES.push(section4);
+     break;
+    case 5:
+      try{
+        nextPage = section5.validate();
+        PAGES = PAGES.slice(0,4);
+       $("#form6").css("display", "none");
+     } catch(err) {
+       console.log("Err: ",err);
+       section5 = new BloodGasSection();
+       nextPage = section5.validate();
+     }
+     PAGES.push(section5);
+     break;
+    case 6:
+      try{
+        nextPage = section6.validate();
+        PAGES = PAGES.slice(0,5);
+     } catch(err) {
+       console.log("Err: ",err);
+       section6 = new QualifyingSection();
+       nextPage = section6.validate();
+     }
+     PAGES.push(section6);
+     break;
+    default:
+      console.log("Switch Default");
+      break;
+  }
+  console.log("NEXT PAGE: ",nextPage);
+  console.log("PAGES: ", PAGES);
   if(nextPage == 7) {
-      showResults();
+      // showResults();
+      console.log("RESULTS")
   } else {
-      navigateForward(nextPage);
+      let form = "#form" + nextPage;
+      $(form).fadeIn();
+
+      //Scrolling animation to next section
+      $('html, body').animate({
+          scrollTop: $(form).offset().top
+      }, 500);
   }
 });
