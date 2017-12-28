@@ -26,7 +26,6 @@ function showWhy(){
    $('#How').collapse('hide');
 }
 //******************************************************************************
-//******************************************************************************
 
 /**
  ** Section 1 - Initial Questions **
@@ -38,44 +37,24 @@ $("label[name='s1q1_label']").click(function() {
 class InitialSection {
     constructor() {
         this.perinatalEvent = parseInt($("input:radio[name='s1q1']:checked").val());
-        this.submitted = 0
+        this.meetsCriteria = false;
+        this.reasons = []
     }
 
     validate(){
-      // console.log(this.perinatalEvent);
       this.perinatalEvent = parseInt($("input:radio[name='s1q1']:checked").val());
-      this.submitted+=1
-      console.log("Submitted Section: ",this.submitted);
-      console.log("Value of radio 1: ", this.perinatalEvent);
       $("#submit1").prop("disabled",true);
       if(this.perinatalEvent === 1) {
-        // PAGES.push(2)
-        // MEETS_CRITERIA.push(1);
+        this.meetsCriteria = true;
         return 2;
       }
       else {
         RECCOMENDATION = false;
-        // PAGES.push(7)
-        // REASONS.push("Neonates condition is not suggestive of Encephalopathy.");
+        this.reasons.push("Neonates condition is not suggestive of Encephalopathy.");
         return 7;
       }
 
     }
-
-    evaluate(){}
-    reset(){}
-
-    // validate() {
-    //     if(this.perinatalEvent) {
-    //       MEETS_CRITERIA.push(1);
-    //       return 2;
-    //     }
-    //     else {
-    //       RECCOMENDATION = false;
-    //       REASONS.push("Neonates condition is not suggestive of Encephalopathy.");
-    //       return 8;
-    //     }
-    // }
 }
 
 /**
@@ -88,15 +67,17 @@ class InitialSection {
 
  class NeurologicSection {
      constructor() {
-         this.hasSeizures = $("input:radio[name='s2q1']:checked").val();
+         this.hasSeizures;
+         this.meetsCriteria = false;
+         this.reasons = [];
+
      }
 
      validate() {
        this.hasSeizures = $("input:radio[name='s2q1']:checked").val();
        $("#submit2").prop("disabled",true);
        if(this.hasSeizures == 1) {
-         // RECCOMENDATION=true;
-         // MEETS_CRITERIA.push(2);
+         this.meetsCriteria = true;
          return 4;
        }
        else {
@@ -109,47 +90,38 @@ class InitialSection {
   ** Section 3: SARNAT **
   **/
   // Enable submit button logic
-$("select[name='question1'],\
-   select[name='question2'],\
-   select[name='question3'],\
-   select[name='question4'],\
-   select[name='question5'],\
-   select[name='question6'],\
-   select[name='question7'],\
-   select[name='question8'],\
-   select[name='question9']").change(function(){
-      console.log(event.target);
+$("#form3 select").on('input change',function(){
+      // console.log($("select[name='question1']").val());
       if($('#form3 option[disabled]:selected').length == 0 ){
          // ALL the select boxes have something selected rather than the default option
          $("#submit3").prop("disabled",false);
       }
    });
 
-
  class SarnatSection {
      constructor() {
        this.points = 0;
-       this.submitted = 0;
+       this.meetsCriteria = false;
+       this.reasons = [];
      }
 
      validate() {
-       this.submitted+=1;
-       console.log("form 3 submit",this.submitted);
+       this.point = 0;
        $("#submit3").prop("disabled",true); // Disable submit button
        //Breaking into categories
 
        // Catagory 1 -- Conciousness
-       if($("input:radio[name='question1']:checked").val() >=3) {
+       if($("select[name='question1']").val() >=3) {
          this.points++;
        }
        // Catagory 2 -- Spontaneous Activity -- spontaneous activity is its own group
-       if($("input:radio[name='question2']:checked").val() >=3) {
+       if($("select[name='question2']").val() >=3) {
          this.points++;
        }
 
        //Category 3 -- NM Control -- Cat3 is NM control q(3,4)
        for (var i = 3; i <= 4; i++) {
-         if($("input:radio[name='question"+i+"']:checked").val() >=3) {
+         if($("select[name='question"+i+"']").val() >=3) {
            this.points++;
            break;
          }
@@ -157,7 +129,7 @@ $("select[name='question1'],\
 
        //Category 4 -- Primitive -- Cat4 Primitive q(5,6)
        for (var i = 5; i <= 6; i++) {
-         if($("input:radio[name='question"+i+"']:checked").val() >=3) {
+         if($("select[name='question"+i+"']").val() >=3) {
            this.points++;
            break;
          }
@@ -165,7 +137,7 @@ $("select[name='question1'],\
 
        //Category 5 -- Automatic -- Cat 5 Autonomic q(7,8,9)
        for (var i = 7; i <= 9; i++) {
-         if($("input:radio[name='question"+i+"']:checked").val() >=3) {
+         if($("select[name='question"+i+"']").val() >=3) {
            this.points++;
            break;
          }
@@ -179,13 +151,13 @@ $("select[name='question1'],\
          console.log("Mild Encephalopathy")
        } else if (this.points>=3) {
          RECCOMENDATION = true;
-         // MEETS_CRITERIA.push(2); // Either nuero is yes, or SARNAT is, not both
+         this.meetsCriteria = true;// Either nuero is yes, or SARNAT is, not both
        } else {
          RECCOMENDATION = false;
        }
-
        return 4;
      }
+
  }
 
 
@@ -203,40 +175,48 @@ $("#form4 input:radio").change(function(){
       answered = 0;
     }
   }
-  console.log(answered);
   if(answered == 6){
     $("#submit4").prop("disabled",false);
   }
 });
 
-
- // TODO: add reason for whichever is false.
 class QualifyingSection {
     constructor() {
-        this.is36WksOrOlder = $("input:radio[name='s4q1']:checked").val();
-        this.is6HrsOrYounger = $("input:radio[name='s4q2']:checked").val();
-        this.is1800gOrMore = $("input:radio[name='s4q3']:checked").val();
-        this.hasCongenitalAbnormalities = $("input:radio[name='s4q4']:checked").val();
-        this.hasChromosomalAbnormalities = $("input:radio[name='s4q5']:checked").val();
-        this.hasAlternateCauseForEnceph = $("input:radio[name='s4q6']:checked").val();
+        this.reasons = [];
+        this.meetsCriteria = false;
     }
 
     validate() {
       $("#submit4").prop("disabled",true);
+      let checked = 0;
+      for(let i = 1; i!=7; ++i){
+        if($("input:radio[name='s4q"+i+"']:checked").val() == 1){
+          checked++;
+          continue;
+        } else {
+          // this.reasons.push($("#s4q"+i+" p").html());
+          this.reasons.push(this._reasons(i));
+        }
+      }
       // If all qualifying questions are yes
-      if(this.is36WksOrOlder == 1
-        && this.is6HrsOrYounger==1
-        && this.is1800gOrMore==1
-        && this.hasCongenitalAbnormalities==1
-        && this.hasChromosomalAbnormalities==1
-        && this.hasAlternateCauseForEnceph==1){
+      if(checked == 6){
           RECCOMENDATION = true;
-          // MEETS_CRITERIA.push(3);
+          this.meetsCriteria = true;
       } else {
           RECCOMENDATION = false;
         }
         return 5;
     }
+
+    _reasons(num){
+      if(num == 1){return "The infant's gestational age is less than 36 weeks."}
+      else if ( num == 2){return "The infant is less than 6 hours old."}
+      else if ( num == 3){return "The infants birth weight is less than 1800g."}
+      else if ( num == 4){return "The infant suffers from congenital abnormalities"}
+      else if ( num == 5){return "The infant suffers from chromosomal abnormalities"}
+      else if ( num == 6){return "The infant suffers from alternate causes for encephalopathy"}
+    }
+
 }
 
 /**
@@ -264,38 +244,48 @@ function hideBloodGas() {
 }
 
 class BloodGasSection {
-    constructor() {
-        this.bloodGasPH = parseFloat($("#s6q1").val());
-        this.baseDeficit= parseFloat($("#s6q2").val());
-        console.log("Blood ", this.bloodGasPH, "Base ", this.baseDeficit);
+    constructor(previousCriteria) {
+      this.isAvailableBloodGasPH;
+      this.bloodGasPH;
+      this.baseDeficit;
+      this.reasons = [];
+      this.meetsCriteria = false;
+      this.previousCriteria = previousCriteria;
     }
 
     validate() {
-      // $("#submit5").prop("disabled",true);
-      return 6;
-        // if ((this.bloodGasPH <= 7) || (this.baseDeficit>=16)){
-        //   MEETS_CRITERIA.push(4);
-        //   Checks that Inital, seizures, and qualifying and blood gas all meet the criteria to cool
-        //   if(MEETS_CRITERIA.length >= 4){
-        //     RECCOMENDATION = true;
-        //     return 8;
-        //   } else {
-        //     RECCOMENDATION = false;
-        //     return 8;
-        //   }
-        // } else if (((this.bloodGasPH >7) && (this.bloodGasPH<=7.15))
-        //           || ((this.baseDeficit>10)&&(this.baseDeficit<=15.9))){
-        //     return 6;
-        //     // Is there a need to add a previous criteria check here?
-        //
-        // } else if ((this.bloodGasPH > 7.15) && (this.baseDeficit<10)){
-        //     RECCOMENDATION = false; // Rest of the form doesn't matter here, overrides any other RECCOMENDATION
-        //     return 8;
-        //   }
+      this.isAvailableBloodGasPH = $("input:radio[name='s5q1']:checked").val();
+      // this.bloodGasPH = parseFloat($("#s6q1").val());
+      // this.baseDeficit= parseFloat($("#s6q2").val());
+      $("#submit5").prop("disabled",true);
+        if(this.isAvailableBloodGasPH == 1){
+          this.bloodGasPH = parseFloat($("#pH").val());
+          this.baseDeficit= parseFloat($("#baseDeficit").val());
+          if ((this.bloodGasPH <= 7) || (this.baseDeficit>=16)){
+            this.meetsCriteria = true;
+            console.log("BLOOD GAS PAGES: ",PAGES);
+            if(this.meetsCriteria && this.previousCriteria){
+              RECCOMENDATION = true;
+              console.log("Both criteria qualify: ", this.meetsCriteria,"prev: ", this.previousCriteria);
+            } else {
+              RECCOMENDATION = false;
+              console.log("Does not qualify: ", this.meetsCriteria,"prev: ", this.previousCriteria);
+            }
+            return 7;
+          } else if (((this.bloodGasPH >7) && (this.bloodGasPH<=7.15))
+                    || ((this.baseDeficit>10)&&(this.baseDeficit<=15.9))){
+              return 6;
+              // Is there a need to add a previous criteria check here?
+          } else if ((this.bloodGasPH > 7.15) && (this.baseDeficit<10)){
+              RECCOMENDATION = false; // Rest of the form doesn't matter here, overrides any other RECCOMENDATION
+              return 7;
+            }
+        } else {
+          return 6;
+        }
+
     }
 }
-
-
 
 /**
  * Section 6 - History
@@ -325,41 +315,78 @@ class BloodGasSection {
  }
 
  class HistorySection {
-     constructor() {
-       this.acuteEventHistory = $("input:radio[name='hist1']:checked").val(); // History of an acute event? (Yes or No)
-       this.apgarScore = $("#s7q2").val();        // 10 minute Apgar score
-       this.ventFromBirth = $("input:radio[name='hist2']:checked").val();     // Ventilation from birth continued for at least 10 min? (yes or no)
-       console.log(this.acuteEventHistory, this.apgarScore, this.ventFromBirth);
+     constructor(previousCriteria) {
+       this.acuteEventHistory;
+       this.apgarScore;        // 10 minute Apgar score
+       this.ventFromBirth;     // Ventilation from birth continued for at least 10 min? (yes or no)
+       this.reasons = [];
+       this.meetsCriteria = false;
+       this.previousCriteria = previousCriteria;
      }
-     //TODO: acute event == 0, apgar <=5, vent ==1 === False
      //TODO: store the acute event data, -> into summary
      validate() {
+       this.acuteEventHistory = $("input:radio[name='s6q1']:checked").val(); // History of an acute event? (Yes or No)
+       this.apgarScore = parseInt($("#apgar").val());        // 10 minute Apgar score
+       this.ventFromBirth = $("input:radio[name='s6q4']:checked").val();     // Ventilation from birth continued for at least 10 min? (yes or no)
        $("#submit5").prop("disabled",true);
-       // if(this.acuteEventHistory == 1){
-       //   if(this.apgarScore<=5 || this.ventFromBirth ==1){
-       //     MEETS_CRITERIA.push(5);
-       //     //Checks that Inital, seizures, and qualifying and History all meet the criteria to cool
-       //     if(MEETS_CRITERIA.length >= 4){
-       //       RECCOMENDATION = true;
-       //       return 8;
-       //     } else {
-       //       RECCOMENDATION = false;
-       //       return 8;
-       //     }
-       //   } else {
-       //     RECCOMENDATION = false; // Ignore the rest of the form, Do not cool
-       //     return 8;
-       //   }
-       // } else if (this.acuteEventHistory == 0 && this.apgarScore>5 && this.ventFromBirth ==0) {
-       //   RECCOMENDATION = false;
-       // }
+       if(this.acuteEventHistory == 1){
+         if(this.apgarScore<=5 || this.ventFromBirth ==1){
+           // MEETS_CRITERIA.push(5);
+           this.meetsCriteria = true;
+           //Checks that Inital, seizures, and qualifying and History all meet the criteria to cool
+           if(this.meetsCriteria && this.previousCriteria){
+             RECCOMENDATION = true;
+           } else {
+             RECCOMENDATION = false;
+           }
+         } else {
+           RECCOMENDATION = false; // Ignore the rest of the form, Do not cool
+         }
+       } else {
+         RECCOMENDATION = false;
+       }
        return 7;
      }
  }
+/**
+ * Section 7 - Result Section **
+ */
+
+ $("#restart").click(function() {
+   window.location.reload();
+ });
 
 class ResultSection{
-  constructor(){}
+  constructor(pages,recommendation){
+    this.pages = pages;
+    this.recommendation = recommendation;
+    this.reasons = [];
+  }
   show(){
+    $("#result").fadeIn();
+    $('html, body').animate({
+        scrollTop: $("#result").offset().top
+    }, 500);
+
+    // console.log(this.reasons);
+    if(this.recommendation == true){
+      $("#recommendation").css("color","red");
+      $("#recommendation").html("Initiate Therapeutic Hypothermia");
+    } else {
+      $("#recommendation").css("color","blue");
+      $("#recommendation").html("Do Not Initiate Therapeutic Hypothermia");
+
+      for( let sec of this.pages){
+        for(let reason of sec.reasons){
+          $("#reasons").append("<li>"+reason+"</li>");
+        }
+      }
+
+    }
+
+
+
+
     console.log("results");
   }
 }
@@ -386,7 +413,7 @@ $("form").submit(function(event){
         PAGES = [];
         $("#form2, #form3, #form4, #form5, #form6").css("display", "none");
       } catch(err) {
-        console.log("Err: ",err);
+
         section1 = new InitialSection();
         nextPage = section1.validate();
       }
@@ -398,7 +425,7 @@ $("form").submit(function(event){
         PAGES = PAGES.slice(0,1);
         $("#form3, #form4, #form5, #form6").css("display", "none");
       } catch(err) {
-        console.log("Err: ",err);
+
         section2 = new NeurologicSection();
         nextPage = section2.validate();
       }
@@ -410,7 +437,7 @@ $("form").submit(function(event){
        PAGES = PAGES.slice(0,2);
        $("#form4, #form5, #form6").css("display", "none");
      } catch(err) {
-       console.log("Err: ",err);
+
        section3 = new SarnatSection();
        nextPage = section3.validate();
      }
@@ -427,7 +454,7 @@ $("form").submit(function(event){
 
        $("#form5, #form6").css("display", "none");
      } catch(err) {
-       console.log("Err: ",err);
+
        section4 = new QualifyingSection();
        nextPage = section4.validate();
      }
@@ -439,8 +466,13 @@ $("form").submit(function(event){
         PAGES = PAGES.slice(0,4);
        $("#form6").css("display", "none");
      } catch(err) {
-       console.log("Err: ",err);
-       section5 = new BloodGasSection();
+       // console.log("Err: ",err);
+       if(section1.meetsCriteria && (section2.meetsCriteria || section3.meetsCriteria) && section4.meetsCriteria){
+         section5 = new BloodGasSection(true);
+       } else {
+         section5 = new BloodGasSection(false);
+       }
+
        nextPage = section5.validate();
      }
      PAGES.push(section5);
@@ -450,8 +482,12 @@ $("form").submit(function(event){
         nextPage = section6.validate();
         PAGES = PAGES.slice(0,5);
      } catch(err) {
-       console.log("Err: ",err);
-       section6 = new QualifyingSection();
+
+       if(section1.meetsCriteria && (section2.meetsCriteria || section3.meetsCriteria) && section4.meetsCriteria){
+         section6 = new HistorySection(true);
+       } else {
+         section6 = new HistorySection(false);
+       }
        nextPage = section6.validate();
      }
      PAGES.push(section6);
@@ -463,8 +499,10 @@ $("form").submit(function(event){
   console.log("NEXT PAGE: ",nextPage);
   console.log("PAGES: ", PAGES);
   if(nextPage == 7) {
-      // showResults();
-      console.log("RESULTS")
+    $("#form1 :input").attr("disabled",true);
+    // $.blockUI();
+    section7 = new ResultSection(PAGES,RECCOMENDATION);
+    section7.show();
   } else {
       let form = "#form" + nextPage;
       $(form).fadeIn();
