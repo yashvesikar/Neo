@@ -442,11 +442,11 @@ class ResultSection{
 
 
     if(this.recommendation == true){
+      $("#recommendation").css("color","cool");
+      $("#recommendation").html("does");
+    } else {
       $("#recommendation").css("color","red");
       $("#recommendation").html("does not");
-    } else {
-      $("#recommendation").css("color","blue");
-      $("#recommendation").html("does");
 
       for( let sec of this.pages){
         for(let reason of sec.reasons){
