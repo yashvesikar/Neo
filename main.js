@@ -1,7 +1,7 @@
 var PAGES = [];
 var RECCOMENDATION = null;
 var REASONS = [];
-
+var RESULT = {};
 /**
  * Information Section
  */
@@ -36,12 +36,19 @@ $("label[name='s1q1_label']").click(function() {
 
 class InitialSection {
     constructor() {
-        this.perinatalEvent = parseInt($("input:radio[name='s1q1']:checked").val());
+        this.perinatalEvent;
         this.meetsCriteria = false;
-        this.reasons = []
+        this.reasons = [];
+    }
+
+    values(){
+      if (this.perinatalEvent ==1){return {"s1q1":true}}
+      else{return {"s1q1":false}}
+
     }
 
     validate(){
+      this.reasons = [];
       this.perinatalEvent = parseInt($("input:radio[name='s1q1']:checked").val());
       $("#submit1").prop("disabled",true);
       if(this.perinatalEvent === 1) {
@@ -71,6 +78,11 @@ class InitialSection {
          this.meetsCriteria = false;
          this.reasons = [];
 
+     }
+
+     values(){
+       if (this.hasSeizures ==1){return {"s2q1":true}}
+       else{return {"s2q1":false}}
      }
 
      validate() {
@@ -103,6 +115,11 @@ $("#form3 select").on('input change',function(){
        this.points = 0;
        this.meetsCriteria = false;
        this.reasons = [];
+       this.encephalopathy;
+     }
+
+     values() {
+       return {"s3q1":this.encephalopathy};
      }
 
      validate() {
@@ -144,14 +161,13 @@ $("#form3 select").on('input change',function(){
        }
 
        //Points system
-       console.log("Points: ",this.points);
-
        // TODO: Add mild encephalopathy check with 1=>points <=2 points
        if (this.points == 1 || this.points == 2){
-         console.log("Mild Encephalopathy")
+         this.encephalopathy = "mild";
        } else if (this.points>=3) {
          RECCOMENDATION = true;
          this.meetsCriteria = true;// Either nuero is yes, or SARNAT is, not both
+         this.encephalopathy = "moderate/severe";
        } else {
          RECCOMENDATION = false;
        }
@@ -184,6 +200,17 @@ class QualifyingSection {
     constructor() {
         this.reasons = [];
         this.meetsCriteria = false;
+    }
+
+    values() {
+      return {
+        "s4q1":$("input:radio[name='s4q1']:checked").prop("checked"),
+        "s4q2":$("input:radio[name='s4q2']:checked").prop("checked"),
+        "s4q3":$("input:radio[name='s4q3']:checked").prop("checked"),
+        "s4q4":$("input:radio[name='s4q4']:checked").prop("checked"),
+        "s4q5":$("input:radio[name='s4q5']:checked").prop("checked"),
+        "s4q6":$("input:radio[name='s4q6']:checked").prop("checked")
+      };
     }
 
     validate() {
@@ -253,10 +280,16 @@ class BloodGasSection {
       this.previousCriteria = previousCriteria;
     }
 
+    values(){
+      return {
+        "s5q1":$("input:radio[name='s5q1']:checked").prop("checked"),
+        "s5q2":parseFloat($("#baseDeficit").val()),
+        "s5q3":parseFloat($("#pH").val()),
+      }
+    }
+
     validate() {
       this.isAvailableBloodGasPH = $("input:radio[name='s5q1']:checked").val();
-      // this.bloodGasPH = parseFloat($("#s6q1").val());
-      // this.baseDeficit= parseFloat($("#s6q2").val());
       $("#submit5").prop("disabled",true);
         if(this.isAvailableBloodGasPH == 1){
           this.bloodGasPH = parseFloat($("#pH").val());
@@ -317,12 +350,23 @@ class BloodGasSection {
  class HistorySection {
      constructor(previousCriteria) {
        this.acuteEventHistory;
+       this.acuteEvent;
        this.apgarScore;        // 10 minute Apgar score
        this.ventFromBirth;     // Ventilation from birth continued for at least 10 min? (yes or no)
        this.reasons = [];
        this.meetsCriteria = false;
        this.previousCriteria = previousCriteria;
      }
+
+     values() {
+       return {
+         "s6q1":this.acuteEventHistory,
+         "s6q2":this.acuteEvent,
+         "s6q3":this.apgarScore,
+         "s6q4":this.ventFromBirth
+       }
+     }
+
      //TODO: store the acute event data, -> into summary
      validate() {
        this.acuteEventHistory = $("input:radio[name='s6q1']:checked").val(); // History of an acute event? (Yes or No)
@@ -330,6 +374,7 @@ class BloodGasSection {
        this.ventFromBirth = $("input:radio[name='s6q4']:checked").val();     // Ventilation from birth continued for at least 10 min? (yes or no)
        $("#submit5").prop("disabled",true);
        if(this.acuteEventHistory == 1){
+         this.acuteEvent = $("#acute option:selected").text();
          if(this.apgarScore<=5 || this.ventFromBirth ==1){
            // MEETS_CRITERIA.push(5);
            this.meetsCriteria = true;
@@ -362,32 +407,62 @@ class ResultSection{
     this.recommendation = recommendation;
     this.reasons = [];
   }
+  createSummary(){
+
+    let values = {}
+    for(let sec of this.pages){
+      $.extend(values,sec.values());
+    }
+
+    let summary;
+    if(values.s1q1 == true){
+      summary = `${values.s3q1 ? "Presence of moderate/severe encephalopathy based on Sarnat." : "No presence of encephalopathy based on Sarnat."}
+       The patient's gestational age is ${values.s4q1 ? "greater than" : "less than" } 36 weeks, is ${values.s4q2 ? "greater than" : "less than" } 6 hours old, ${values.s4q3 ? "greater than" : "less than" } 1800g, has ${values.s4q4 ? "no" : "some" } congenital abnormalities, has ${values.s4q5 ? "no" : "some" } chromosomal anomalies, and there is ${values.s4q6 ? "no" : "some" } alternate cause for encephalopathy.
+       ${values.s5q1 ? `The cord blood gas pH within 1hr of age is ${values.s5q3} and the base deficit is ${values.s5q2}.` : "" }
+       ${values.s6q1 ? `There is a history of an acute event - ${values.s6q2}` : "There is no history of an acute event" }, the 10 minute Apgar score is ${values.s6q3}, and the patient ${values.s6q4 ? "was" : "was not"} ventilated from birth for at least 10 minutes.`
+    } else {
+      summary = "";
+    }
+
+    // return values;
+    return summary;
+  }
+
+
   show(){
-    $("#result").fadeIn();
+
+    this.reasons = [];
+    // console.log("VALUES: ",this.createSummary());
+    $("#reasons, #recommendation").empty(); // Empties the reasons and recommendation
+
+    $("#result").fadeIn(); // Fades in Result section
     $('html, body').animate({
         scrollTop: $("#result").offset().top
     }, 500);
 
-    // console.log(this.reasons);
+
     if(this.recommendation == true){
       $("#recommendation").css("color","red");
-      $("#recommendation").html("Initiate Therapeutic Hypothermia");
+      $("#recommendation").html("does not");
     } else {
       $("#recommendation").css("color","blue");
-      $("#recommendation").html("Do Not Initiate Therapeutic Hypothermia");
+      $("#recommendation").html("does");
 
       for( let sec of this.pages){
         for(let reason of sec.reasons){
-          $("#reasons").append("<li>"+reason+"</li>");
+          this.reasons.push(reason)
         }
+      }
+      for( let reason of this.reasons){
+        $("#reasons").append("<li>"+reason+"</li>");
       }
 
     }
+    let summary = this.createSummary()
+    $("#summary").html(summary);
+     // "This patient meets (or does not meet) the criteria based on the literature to initiate therapeutic hypothermia. Presence of moderate/severe encephalopathy based on Sarnat. The patient's gestational age is > or < 36 weeks, is > or < 6 hours old, > or < 1800g, has no congenital abnormalities, has no chromosomal anomalies, and there is no alternate cause for encephalopathy. The cord blood gas pH within 1hr of age is 7.1 and the base deficit is -12. There is no history of an acute event - cord prolapse, the 10 minute Apgar score is 4, and the patient was not ventilated from birth for at least 10 minutes."
 
 
-
-
-    console.log("results");
   }
 }
 
@@ -406,12 +481,11 @@ $("form").submit(function(event){
   var nextPage;
 
   switch (sectionNum) {
-
     case 1:
       try {
         nextPage = section1.validate();
         PAGES = [];
-        $("#form2, #form3, #form4, #form5, #form6").css("display", "none");
+        $("#form2, #form3, #form4, #form5, #form6, #result").css("display", "none");
       } catch(err) {
 
         section1 = new InitialSection();
@@ -425,7 +499,6 @@ $("form").submit(function(event){
         PAGES = PAGES.slice(0,1);
         $("#form3, #form4, #form5, #form6").css("display", "none");
       } catch(err) {
-
         section2 = new NeurologicSection();
         nextPage = section2.validate();
       }
@@ -437,7 +510,6 @@ $("form").submit(function(event){
        PAGES = PAGES.slice(0,2);
        $("#form4, #form5, #form6").css("display", "none");
      } catch(err) {
-
        section3 = new SarnatSection();
        nextPage = section3.validate();
      }
@@ -451,10 +523,8 @@ $("form").submit(function(event){
         } else {
           PAGES = PAGES.slice(0,3);
         }
-
        $("#form5, #form6").css("display", "none");
      } catch(err) {
-
        section4 = new QualifyingSection();
        nextPage = section4.validate();
      }
@@ -466,7 +536,6 @@ $("form").submit(function(event){
         PAGES = PAGES.slice(0,4);
        $("#form6").css("display", "none");
      } catch(err) {
-       // console.log("Err: ",err);
        if(section1.meetsCriteria && (section2.meetsCriteria || section3.meetsCriteria) && section4.meetsCriteria){
          section5 = new BloodGasSection(true);
        } else {
@@ -499,8 +568,6 @@ $("form").submit(function(event){
   console.log("NEXT PAGE: ",nextPage);
   console.log("PAGES: ", PAGES);
   if(nextPage == 7) {
-    $("#form1 :input").attr("disabled",true);
-    // $.blockUI();
     section7 = new ResultSection(PAGES,RECCOMENDATION);
     section7.show();
   } else {
