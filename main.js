@@ -442,7 +442,7 @@ class ResultSection{
 
 
     if(this.recommendation == true){
-      $("#recommendation").css("color","cool");
+      $("#recommendation").css("color","blue");
       $("#recommendation").html("does");
     } else {
       $("#recommendation").css("color","red");
