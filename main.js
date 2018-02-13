@@ -10,9 +10,10 @@ function showWhat(){
    // $('#How').collapse('hide');
    $('#Perils').collapse('hide');
    $('#PerilsButton').removeClass("active");
-
    $('#Why').collapse('hide');
    $('#WhyButton').removeClass("active");
+   $('#Refrences').collapse('hide');
+   $('#RefButton').removeClass("active");
 
 }
 
@@ -23,6 +24,8 @@ function showPerils(){
    $('#WhyButton').removeClass("active");
    $('#What').collapse('hide');
    $('#WhatButton').removeClass("active");
+   $('#Refrences').collapse('hide');
+   $('#RefButton').removeClass("active");
 }
 
 function showWhy(){
@@ -32,6 +35,8 @@ function showWhy(){
    $('#PerilsButton').removeClass("active");
    $('#What').collapse('hide');
    $('#WhatButton').removeClass("active");
+   $('#Refrences').collapse('hide');
+   $('#RefButton').removeClass("active");
 }
 
 function showRefrences(){
@@ -41,6 +46,8 @@ function showRefrences(){
    $('#PerilsButton').removeClass("active");
    $('#What').collapse('hide');
    $('#WhatButton').removeClass("active");
+   $('#Why').collapse('hide');         
+   $('#WhyButton').removeClass("active");
 }
 //******************************************************************************
 
