@@ -80,8 +80,15 @@
 /* Extra large devices (large desktops, 1200px and up) */
 /* @media (min-width: 1200px) {  } */
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Avoid the IE 10-11 `min-height` bug. */
 }
 
 p {
@@ -112,4 +119,13 @@ td {
     color: #fff;
     background-color: #0181B6;
     border-color: #0181B6; /*set the color you want here*/
+}
+
+.container {
+  flex: 1 0 auto; /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
+  padding: 20px;
+}
+.footer {
+  flex-shrink: 0; /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
+  padding: 20px;
 }
