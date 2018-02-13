@@ -101,3 +101,15 @@ td {
   font-size: 1em;
   font-weight: bold;
 }
+
+.btn-secondary:not([disabled]):not(.disabled).active{
+    color: #fff;
+    background-color: #0181B6;
+    border-color: #0181B6; /*set the color you want here*/
+    box-shadow: 0 0 0 0.1rem rgba(134,142,150,.5);
+} 
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active, .btn.btn-secondary.focus.active{
+    color: #fff;
+    background-color: #0181B6;
+    border-color: #0181B6; /*set the color you want here*/
+}

@@ -5,25 +5,42 @@ var RESULT = {};
 /**
  * Information Section
  */
-function showHow(){
-   $('#How').collapse('toggle');
+function showWhat(){
+   $('#What').collapse('toggle');
    // $('#How').collapse('hide');
-   $('#Pitfalls').collapse('hide');
+   $('#Perils').collapse('hide');
+   $('#PerilsButton').removeClass("active");
+
    $('#Why').collapse('hide');
+   $('#WhyButton').removeClass("active");
+
 }
 
-function showPitfalls(){
-   $('#Pitfalls').collapse('toggle');
+function showPerils(){
+   $('#Perils').collapse('toggle');
    // $('#Pitfalls').collapse('hide');
    $('#Why').collapse('hide');
-   $('#How').collapse('hide');
+   $('#WhyButton').removeClass("active");
+   $('#What').collapse('hide');
+   $('#WhatButton').removeClass("active");
 }
 
 function showWhy(){
    $('#Why').collapse('toggle');
    // $('#Why').collapse('hide');
-   $('#Pitfalls').collapse('hide');
-   $('#How').collapse('hide');
+   $('#Perils').collapse('hide');
+   $('#PerilsButton').removeClass("active");
+   $('#What').collapse('hide');
+   $('#WhatButton').removeClass("active");
+}
+
+function showRefrences(){
+   $('#Refrences').collapse('toggle');
+   // $('#Why').collapse('hide');
+   $('#Perils').collapse('hide');
+   $('#PerilsButton').removeClass("active");
+   $('#What').collapse('hide');
+   $('#WhatButton').removeClass("active");
 }
 //******************************************************************************
 
@@ -416,12 +433,12 @@ class ResultSection{
 
     let summary;
     if(values.s1q1 == true){
-      summary = `${values.s3q1 ? "Presence of moderate/severe encephalopathy based on Sarnat." : "No presence of encephalopathy based on Sarnat."}
-       The patient's gestational age is ${values.s4q1 ? "greater than" : "less than" } 36 weeks, is ${values.s4q2 ? "greater than" : "less than" } 6 hours old, ${values.s4q3 ? "greater than" : "less than" } 1800g, has ${values.s4q4 ? "no" : "some" } congenital abnormalities, has ${values.s4q5 ? "no" : "some" } chromosomal anomalies, and there is ${values.s4q6 ? "no" : "some" } alternate cause for encephalopathy.
+      summary = `${values.s3q1 ? "Patient presented with seizures." : "Patient not presented with seizures."}
+       The patient's gestational age is ${values.s4q1 ? "greater than" : "less than" } 36 weeks, is ${values.s4q2 ? "greater than" : "less than" } 6 hours old, the infants birth weight is ${values.s4q3 ? "greater than" : "less than" } 1800g, the infant has ${values.s4q4 ? "no" : "a" } congenital abnormalities, has ${values.s4q5 ? "no" : "a" } chromosomal anomalies, and there is ${values.s4q6 ? "no" : "some" } alternate cause for encephalopathy.
        ${values.s5q1 ? `The cord blood gas pH within 1hr of age is ${values.s5q3} and the base deficit is ${values.s5q2}.` : "" }
-       ${values.s6q1 ? `There is a history of an acute event - ${values.s6q2}` : "There is no history of an acute event" }, the 10 minute Apgar score is ${values.s6q3}, and the patient ${values.s6q4 ? "was" : "was not"} ventilated from birth for at least 10 minutes.`
+       ${values.s6q1 ? `There is a history of an acute event - ${values.s6q2}` : "Biochemical data unavailable and no history of an acute event." }, the 10 minute Apgar score is ${values.s6q3}, and the patient ${values.s6q4 ? "was" : "was not"} ventilated from birth for at least 10 minutes.`
     } else {
-      summary = "";
+      summary = "Neonate’s condition is not suggestive of encephalopathy.";
     }
 
     // return values;

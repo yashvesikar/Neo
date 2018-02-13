@@ -30,33 +30,44 @@
         <div class="col-9 mx-auto">
           <div class="row">
             <div class="btn-group" data-toggle="buttons">
-              <button class="btn btn-primary" type="button" onclick="showHow()">How</button>
-              <button class="btn btn-primary" type="button" onclick="showPitfalls()">Pitfalls</button>
-              <button class="btn btn-primary" type="button" onclick="showWhy()">Why</button>
+              <button id="WhatButton" class="btn btn-primary" type="button" onclick="showWhat()">What</button>
+              <button id="PerilsButton" class="btn btn-primary" type="button" onclick="showPerils()">Pitfalls</button>
+              <button id="WhyButton" class="btn btn-primary" type="button" onclick="showWhy()">Why</button>
+              <button id="RefButton" class="btn btn-primary" type="button" onclick="showRefrences()">Refrences</button>
             </div>
           </div>
           <div class="row">
             <div class="col-12">
-              <div class="collapse multi-collapse" id="How">
+              <div class="collapse multi-collapse" id="What">
                 <div class="card card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                  The Neonatal Encephalopathy Cooling Protocol (NECP) Tool identifies patients at risk for neonatal encephalopathy and incorporates the numerous criteria that must be met in order for a patient to meet current guidelines for therapeutic hypothermia treatment.
                 </div>
               </div>
             </div>
             <div class="col-12">
-              <div class="collapse multi-collapse" id="Pitfalls">
+              <div class="collapse multi-collapse" id="Perils">
                 <div class="card card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                  <ul>
+                    <li>Therapeutic hypothermia is an active treatment that aims to achieve and maintain a specific body temperature for a duration of time in an effort to improve health outcomes in infants with perinatal brain injury. In order for therapeutic hypothermia to be recommended, the patient must meet clinical and biochemical criteria.</li>
+                    <li>The SARNAT is a standardized physical exam tool used to categorize encephalopathic infants as normal, mild, moderate, or severe. To meet the current criteria for therapeutic hypothermia, infants must be moderately or severely encephalopathic.</li>
+                    <li>Neonates who are encephalopathic are eligible for therapeutic hypothermia, however, encephalopathy can have many causes. Therefore, clinical judgement should be used to determine if a patient should receive therapeutic hypothermia treatment on a case by case basis.</li>
+                  </ul>
                 </div>
               </div>
             </div>
             <div class="col-12">
               <div class="collapse multi-collapse" id="Why">
                 <div class="card card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                  Therapeutic hypothermia is one of the only treatments available to decrease neurological morbidity in perinatal brain injury. The Neonatal Neurocritical Care Group at the Children’s Hospital of Wisconsin has identified that physicians often incompletely document clinical and biochemical criteria needed to support decisions to initiate therapeutic hypothermia. The purpose of this tool is to assist healthcare providers with decision making and documentation in cases where therapeutic hypothermia treatment is a consideration.
                 </div>
               </div>
             </div>
+            <div class="col-12">
+              <div class="collapse multi-collapse" id="Refrences">
+                <div class="card card-body">Sarnat HB, Sarnat MS. Neonatal encephalopathy following fetal distress: a clinical and electroencephalographic study. Arch Neurol 1976; 33(10): 696–705.
+                </div>
+              </div>
+            </div>            
           </div>
 
 
@@ -104,7 +115,7 @@
         <div class="col 12">
           <form id="s2">
             <div class="card border-top-0 border-bottom-0 mt-2 mb-2 mx-auto content-cards"> <!-- Card -->
-              <h4 class="card-header" style="text-align: center;">Nuerological Questions: Seizures</h4> <!-- Card Header -->
+              <h4 class="card-header" style="text-align: center;">Neurological Questions: Seizures</h4> <!-- Card Header -->
               <div class="card-body"> <!-- Card body -->
                 <div class="row mt-2"> <!-- Form Group -->
                   <div class="col-8 my-auto">
@@ -566,7 +577,7 @@
                     <div class="col-6">
                       <div class="form-row mt-2"><!-- Acute Event Select -->
                           <fieldset class="form-group">
-                            <label for="acute" class="select-label">Level of Consciousness</label>
+                            <label for="acute" class="select-label">Type of Acute Event</label>
                               <select class="form-control custom-select" name="acuteEvent" id="acute">
                                 <option id="acute0" value="0">Select one</option>
                                 <option id="acute1" value="1">Abruptio Placenta</option>
@@ -598,7 +609,7 @@
 
                 <div class="form-row mt-4 "> <!-- Question 4 -->
                   <div class="col-8">
-                    <span class="text-card align-bottom"><p class="card-text">Ventilation from birth continued for at least 10 min?</p></span>
+                    <span class="text-card align-bottom"><p class="card-text">Assisted ventilation from birth continued for at least 10 min?</p></span>
                   </div>
                   <div class="col-4"><!-- Radio Buttons -->
                     <fieldset class="form-group">
