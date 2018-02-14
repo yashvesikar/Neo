@@ -422,6 +422,7 @@ class BloodGasSection {
            }
          } else {
            this.reasons.push("The 10 minute Apgar score is greater than 5 and the infant was not mechanically ventilated from birth for at least 10 minutes.")
+
            RECCOMENDATION = false; // Ignore the rest of the form, Do not cool
          }
        } else {
