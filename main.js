@@ -343,8 +343,8 @@ class BloodGasSection {
                     || ((this.baseDeficit>10)&&(this.baseDeficit<=15.9))){
               return 6;
               // Is there a need to add a previous criteria check here?
-          } else if ((this.bloodGasPH >= 7.16) && (this.baseDeficit<10)){
-              this.reasons.push("The cord or postnatal blood gas pH is >= 7.16 and the base deficit is <= -9.9");
+          } else if ((this.bloodGasPH > 7.15) && (this.baseDeficit < 10)){
+              this.reasons.push("The cord or postnatal blood gas pH is greater than 7.15 and the base deficit is less than -10 mEq/L.");
               RECCOMENDATION = false; // Rest of the form doesn't matter here, overrides any other RECCOMENDATION
               return 7;
             }
@@ -421,7 +421,7 @@ class BloodGasSection {
              RECCOMENDATION = false;
            }
          } else {
-           this.reasons.push("The 10 minute Apgar score is >=5 and the infant was not mechanically ventilated from birth for at least 10 minutes.")
+           this.reasons.push("The 10 minute Apgar score is greater than 5 and the infant was not mechanically ventilated from birth for at least 10 minutes.")
            RECCOMENDATION = false; // Ignore the rest of the form, Do not cool
          }
        } else {
@@ -461,9 +461,9 @@ class ResultSection{
         // Normal Sarnat
         if( values.s3q2 == 0 ){summary = "Patient's neurological exam is normal according to Sarnat staging."}
         // Mild sarnat
-        else if (values.s3q2 < 3 ){summary += " Patient meets criteria for mild encephalopathy according to Sarnat staging."}
+        else if (values.s3q2 < 3 ){summary = "Patient meets criteria for mild encephalopathy according to Sarnat staging."}
         // Severe sarnat
-        else{summary += " Patient meets criteria for moderate/severe encephalopathy according to Sarnat staging."}
+        else{summary = "Patient meets criteria for moderate/severe encephalopathy according to Sarnat staging."}
       }
       //Qualifying questions 2 
       summary += ` The infant's gestational age is ${values.s4q1 ? "" : "not" } greater than 36 weeks, the infant is ${values.s4q2 ? "" : "not" } greater than 6 hours old, the infant's birth weight is ${values.s4q3 ? "" : "not" } greater than 1800g, the infant has ${values.s4q4 ? "no" : "" } congenital abnormalities, has ${values.s4q5 ? "no" : "" } chromosomal anomalies, and there is ${values.s4q6 ? "no" : "" } alternate cause for encephalopathy.`
