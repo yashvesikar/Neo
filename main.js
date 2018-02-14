@@ -81,7 +81,7 @@ class InitialSection {
       }
       else {
         RECCOMENDATION = false;
-        this.reasons.push("Neonates condition is not suggestive of Encephalopathy.");
+        this.reasons.push("Neonate's condition is not suggestive of encephalopathy.");
         return 7;
       }
 
@@ -192,12 +192,14 @@ $("#form3 select").on('input change',function(){
        // TODO: Add mild encephalopathy check with 1=>points <=2 points
        if (this.points == 1 || this.points == 2){
          this.encephalopathy = "mild";
+         this.reasons.push("The neonate does not meet criteria for moderate/severe encephalopathy");
        } else if (this.points>=3) {
          RECCOMENDATION = true;
          this.meetsCriteria = true;// Either nuero is yes, or SARNAT is, not both
          this.encephalopathy = "moderate/severe";
        } else {
          this.encephalopathy = "normal"
+         this.reasons.push("The neonate does not meet criteria for moderate/severe encephalopathy");
          RECCOMENDATION = false;
        }
        return 4;
@@ -233,12 +235,12 @@ class QualifyingSection {
 
     values() {
       return {
-        "s4q1":$("input:radio[name='s4q1']:checked").prop("checked"),
-        "s4q2":$("input:radio[name='s4q2']:checked").prop("checked"),
-        "s4q3":$("input:radio[name='s4q3']:checked").prop("checked"),
-        "s4q4":$("input:radio[name='s4q4']:checked").prop("checked"),
-        "s4q5":$("input:radio[name='s4q5']:checked").prop("checked"),
-        "s4q6":$("input:radio[name='s4q6']:checked").prop("checked")
+        "s4q1":parseInt($("input:radio[name='s4q1']:checked").val()),
+        "s4q2":parseInt($("input:radio[name='s4q2']:checked").val()),
+        "s4q3":parseInt($("input:radio[name='s4q3']:checked").val()),
+        "s4q4":parseInt($("input:radio[name='s4q4']:checked").val()),
+        "s4q5":parseInt($("input:radio[name='s4q5']:checked").val()),
+        "s4q6":parseInt($("input:radio[name='s4q6']:checked").val())
       };
     }
 
@@ -268,11 +270,11 @@ class QualifyingSection {
 
     _reasons(num){
       if(num == 1){return "The infant's gestational age is less than 36 weeks."}
-      else if ( num == 2){return "The infant is less than 6 hours old."}
+      else if ( num == 2){return "The infant is greater than 6 hours old."}
       else if ( num == 3){return "The infants birth weight is less than 1800g."}
-      else if ( num == 4){return "The infant suffers from congenital abnormalities"}
-      else if ( num == 5){return "The infant suffers from chromosomal abnormalities"}
-      else if ( num == 6){return "The infant suffers from alternate causes for encephalopathy"}
+      else if ( num == 4){return "The infant suffers from congenital abnormalities."}
+      else if ( num == 5){return "The infant suffers from chromosomal abnormalities."}
+      else if ( num == 6){return "There is an alternate cause for encephalopathy."}
     }
 
 }
@@ -341,7 +343,8 @@ class BloodGasSection {
                     || ((this.baseDeficit>10)&&(this.baseDeficit<=15.9))){
               return 6;
               // Is there a need to add a previous criteria check here?
-          } else if ((this.bloodGasPH > 7.15) && (this.baseDeficit<10)){
+          } else if ((this.bloodGasPH >= 7.16) && (this.baseDeficit<10)){
+              this.reasons.push("The cord or postnatal blood gas pH is >= 7.16 and the base deficit is <= -9.9");
               RECCOMENDATION = false; // Rest of the form doesn't matter here, overrides any other RECCOMENDATION
               return 7;
             }
@@ -418,9 +421,11 @@ class BloodGasSection {
              RECCOMENDATION = false;
            }
          } else {
+           this.reasons.push("The 10 minute Apgar score is >=5 and the infant was not mechanically ventilated from birth for at least 10 minutes.")
            RECCOMENDATION = false; // Ignore the rest of the form, Do not cool
          }
        } else {
+         this.reasons.push("There is no history of an acute event.")
          RECCOMENDATION = false;
        }
        return 7;
@@ -451,22 +456,22 @@ class ResultSection{
     // Qualifying question 1 
     if(values.s1q1 == true){
       // Siezures questions
-      if( values.s2q1 ){ summary += "Patient presents with seizures."} 
+      if( values.s2q1 ){ summary = "Patient presents with seizures."} 
       else {  // Sarnat 
         // Normal Sarnat
-        if( values.s3q2 == 0 ){summary += "Patient's neurological exam is normal according to Sarnat staging."}
+        if( values.s3q2 == 0 ){summary = "Patient's neurological exam is normal according to Sarnat staging."}
         // Mild sarnat
-        else if (values.s3q2 < 3 ){summary += "Patient meets criteria for mild encephalopathy according to Sarnat staging."}
+        else if (values.s3q2 < 3 ){summary += " Patient meets criteria for mild encephalopathy according to Sarnat staging."}
         // Severe sarnat
-        else{summary += "Patient meets criteria for moderate/severe encephalopathy according to Sarnat staging."}
+        else{summary += " Patient meets criteria for moderate/severe encephalopathy according to Sarnat staging."}
       }
       //Qualifying questions 2 
-      summary += `The patient's gestational age is ${values.s4q1 ? "greater than" : "less than" } 36 weeks, is ${values.s4q2 ? "greater than" : "less than" } 6 hours old, the infants birth weight is ${values.s4q3 ? "greater than" : "less than" } 1800g, the infant has ${values.s4q4 ? "no" : "a" } congenital abnormalities, has ${values.s4q5 ? "no" : "a" } chromosomal anomalies, and there is ${values.s4q6 ? "no" : "some" } alternate cause for encephalopathy.`
+      summary += ` The infant's gestational age is ${values.s4q1 ? "" : "not" } greater than 36 weeks, the infant is ${values.s4q2 ? "" : "not" } greater than 6 hours old, the infant's birth weight is ${values.s4q3 ? "" : "not" } greater than 1800g, the infant has ${values.s4q4 ? "no" : "" } congenital abnormalities, has ${values.s4q5 ? "no" : "" } chromosomal anomalies, and there is ${values.s4q6 ? "no" : "" } alternate cause for encephalopathy.`
       // Blood Gas questions
       if(values.s5q1 && values.s5q3 && values.s5q2){
-        summary +=  `The cord blood gas pH within 1hr of birth is ${values.s5q3} and the base deficit is ${values.s5q2}.`        
+        summary +=  ` The cord or postnatal blood gas pH within 1hr of birth is ${values.s5q3} and the base deficit is ${values.s5q2}.`        
       } else {
-        summary += "Biochemical data is unavailable."
+        summary += " Biochemical data is unavailable."
       }
       // History section
       if(values.s6q1){ summary += ` There is history of an acute event - ${values.s6q2}.`}
@@ -549,7 +554,7 @@ $("form").submit(function(event){
     case 2:
       try {
         nextPage = section2.validate();
-        PAGES = PAGES.slice(0,1);
+        PAGES = PAGES.slice(0);
         $("#form3, #form4, #form5, #form6, #result").css("display", "none");
       } catch(err) {
         section2 = new NeurologicSection();
@@ -560,7 +565,7 @@ $("form").submit(function(event){
     case 3:
      try{
        nextPage = section3.validate();
-       PAGES = PAGES.slice(0,2);
+       PAGES = PAGES.slice(0,1);
        $("#form4, #form5, #form6, #result").css("display", "none");
      } catch(err) {
        section3 = new SarnatSection();
@@ -587,7 +592,7 @@ $("form").submit(function(event){
     case 5:
       try{
         nextPage = section5.validate();
-        PAGES = PAGES.slice(0,4);
+        PAGES = PAGES.slice(0,3);
        $("#form6, #result").css("display", "none");
      } catch(err) {
        if(section1.meetsCriteria && (section2.meetsCriteria || section3.meetsCriteria) && section4.meetsCriteria){
@@ -603,7 +608,7 @@ $("form").submit(function(event){
     case 6:
       try{
         nextPage = section6.validate();
-        PAGES = PAGES.slice(0,5);
+        PAGES = PAGES.slice(0,4);
      } catch(err) {
 
        if(section1.meetsCriteria && (section2.meetsCriteria || section3.meetsCriteria) && section4.meetsCriteria){
