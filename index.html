@@ -52,9 +52,9 @@
               <!-- Button Group -->
               <div class="btn-group" data-toggle="buttons">
                 <button id="WhatButton" class="btn btn-secondary" type="button" onclick="showWhat()">What</button>
-                <button id="PerilsButton" class="btn btn-secondary" type="button" onclick="showPerils()">Pitfalls</button>
+                <button id="PerilsButton" class="btn btn-secondary" type="button" onclick="showPerils()">Pearls</button>
                 <button id="WhyButton" class="btn btn-secondary" type="button" onclick="showWhy()">Why</button>
-                <button id="RefButton" class="btn btn-secondary" type="button" onclick="showRefrences()">Refrences</button>
+                <button id="RefButton" class="btn btn-secondary" type="button" onclick="showReferences()">References</button>
               </div>
               <!-- Button Group End-->
 
@@ -79,7 +79,7 @@
                 <div class="card card-body">
                   <ul>
                     <li>Therapeutic hypothermia is an active treatment that aims to achieve and maintain a specific body temperature for a duration of time in an effort to improve health outcomes in infants with perinatal brain injury. In order for therapeutic hypothermia to be recommended, the patient must meet clinical and biochemical criteria.</li>
-                    <li>The SARNAT is a standardized physical exam tool used to categorize encephalopathic infants as normal, mild, moderate, or severe. To meet the current criteria for therapeutic hypothermia, infants must be moderately or severely encephalopathic.</li>
+                    <li>The sarnat is a standardized physical exam tool used to categorize encephalopathic infants as normal, mild, moderate, or severe. To meet the current criteria for therapeutic hypothermia, infants must be moderately or severely encephalopathic.</li>
                     <li>Neonates who are encephalopathic are eligible for therapeutic hypothermia, however, encephalopathy can have many causes. Therefore, clinical judgement should be used to determine if a patient should receive therapeutic hypothermia treatment on a case by case basis.</li>
                   </ul>
                 </div>
@@ -93,7 +93,7 @@
               </div>
             </div>
             <div class="col-12">
-              <div class="collapse multi-collapse" id="Refrences">
+              <div class="collapse multi-collapse" id="References">
                 <div class="card card-body">Sarnat HB, Sarnat MS. Neonatal encephalopathy following fetal distress: a clinical and electroencephalographic study. Arch Neurol 1976; 33(10): 696–705.
                 </div>
               </div>
@@ -149,7 +149,7 @@
               <div class="card-body"> <!-- Card body -->
                 <div class="row mt-2"> <!-- Form Group -->
                   <div class="col-8 my-auto">
-                    <span class="text-card align-bottom"><p class="card-text">Is the neonate's condition suggestive of seizures?</p></span>
+                    <span class="text-card align-bottom"><p class="card-text">Does the neonate present with seizures?</p></span>
                   </div>
                   <div class="col-4 my-auto"><!-- Radio Buttons -->
                     <fieldset class="form-group">
@@ -179,7 +179,7 @@
         <div class="col-12">
           <form id="s3">
             <div class="card border-top-0 border-bottom-0 mt-2 mb-2 mx-auto content-cards"> <!-- Card -->
-              <h4 class="card-header" style="text-align: center;">Nuerological Questions: SARNAT</h4> <!-- Card Header -->
+              <h4 class="card-header" style="text-align: center;">Neurological Exam: sarnat</h4> <!-- Card Header -->
               <div class="card-body"> <!-- Card body -->
                 <div class="col-6">
                   <div class="form-row mt-2"><!-- Question 1 -->
@@ -299,77 +299,6 @@
                       </fieldset>
                   </div><!-- Question 9 -->
                 </div>
-
-                <!-- <table class="table table-hover table-responsive-sm">
-                  <tbody>
-                    <tr>
-                      <th scope="row">Level of Consciousness</th>
-                      <td>Alert, responsive to external stimuli</td>
-                      <td>Hyper-alert, has a stare, jitteriness, high pitched cry, exaggerated response to minimal stimuli, inconsolable</td>
-                      <td>Lethargic/Obtunded</td>
-                      <td>Stupor/Coma</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Spontaneous Activity</th>
-                      <td>Normal</td>
-                      <td>Decreased, with or without periods of excessive activity</td>
-                      <td>Decreased</td>
-                      <td>No activity</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">NM Control - Posture</th>
-                      <td>Predominantly flexed when quiet</td>
-                      <td>Mild flexion of distal joints (fingers, wrist)</td>
-                      <td>Strong distal flexion, complete extension</td>
-                      <td>Intermittent decerebration</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">NM Control - Muscle Tone</th>
-                      <td>Strong flexor tone in all extremities</td>
-                      <td>Slightly increased peripheral tone</td>
-                      <td>Hypotonia, Hypertonia</td>
-                      <td>Flaccid, Rigid</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Primitive Reflexes - Suck</th>
-                      <td>Strong, easy to elicit</td>
-                      <td>Weak, Poor</td>
-                      <td>Weak or has bite</td>
-                      <td>Absent</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Primitive Reflexes - Moro</th>
-                      <td>Strong, easy to elicit</td>
-                      <td>Low threshold to elicit</td>
-                      <td>Incomplete</td>
-                      <td>Absent</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Autonomic System - Pupils</th>
-                      <td>Normal size</td>
-                      <td>Mydriasis (> 5mm)</td>
-                      <td>Miosis (< 3mm)</td>
-                      <td>Deviation/Dilated/Non-reactive</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Autonomic System - Heart Rate</th>
-                      <td>Normal heart rate</td>
-                      <td>Tachycardia (> 160 bpm)</td>
-                      <td>Bradycardia (< 100 bpm)</td>
-                      <td>Variable heart rate</td>
-                    </tr>
-
-                    <tr>
-                      <th scope="row">Autonomic System - Respirations</th>
-                      <td>Normal</td>
-                      <td>Hyperventilation (> 80/min)</td>
-                      <td>Periodic breathing</td>
-                      <td>Apnea or on ventilator with or without spontaneous respirations</td>
-                    </tr>
-
-                  </tbody>
-                </table> -->
-
               </div> <!-- Card body -->
               <div class="card-footer text-center"> <!-- Card Footer -->
                 <button id="submit3" type="submit" class="btn mx-auto submit-button" disabled="true">Continue</button>
@@ -516,7 +445,7 @@
 
                 <div class="form-row mt-2"> <!-- Question 1 -->
                   <div class="col-8">
-                    <span class="text-card align-bottom"><p class="card-text">Is there an available Cord or Postnatal Blood Gas pH obtained within 1hr of age?</p></span>
+                    <span class="text-card align-bottom"><p class="card-text">Is there an available Cord or Postnatal Blood Gas pH obtained within 1hr of birth?</p></span>
                   </div>
                   <div class="col-4"><!-- Radio Buttons -->
                     <fieldset class="form-group">
@@ -673,7 +602,7 @@
               <h4 class="card-header" style="text-align: center;">Result</h4> <!-- Card Header -->
               <div class="card-body"> <!-- Card body -->
 
-                <p class="card-text">Based on below references, this patient <span id="recommendation"></span> meet criteria for therapeutic hypothermia treatment for the following reasons. Please use your clinical judgement to decide the best course of treatment for your patient</p>
+                <p class="card-text">Based on the current literature, this patient <span id="recommendation"></span> meet criteria for therapeutic hypothermia treatment for the following reasons. Please use your clinical judgement to decide the best course of treatment for your patient</p>
                 <ol id="reasons">
                 </ol>
                 <p id="summary"><p>
