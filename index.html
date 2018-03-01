@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>NECP</title>
+    <title>NECG</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -36,13 +36,13 @@
   <body>
     <!-- Image and text -->
     <nav class="navbar navbar-light bg-light" style="background-color: #f0f0f0;">
-      <a href="https://www.chw.org/" class="brand-logo">
+      <a href="https://www.chw.org/" class="navbar-brand">
         <img  id="logo" src="img/childrens_hospital_wisconsin.png" width="150" alt="Children's Hospital of Wisconsin Logo">
       </a>
     </nav>
     <div class="container">
 
-      <h2 class="header">Neonatal Encephalopathy Cooling Protocol</h2>
+      <h2 class="header">Neonatal Encephalopathy Cooling Guidelines</h2>
 
       <!-- Info -->
       <div class="row">
@@ -70,7 +70,7 @@
             <div class="col-12">
               <div class="collapse multi-collapse" id="What">
                 <div class="card card-body">
-                  The Neonatal Encephalopathy Cooling Protocol (NECP) Tool identifies patients at risk for neonatal encephalopathy and incorporates the numerous criteria that must be met in order for a patient to meet current guidelines for therapeutic hypothermia treatment.
+                  The Neonatal Encephalopathy Cooling Guidelines (NECG) Tool identifies patients at risk for neonatal encephalopathy and incorporates the numerous criteria that must be met in order for a patient to meet current guidelines for therapeutic hypothermia treatment.
                 </div>
               </div>
             </div>
@@ -78,8 +78,9 @@
               <div class="collapse multi-collapse" id="Perils">
                 <div class="card card-body">
                   <ul>
+                    <li>Neonatal encephalopathy is defined as a condition in neonates when two of the following signs are present: altered consciousness, altered muscle tone, or abnormal primitive reflexes.
                     <li>Therapeutic hypothermia is an active treatment that aims to achieve and maintain a specific body temperature for a duration of time in an effort to improve health outcomes in infants with perinatal brain injury. In order for therapeutic hypothermia to be recommended, the patient must meet clinical and biochemical criteria.</li>
-                    <li>The sarnat is a standardized physical exam tool used to categorize encephalopathic infants as normal, mild, moderate, or severe. To meet the current criteria for therapeutic hypothermia, infants must be moderately or severely encephalopathic.</li>
+                    <li>Sarnat staging is used to categorize encephalopathic infants as normal, mild, moderate, or severe. To meet the current criteria for therapeutic hypothermia, infants must be moderately or severely encephalopathic.</li>
                     <li>Neonates who are encephalopathic are eligible for therapeutic hypothermia, however, encephalopathy can have many causes. Therefore, clinical judgement should be used to determine if a patient should receive therapeutic hypothermia treatment on a case by case basis.</li>
                   </ul>
                 </div>
@@ -88,13 +89,19 @@
             <div class="col-12">
               <div class="collapse multi-collapse" id="Why">
                 <div class="card card-body">
-                  Therapeutic hypothermia is one of the only treatments available to decrease neurological morbidity in perinatal brain injury. The Neonatal Neurocritical Care Group at the Children’s Hospital of Wisconsin has identified that physicians often incompletely document clinical and biochemical criteria needed to support decisions to initiate therapeutic hypothermia. The purpose of this tool is to assist healthcare providers with decision making and documentation in cases where therapeutic hypothermia treatment is a consideration.
+                  Therapeutic hypothermia is one of the only treatments available to decrease neurological morbidity in patients with perinatal brain injury. The Neonatal Neurocritical Care Group at the Children’s Hospital of Wisconsin has identified that physicians often incompletely document clinical and biochemical criteria needed to support decisions to initiate therapeutic hypothermia. The purpose of this tool is to assist healthcare providers with decision making and documentation in cases where therapeutic hypothermia treatment is a consideration.
                 </div>
               </div>
             </div>
             <div class="col-12">
               <div class="collapse multi-collapse" id="References">
-                <div class="card card-body">Sarnat HB, Sarnat MS. Neonatal encephalopathy following fetal distress: a clinical and electroencephalographic study. Arch Neurol 1976; 33(10): 696–705.
+                <div class="card card-body">
+                  <ul>
+                    <li>Prempunpong, C., Chalak, L. F., Garfinkle, J., Shah, B., Kalra, V., Rollins, N., and Boyle, R. (2018). Prospective research on infants with mild encephalopathy: The PRIME study.38(1), 80-85. 10.1038/jp.2017.164 
+                    <li>Robertson, C., and Finer, N. (1985). Term infants with hypoxic-ischemic encephalopathy: Outcome at 3.5 years. Developmental Medicine and Child Neurology, 27(4), 473-484.
+                    <li>Sarnat HB, Sarnat MS. Neonatal encephalopathy following fetal distress: a clinical and electroencephalographic study. Arch Neurol 1976; 33(10): 696–705.
+                    <li>Shalak, L. F., Laptook, A. R., Velaphi, S. C., and Perlman, J. M. (2003). Amplitude-integrated electroencephalography coupled with an early neurologic examination enhances prediction of term infants at risk for persistent encephalopathy. Pediatrics, 111(2), 351-357.</li>
+                  </ul>
                 </div>
               </div>
             </div>            
@@ -602,7 +609,7 @@
               <h4 class="card-header" style="text-align: center;">Result</h4> <!-- Card Header -->
               <div class="card-body"> <!-- Card body -->
 
-                <p class="card-text">Based on the current literature, this patient <span id="recommendation"></span> meet criteria for therapeutic hypothermia treatment for the following reasons. Please use your clinical judgement to decide the best course of treatment for your patient</p>
+                <p class="card-text">Based on the current literature, this patient <span id="recommendation"></span> meet criteria for therapeutic hypothermia treatment<span id="recommendation2"></span> Please use your clinical judgement to decide the best course of treatment for your patient.</p>
                 <ol id="reasons">
                 </ol>
                 <p id="summary"><p>
@@ -622,7 +629,7 @@
 
     <footer class="footer">
       <div class="container" style="text-align: center;">
-        <span class="text-muted">Neonatal Encephalopathy Cooling Protocol</span>
+        <span class="text-muted">Neonatal Encephalopathy Cooling Guidelines</span>
       </div>
     </footer>
 

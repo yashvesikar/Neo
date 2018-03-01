@@ -467,7 +467,7 @@ class ResultSection{
         else{summary = "Patient meets criteria for moderate/severe encephalopathy according to Sarnat staging."}
       }
       //Qualifying questions 2 
-      summary += ` The infant's gestational age is ${values.s4q1 ? "" : "not" } greater than 36 weeks, the infant is ${values.s4q2 ? "" : "not" } greater than 6 hours old, the infant's birth weight is ${values.s4q3 ? "" : "not" } greater than 1800g, the infant has ${values.s4q4 ? "no" : "" } congenital abnormalities, has ${values.s4q5 ? "no" : "" } chromosomal anomalies, and there is ${values.s4q6 ? "no" : "" } alternate cause for encephalopathy.`
+      summary += ` The infant's gestational age is ${values.s4q1 ? "" : "not" } greater than 36 weeks, the infant is ${values.s4q2 ? "less than" : "greater than" } 6 hours old, the infant's birth weight is ${values.s4q3 ? "" : "not" } greater than 1800g, the infant has ${values.s4q4 ? "no" : "" } congenital abnormalities, has ${values.s4q5 ? "no" : "" } chromosomal anomalies, and there is ${values.s4q6 ? "no" : "" } alternate cause for encephalopathy.`
       // Blood Gas questions
       if(values.s5q1 && values.s5q3 && values.s5q2){
         summary +=  ` The cord or postnatal blood gas pH within 1hr of birth is ${values.s5q3} and the base deficit is ${values.s5q2}.`        
@@ -499,13 +499,16 @@ class ResultSection{
         scrollTop: $("#result").offset().top
     }, 500);
 
+    console.log("DEBUG: RCC", recommendation);
 
     if(this.recommendation == true){
       $("#recommendation").css("color","blue");
       $("#recommendation").html("does");
+      $("#recommendation2").html(".")
     } else {
       $("#recommendation").css("color","red");
       $("#recommendation").html("does not");
+      $("#recommendation2").html(" for the following reasons.")
 
       for( let sec of this.pages){
         for(let reason of sec.reasons){
