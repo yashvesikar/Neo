@@ -470,7 +470,7 @@ class ResultSection{
       summary += ` The infant's gestational age is ${values.s4q1 ? "" : "not" } greater than 36 weeks, the infant is ${values.s4q2 ? "less than" : "greater than" } 6 hours old, the infant's birth weight is ${values.s4q3 ? "" : "not" } greater than 1800g, the infant has ${values.s4q4 ? "no" : "" } congenital abnormalities, has ${values.s4q5 ? "no" : "" } chromosomal anomalies, and there is ${values.s4q6 ? "no" : "" } alternate cause for encephalopathy.`
       // Blood Gas questions
       if(values.s5q1 && values.s5q3 && values.s5q2){
-        summary +=  ` The cord or postnatal blood gas pH within 1hr of birth is ${values.s5q3} and the base deficit is ${values.s5q2}.`        
+        summary +=  ` The cord or postnatal blood gas pH within 1hr of birth is ${values.s5q3} and the base deficit is -${values.s5q2} mEq/L.`        
       } else {
         summary += " Biochemical data is unavailable."
       }
