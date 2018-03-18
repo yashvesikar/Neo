@@ -503,11 +503,11 @@ class ResultSection{
 
     if(this.recommendation == true){
       $("#recommendation").css("color","blue");
-      $("#recommendation").html("does");
+      $("#recommendation").html("DOES");
       $("#recommendation2").html(".")
     } else {
       $("#recommendation").css("color","red");
-      $("#recommendation").html("does not");
+      $("#recommendation").html("DOES NOT");
       $("#recommendation2").html(" for the following reasons.")
 
       for( let sec of this.pages){
