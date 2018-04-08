@@ -325,30 +325,39 @@ class BloodGasSection {
       this.reasons = [];
       this.isAvailableBloodGasPH = $("input:radio[name='s5q1']:checked").val();
       $("#submit5").prop("disabled",true);
-        if(this.isAvailableBloodGasPH == 1){
-          this.bloodGasPH = parseFloat($("#pH").val());
+        
+        if(this.isAvailableBloodGasPH == 1){  // This checks if the blood gas or base defecit is available ( yes/no button )
+          // If available then I collect the values here: 
+          this.bloodGasPH = parseFloat($("#pH").val());  
           this.baseDeficit= parseFloat($("#baseDeficit").val());
+
+          // The reason it is skipping the history section is here: 
+          // (bloodgas <= 7 or basedef >= 16)
           if ((this.bloodGasPH <= 7) || (this.baseDeficit>=16)){
             this.meetsCriteria = true;
-            console.log("BLOOD GAS PAGES: ",PAGES);
             if(this.meetsCriteria && this.previousCriteria){
               RECCOMENDATION = true;
-              console.log("Both criteria qualify: ", this.meetsCriteria,"prev: ", this.previousCriteria);
             } else {
               RECCOMENDATION = false;
-              console.log("Does not qualify: ", this.meetsCriteria,"prev: ", this.previousCriteria);
             }
             return 7;
-          } else if (((this.bloodGasPH >7) && (this.bloodGasPH<=7.15))
-                    || ((this.baseDeficit>10)&&(this.baseDeficit<=15.9))){
+          } 
+
+          // Check number 2: (bloodGas > 7 and bloodGas < 7.15) or (basedef > 10 and basedef <= 15.9)
+          else if (((this.bloodGasPH >7) && (this.bloodGasPH<=7.15)) || ((this.baseDeficit>=10)&&(this.baseDeficit<=15.9))){
+            console.log("BASE DEF", this.baseDeficit)
               return 6;
-              // Is there a need to add a previous criteria check here?
-          } else if ((this.bloodGasPH > 7.15) && (this.baseDeficit < 10)){
+          } 
+
+          // Check number 3: (bloodgas> 7.15 and basedef < 10)
+          else if ((this.bloodGasPH > 7.15) && (this.baseDeficit < 10)){
               this.reasons.push("The cord or postnatal blood gas pH is greater than 7.15 and the base deficit is less than -10 mEq/L.");
               RECCOMENDATION = false; // Rest of the form doesn't matter here, overrides any other RECCOMENDATION
               return 7;
             }
-        } else {
+        } 
+        // If the blood gas or base def is not available continue to the history section. 
+        else {
           return 6;
         }
 
