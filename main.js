@@ -1,3 +1,11 @@
+/**
+ *
+ * Author: Yash Vesikar
+ * Neonatal Encephalopathy Cooling Guidelines Calculator
+ * Childrens Hospital of Wisconsin
+ *
+ */
+
 var PAGES = [];
 var RECCOMENDATION = null;
 var REASONS = [];
