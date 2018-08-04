@@ -15,7 +15,7 @@ var RESULT = {};
  */
 function show(event){
     let targets = ["Ref", "Ack", "Perils", "Why", "What"]
-    targets.forEach(t=>{
+    targets.forEach(t => {
 
         if (t + "Button" === event.target.id){
             $("#"+t).collapse('toggle');
@@ -23,7 +23,6 @@ function show(event){
             $("#"+t).collapse('hide');
             $("#"+t+'Button').removeClass("active");
             $("#"+t+'Button').removeClass("focus");
-
         }
     })
 
@@ -53,6 +52,9 @@ class InitialSection {
     validate(){
       this.reasons = [];
       this.perinatalEvent = parseInt($("input:radio[name='s1q1']:checked").val());
+      if (this.perinatalEvent === undefined){
+        return null;
+      }
       $("#submit1").prop("disabled",true);
       if(this.perinatalEvent === 1) {
         this.meetsCriteria = true;
@@ -71,7 +73,6 @@ class InitialSection {
  * Section 2 - Nuerological Questions
  */
  $("label[name='s2q1_label']").click(function() {
-   console.log("Here");
    $("#submit2").prop("disabled",false);
  });
 
@@ -107,7 +108,6 @@ class InitialSection {
   **/
   // Enable submit button logic
 $("#form3 select").on('input change',function(){
-      // console.log($("select[name='question1']").val());
       if($('#form3 option[disabled]:selected').length == 0 ){
          // ALL the select boxes have something selected rather than the default option
          $("#submit3").prop("disabled",false);
@@ -273,12 +273,10 @@ $("#form5").on('input change',function(){
 });
 
 function showBloodGas() {
-  console.log("SHOW");
   $('#bloodgas2').collapse('show');
 }
 
 function hideBloodGas() {
-  console.log("HIDE");
   $('#bloodgas2').collapse('hide');
 }
 
@@ -324,7 +322,6 @@ class BloodGasSection {
 
           // Check number 2: (bloodGas > 7 and bloodGas < 7.15) or (basedef > 10 and basedef <= 15.9)
           else if (((this.bloodGasPH >7) && (this.bloodGasPH<=7.15)) || ((this.baseDeficit>=10)&&(this.baseDeficit<=15.9))){
-            console.log("BASE DEF", this.baseDeficit)
               return 6;
           } 
 
@@ -361,12 +358,10 @@ class BloodGasSection {
  });
 
  function showAcuteHistory(event) {
-   console.log(event);
    $('#acuteHistory').collapse('show');
  }
 
  function hideAcuteHistory() {
-   console.log("HIDE");
    $('#acuteHistory').collapse('hide');
  }
 
@@ -440,7 +435,6 @@ class ResultSection{
     for(let sec of this.pages){
       $.extend(values,sec.values());
     }
-    console.log("VALUES: ",values)
     let summary;
     // Qualifying question 1 
     if(values.s1q1 == true){
@@ -479,15 +473,12 @@ class ResultSection{
   show(){
 
     this.reasons = [];
-    // console.log("VALUES: ",this.createSummary());
     $("#reasons, #recommendation").empty(); // Empties the reasons and recommendation
 
     $("#result").fadeIn(); // Fades in Result section
     $('html, body').animate({
         scrollTop: $("#result").offset().top
     }, 500);
-
-    console.log("DEBUG: RCC", recommendation);
 
     if(this.recommendation == true){
       $("#recommendation").css("color","blue");
@@ -523,17 +514,18 @@ var section3;
 var section4;
 var section5;
 var section6;
+NProgress.configure({ showSpinner: false });
 // Submit Logic
 $("form").submit(function(event){
   event.preventDefault();
   sectionNum = parseInt($(this).closest("form").attr("id").slice(-1));
-  console.log("Section: ",sectionNum);
   var nextPage;
 
   switch (sectionNum) {
     case 1:
       try {
         nextPage = section1.validate();
+
         PAGES = [];
         $("#form2, #form3, #form4, #form5, #form6, #result").css("display", "none");
       } catch(err) {
@@ -541,7 +533,10 @@ $("form").submit(function(event){
         section1 = new InitialSection();
         nextPage = section1.validate();
       }
-      PAGES.push(section1);
+
+      NProgress.set(1/7);
+
+        PAGES.push(section1);
       break;
     case 2:
       try {
@@ -552,7 +547,8 @@ $("form").submit(function(event){
         section2 = new NeurologicSection();
         nextPage = section2.validate();
       }
-      PAGES.push(section2);
+        PAGES.push(section2);
+        NProgress.set(2/7);
       break;
     case 3:
      try{
@@ -563,7 +559,9 @@ $("form").submit(function(event){
        section3 = new SarnatSection();
        nextPage = section3.validate();
      }
+     NProgress.set(3/7);
      PAGES.push(section3);
+
      break;
     case 4:
       try{
@@ -580,6 +578,7 @@ $("form").submit(function(event){
        nextPage = section4.validate();
      }
      PAGES.push(section4);
+     NProgress.set(4/7);
      break;
     case 5:
       try{
@@ -596,6 +595,7 @@ $("form").submit(function(event){
        nextPage = section5.validate();
      }
      PAGES.push(section5);
+     NProgress.set(5/7);
      break;
     case 6:
       try{
@@ -611,16 +611,15 @@ $("form").submit(function(event){
        nextPage = section6.validate();
      }
      PAGES.push(section6);
+     NProgress.set(6/7);
      break;
     default:
-      console.log("Switch Default");
       break;
   }
-  console.log("NEXT PAGE: ",nextPage);
-  console.log("PAGES: ", PAGES);
   if(nextPage == 7) {
     section7 = new ResultSection(PAGES,RECCOMENDATION);
     section7.show();
+    NProgress.done();
   } else {
       let form = "#form" + nextPage;
       $(form).fadeIn();

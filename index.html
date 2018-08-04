@@ -11,8 +11,10 @@
 
     <!-- Roboto Font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+    <!-- nprogress stylesheet -->
+    <link rel='stylesheet' href='assets/css/nprogress.css'/>
     <!-- Custom Style sheet  -->
-    <link rel="stylesheet" href="main.css"/>
+    <link rel="stylesheet" href="assets/css/main.css"/>
     <!-- Favicons -->
 <!--     <link rel="apple-touch-icon" sizes="57x57" href="./img/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="./img/favicon/apple-icon-60x60.png">
@@ -49,8 +51,10 @@
       <!-- Info -->
       <div class="row">
         <div class="col 12">
-          <div class="card border-light mb-2 mx-auto">
-            <div class="card-body mx-auto">
+          <div class="card mb-2 mx-auto info-cards">
+          <!--<div class="card border-top-0 border-bottom-0 mt-2 mb-2 mx-auto content-cards"> &lt;!&ndash; Card &ndash;&gt;-->
+
+              <div class="card-body mx-auto">
               <!-- Button Group -->
               <div class="btn-group" data-toggle="buttons">
                 <button id="WhatButton" class="btn btn-secondary" type="button" onclick="show(event)">What</button>
@@ -66,21 +70,19 @@
               <!-- Collapses End -->
             </div>
           </div>
-          <!-- <div class="row"> -->
 
-          <!-- </div> -->
           <div class="row">
             <div class="col-12">
               <div class="collapse multi-collapse" id="What">
-                <div class="card card-body">
+                <div class="card mb-2 mx-auto card-body info-cards">
                   The Neonatal Encephalopathy Cooling Guidelines (NECG) Tool identifies patients at risk for neonatal encephalopathy and incorporates the numerous criteria that must be met in order for a patient to meet current guidelines for therapeutic hypothermia treatment.
                 </div>
               </div>
             </div>
             <div class="col-12">
               <div class="collapse multi-collapse" id="Perils">
-                <div class="card card-body">
-                  <ul>
+                <div class="card mb-2 mx-auto card-body info-cards">
+                <ul>
                     <li>Neonatal encephalopathy is defined as a condition in neonates when two of the following signs are present: altered consciousness, altered muscle tone, or abnormal primitive reflexes.
                     <li>Therapeutic hypothermia is an active treatment that aims to achieve and maintain a specific body temperature for a duration of time in an effort to improve health outcomes in infants with perinatal brain injury. In order for therapeutic hypothermia to be recommended, the patient must meet clinical and biochemical criteria.</li>
                     <li>Sarnat staging is used to categorize encephalopathic infants as normal, mild, moderate, or severe. To meet the current criteria for therapeutic hypothermia, infants must be moderately or severely encephalopathic.</li>
@@ -91,14 +93,14 @@
             </div>
             <div class="col-12">
               <div class="collapse multi-collapse" id="Why">
-                <div class="card card-body">
+                <div class="card mb-2 mx-auto card-body info-cards">
                   Therapeutic hypothermia is one of the only treatments available to decrease neurological morbidity in patients with perinatal brain injury. The Neonatal Neurocritical Care Group at the Children’s Hospital of Wisconsin has identified that physicians often incompletely document clinical and biochemical criteria needed to support decisions to initiate therapeutic hypothermia. The purpose of this tool is to assist healthcare providers with decision making and documentation in cases where therapeutic hypothermia treatment is a consideration.
                 </div>
               </div>
             </div>
             <div class="col-12">
               <div class="collapse multi-collapse" id="Ref">
-                <div class="card card-body">
+                <div class="card mb-2 mx-auto card-body info-cards">
                   <ul>
                     <li>Prempunpong, C., Chalak, L. F., Garfinkle, J., Shah, B., Kalra, V., Rollins, N., and Boyle, R. (2018). Prospective research on infants with mild encephalopathy: The PRIME study.38(1), 80-85. 10.1038/jp.2017.164 
                     <li>Robertson, C., and Finer, N. (1985). Term infants with hypoxic-ischemic encephalopathy: Outcome at 3.5 years. Developmental Medicine and Child Neurology, 27(4), 473-484.
@@ -110,7 +112,7 @@
             </div>
             <div class="col-12">
               <div class="collapse multi-collapse" id="Ack">
-                <div class="card card-body">
+                <div class="card mb-2 mx-auto card-body info-cards">
                   <ul>
                     <li>Kelly Staricha - Product Design and Strategy</li>
                     <li><a href="http://vesikar.com">Yash Vesikar</a> - Solution Engineer</li>
@@ -654,6 +656,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-    <script src="main.js"></script>
+    <script src='assets/javascript/nprogress.js'></script>
+    <script src="assets/javascript/main.js"></script>
   </body>
 </html>

@@ -2,6 +2,7 @@
    No media query since this is the default in Bootstrap */
 
  .header {
+     font-family: 'Raleway', sans-serif;
      text-align: center;
      font-weight:300;
      margin-top: 30px;
@@ -73,6 +74,10 @@
   .q-question{
     margin-top: 0px;
     margin-bottom: 0px;
+  }
+
+  .info-cards{
+      width: 75%;
   }
 
  }
