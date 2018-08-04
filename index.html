@@ -53,10 +53,11 @@
             <div class="card-body mx-auto">
               <!-- Button Group -->
               <div class="btn-group" data-toggle="buttons">
-                <button id="WhatButton" class="btn btn-secondary" type="button" onclick="showWhat()">What</button>
-                <button id="PerilsButton" class="btn btn-secondary" type="button" onclick="showPerils()">Pearls</button>
-                <button id="WhyButton" class="btn btn-secondary" type="button" onclick="showWhy()">Why</button>
-                <button id="RefButton" class="btn btn-secondary" type="button" onclick="showReferences()">References</button>
+                <button id="WhatButton" class="btn btn-secondary" type="button" onclick="show(event)">What</button>
+                <button id="PerilsButton" class="btn btn-secondary" type="button" onclick="show(event)">Pearls</button>
+                <button id="WhyButton" class="btn btn-secondary" type="button" onclick="show(event)">Why</button>
+                <button id="RefButton" class="btn btn-secondary" type="button" onclick="show(event)">References</button>
+                <button id="AckButton" class="btn btn-secondary" type="button" onclick="show(event)">The Team</button>
               </div>
               <!-- Button Group End-->
 
@@ -96,7 +97,7 @@
               </div>
             </div>
             <div class="col-12">
-              <div class="collapse multi-collapse" id="References">
+              <div class="collapse multi-collapse" id="Ref">
                 <div class="card card-body">
                   <ul>
                     <li>Prempunpong, C., Chalak, L. F., Garfinkle, J., Shah, B., Kalra, V., Rollins, N., and Boyle, R. (2018). Prospective research on infants with mild encephalopathy: The PRIME study.38(1), 80-85. 10.1038/jp.2017.164 
@@ -106,9 +107,22 @@
                   </ul>
                 </div>
               </div>
-            </div>            
+            </div>
+            <div class="col-12">
+              <div class="collapse multi-collapse" id="Ack">
+                <div class="card card-body">
+                  <ul>
+                    <li>Kelly Staricha - Product Design and Strategy</li>
+                    <li><a href="http://vesikar.com">Yash Vesikar</a> - Solution Engineer</li>
+                    <li>Susan Cohen, MD - Subject Matter Expert</li>
+                    <li>Erwin Cabacungan, MD - Subject Matter Expert</li>
+                    <li>Katherine Carlton, MD - Subject Matter Expert</li>
+                    <li>Jodi Garvin, MD - Subject Matter Expert</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
-
 
         </div>
       </div>

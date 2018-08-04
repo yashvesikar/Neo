@@ -13,49 +13,20 @@ var RESULT = {};
 /**
  * Information Section
  */
-function showWhat(){
-   $('#What').collapse('toggle');
-   // $('#How').collapse('hide');
-   $('#Perils').collapse('hide');
-   $('#PerilsButton').removeClass("active");
-   $('#Why').collapse('hide');
-   $('#WhyButton').removeClass("active");
-   $('#References').collapse('hide');
-   $('#RefButton').removeClass("active");
+function show(event){
+    let targets = ["Ref", "Ack", "Perils", "Why", "What"]
+    targets.forEach(t=>{
 
-}
+        if (t + "Button" === event.target.id){
+            $("#"+t).collapse('toggle');
+        } else {
+            $("#"+t).collapse('hide');
+            $("#"+t+'Button').removeClass("active");
+            $("#"+t+'Button').removeClass("focus");
 
-function showPerils(){
-   $('#Perils').collapse('toggle');
-   // $('#Pitfalls').collapse('hide');
-   $('#Why').collapse('hide');
-   $('#WhyButton').removeClass("active");
-   $('#What').collapse('hide');
-   $('#WhatButton').removeClass("active");
-   $('#References').collapse('hide');
-   $('#RefButton').removeClass("active");
-}
+        }
+    })
 
-function showWhy(){
-   $('#Why').collapse('toggle');
-   // $('#Why').collapse('hide');
-   $('#Perils').collapse('hide');
-   $('#PerilsButton').removeClass("active");
-   $('#What').collapse('hide');
-   $('#WhatButton').removeClass("active");
-   $('#References').collapse('hide');
-   $('#RefButton').removeClass("active");
-}
-
-function showReferences(){
-   $('#References').collapse('toggle');
-   // $('#Why').collapse('hide');
-   $('#Perils').collapse('hide');
-   $('#PerilsButton').removeClass("active");
-   $('#What').collapse('hide');
-   $('#WhatButton').removeClass("active");
-   $('#Why').collapse('hide');         
-   $('#WhyButton').removeClass("active");
 }
 //******************************************************************************
 
