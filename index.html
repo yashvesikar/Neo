@@ -20,7 +20,13 @@
 
     <div class="container">
 
-      <h2 class="header">Neonatal Encephalopathy Cooling Guidelines</h2>
+      <div class="header-container">
+        <h2 class="header" data-i18n="header.title">Neonatal Encephalopathy Cooling Guidelines</h2>
+        <select id="languageSelector" class="form-control">
+          <option value="en">English</option>
+          <option value="hi">हिन्दी (Hindi)</option>
+        </select>
+      </div>
 
       <!-- Info -->
       <div class="row">
@@ -28,11 +34,11 @@
           <div class="card mb-2 mx-auto info-cards">
               <div class="card-body mx-auto info-card-body">
               <!-- Button Group -->
-                <button id="WhatButton" class="btn btn-secondary info-button" type="button" onclick="show(event)">What</button>
-                <button id="PerilsButton" class="btn btn-secondary info-button" type="button" onclick="show(event)">Pearls</button>
-                <button id="WhyButton" class="btn btn-secondary info-button" type="button" onclick="show(event)">Why</button>
-                <button id="RefButton" class="btn btn-secondary info-button" type="button" onclick="show(event)">References</button>
-                <button id="AckButton" class="btn btn-secondary info-button" type="button" onclick="show(event)">The Team</button>
+                <button id="WhatButton" class="btn btn-secondary info-button" type="button" onclick="show(event)" data-i18n="nav.what">What</button>
+                <button id="PerilsButton" class="btn btn-secondary info-button" type="button" onclick="show(event)" data-i18n="nav.pearls">Pearls</button>
+                <button id="WhyButton" class="btn btn-secondary info-button" type="button" onclick="show(event)" data-i18n="nav.why">Why</button>
+                <button id="RefButton" class="btn btn-secondary info-button" type="button" onclick="show(event)" data-i18n="nav.references">References</button>
+                <button id="AckButton" class="btn btn-secondary info-button" type="button" onclick="show(event)" data-i18n="nav.team">The Team</button>
               <!-- Button Group End-->
             </div>
           </div>
@@ -41,7 +47,7 @@
             <div class="col-12">
               <div class="collapse multi-collapse" id="What">
                 <div class="card mb-2 mx-auto card-body info-cards">
-                  The Neonatal Encephalopathy Cooling Guidelines (NECG) Tool identifies patients at risk for neonatal encephalopathy and incorporates the numerous criteria that must be met in order for a patient to meet current guidelines for therapeutic hypothermia treatment.
+                  <p data-i18n="info.what.content">The Neonatal Encephalopathy Cooling Guidelines (NECG) Tool identifies patients at risk for neonatal encephalopathy and incorporates the numerous criteria that must be met in order for a patient to meet current guidelines for therapeutic hypothermia treatment.</p>
                 </div>
               </div>
             </div>
@@ -49,10 +55,10 @@
               <div class="collapse multi-collapse" id="Perils">
                 <div class="card mb-2 mx-auto card-body info-cards">
                 <ul>
-                    <li>Neonatal encephalopathy is defined as a condition in neonates when two of the following signs are present: altered consciousness, altered muscle tone, or abnormal primitive reflexes.
-                    <li>Therapeutic hypothermia is an active treatment that aims to achieve and maintain a specific body temperature for a duration of time in an effort to improve health outcomes in infants with perinatal brain injury. In order for therapeutic hypothermia to be recommended, the patient must meet clinical and biochemical criteria.</li>
-                    <li>Sarnat staging is used to categorize encephalopathic infants as normal, mild, moderate, or severe. To meet the current criteria for therapeutic hypothermia, infants must be moderately or severely encephalopathic.</li>
-                    <li>Neonates who are encephalopathic are eligible for therapeutic hypothermia, however, encephalopathy can have many causes. Therefore, clinical judgement should be used to determine if a patient should receive therapeutic hypothermia treatment on a case by case basis.</li>
+                    <li data-i18n="info.pearls.p1">Neonatal encephalopathy is defined as a condition in neonates when two of the following signs are present: altered consciousness, altered muscle tone, or abnormal primitive reflexes.</li>
+                    <li data-i18n="info.pearls.p2">Therapeutic hypothermia is an active treatment that aims to achieve and maintain a specific body temperature for a duration of time in an effort to improve health outcomes in infants with perinatal brain injury. In order for therapeutic hypothermia to be recommended, the patient must meet clinical and biochemical criteria.</li>
+                    <li data-i18n="info.pearls.p3">Sarnat staging is used to categorize encephalopathic infants as normal, mild, moderate, or severe. To meet the current criteria for therapeutic hypothermia, infants must be moderately or severely encephalopathic.</li>
+                    <li data-i18n="info.pearls.p4">Neonates who are encephalopathic are eligible for therapeutic hypothermia, however, encephalopathy can have many causes. Therefore, clinical judgement should be used to determine if a patient should receive therapeutic hypothermia treatment on a case by case basis.</li>
                   </ul>
                 </div>
               </div>
@@ -60,7 +66,7 @@
             <div class="col-12">
               <div class="collapse multi-collapse" id="Why">
                 <div class="card mb-2 mx-auto card-body info-cards">
-                  Therapeutic hypothermia is one of the only treatments available to decrease neurological morbidity in patients with perinatal brain injury. The Neonatal Neurocritical Care Group at the Children’s Hospital of Wisconsin has identified that physicians often incompletely document clinical and biochemical criteria needed to support decisions to initiate therapeutic hypothermia. The purpose of this tool is to assist healthcare providers with decision making and documentation in cases where therapeutic hypothermia treatment is a consideration.
+                  <p data-i18n="info.why.content">Therapeutic hypothermia is one of the only treatments available to decrease neurological morbidity in patients with perinatal brain injury. The Neonatal Neurocritical Care Group at the Children's Hospital of Wisconsin has identified that physicians often incompletely document clinical and biochemical criteria needed to support decisions to initiate therapeutic hypothermia. The purpose of this tool is to assist healthcare providers with decision making and documentation in cases where therapeutic hypothermia treatment is a consideration.</p>
                 </div>
               </div>
             </div>
@@ -101,20 +107,20 @@
         <div class="col-12">
           <form id="s1">
             <div class="card border-top-0 border-bottom-0 mt-2 mb-2 mx-auto content-cards"> <!-- Card -->
-              <h4 class="card-header" style="text-align: center;">Qualifying Questions</h4> <!-- Card Header -->
+              <h4 class="card-header" style="text-align: center;" data-i18n="forms.form1.title">Qualifying Questions</h4> <!-- Card Header -->
               <div class="card-body"> <!-- Card body -->
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 mb-3"> <!-- Form Group -->
                   <div class="flex-grow-1 mb-2 mb-md-0 pr-md-3">
-                    <p class="card-text mb-0 text-center text-md-left">Is the neonate's condition suggestive of encephalopathy?</p>
+                    <p class="card-text mb-0 text-center text-md-left" data-i18n="forms.form1.question">Is the neonate's condition suggestive of encephalopathy?</p>
                   </div>
                   <div class="flex-shrink-0"><!-- Radio Buttons -->
                     <fieldset class="form-group mb-0">
                       <div class="btn-group radio-buttons" data-toggle="buttons">
                         <label name="s1q1_label" class="btn btn-secondary">
-                          <input type="radio" name="s1q1" id="s1q1_no" autocomplete="off" value="0">No
+                          <input type="radio" name="s1q1" id="s1q1_no" autocomplete="off" value="0"><span data-i18n="buttons.no">No</span>
                         </label>
                         <label name="s1q1_label" class="btn btn-secondary">
-                          <input type="radio" name="s1q1" id="s1q1_yes" autocomplete="off" value="1">Yes
+                          <input type="radio" name="s1q1" id="s1q1_yes" autocomplete="off" value="1"><span data-i18n="buttons.yes">Yes</span>
                         </label>
                       </div>
                     </fieldset>
@@ -122,7 +128,7 @@
                 </div> <!-- Form Group -->
               </div> <!-- Card body -->
               <div class="card-footer text-center"> <!-- Card Footer -->
-                <button id="submit1" type="submit" class="btn mx-auto submit-button" disabled="true">Continue</button>
+                <button id="submit1" type="submit" class="btn mx-auto submit-button" disabled="true" data-i18n="buttons.continue">Continue</button>
               </div> <!-- Card Footer -->
             </div> <!-- Card -->
           </form>
@@ -136,20 +142,20 @@
         <div class="col-12">
           <form id="s2">
             <div class="card border-top-0 border-bottom-0 mt-2 mb-2 mx-auto content-cards"> <!-- Card -->
-              <h4 class="card-header" style="text-align: center;">Neurological Questions: Seizures</h4> <!-- Card Header -->
+              <h4 class="card-header" style="text-align: center;" data-i18n="forms.form2.title">Neurological Questions: Seizures</h4> <!-- Card Header -->
               <div class="card-body"> <!-- Card body -->
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 mb-3"> <!-- Form Group -->
                   <div class="flex-grow-1 mb-2 mb-md-0 pr-md-3">
-                    <p class="card-text mb-0 text-center text-md-left">Does the neonate present with seizures?</p>
+                    <p class="card-text mb-0 text-center text-md-left" data-i18n="forms.form2.question">Does the neonate present with seizures?</p>
                   </div>
                   <div class="flex-shrink-0"><!-- Radio Buttons -->
                     <fieldset class="form-group mb-0">
                       <div class="btn-group radio-buttons" data-toggle="buttons">
                         <label name="s2q1_label" class="btn btn-secondary">
-                          <input type="radio" name="s2q1" id="s2q1_no" autocomplete="off" value="0">No
+                          <input type="radio" name="s2q1" id="s2q1_no" autocomplete="off" value="0"><span data-i18n="buttons.no">No</span>
                         </label>
                         <label name="s2q1_label" class="btn btn-secondary">
-                          <input type="radio" name="s2q1" id="s2q1_yes" autocomplete="off" value="1">Yes
+                          <input type="radio" name="s2q1" id="s2q1_yes" autocomplete="off" value="1"><span data-i18n="buttons.yes">Yes</span>
                         </label>
                       </div>
                     </fieldset>
@@ -157,7 +163,7 @@
                 </div> <!-- Form Group -->
               </div> <!-- Card body -->
               <div class="card-footer text-center"> <!-- Card Footer -->
-                <button id="submit2" type="submit" class="btn mx-auto submit-button" disabled="true">Continue</button>
+                <button id="submit2" type="submit" class="btn mx-auto submit-button" disabled="true" data-i18n="buttons.continue">Continue</button>
               </div> <!-- Card Footer -->
             </div> <!-- Card -->
           </form>
@@ -170,123 +176,123 @@
         <div class="col-12">
           <form id="s3">
             <div class="card border-top-0 border-bottom-0 mt-2 mb-2 mx-auto content-cards"> <!-- Card -->
-              <h4 class="card-header" style="text-align: center;">Neurological Exam: Sarnat</h4> <!-- Card Header -->
+              <h4 class="card-header" style="text-align: center;" data-i18n="forms.form3.title">Neurological Exam: Sarnat</h4> <!-- Card Header -->
               <div class="card-body"> <!-- Card body -->
                 <div class="row">
                   <div class="col-12 col-lg-6">
                   <div class="form-group mt-3"><!-- Question 1 -->
                       <fieldset class="form-group">
-                        <label for="consciousness" class="select-label">Level of Consciousness</label>
+                        <label for="consciousness" class="select-label" data-i18n="sarnat.labels.consciousness">Level of Consciousness</label>
                           <select class="form-control custom-select" name="question1" id="consciousness">
-                            <option selected disabled>Select one</option>
-                            <option id="consciousness1" value="1">Alert, responsive to external stimuli</option>
-                            <option id="consciousness2" value="2">Hyper-alert, has a stare, jitteriness, high pitched cry, exaggerated response to minimal stimuli, inconsolable</option>
-                            <option id="consciousness3" value="3">Lethargic/Obtunded</option>
-                            <option id="consciousness4" value="4">Stupor/Coma</option>
+                            <option selected disabled data-i18n-value="sarnat.selectOne">Select one</option>
+                            <option id="consciousness1" value="1" data-i18n-value="sarnat.consciousness.1">Alert, responsive to external stimuli</option>
+                            <option id="consciousness2" value="2" data-i18n-value="sarnat.consciousness.2">Hyper-alert, has a stare, jitteriness, high pitched cry, exaggerated response to minimal stimuli, inconsolable</option>
+                            <option id="consciousness3" value="3" data-i18n-value="sarnat.consciousness.3">Lethargic/Obtunded</option>
+                            <option id="consciousness4" value="4" data-i18n-value="sarnat.consciousness.4">Stupor/Coma</option>
                           </select>
                       </fieldset>
                   </div><!-- Question 1 -->
 
                   <div class="form-group mt-3"><!-- Question 2 -->
                       <fieldset class="form-group">
-                        <label for="activity" class="select-label">Spontaneous Activity</label>
+                        <label for="activity" class="select-label" data-i18n="sarnat.labels.activity">Spontaneous Activity</label>
                           <select class="form-control custom-select" name="question2" id="activity">
-                            <option selected disabled>Select one</option>
-                            <option id="activity1" value="1">Normal</option>
-                            <option id="activity2" value="2">Decreased, with or without periods of excessive activity</option>
-                            <option id="activity3" value="3">Decreased</option>
-                            <option id="activity4" value="4">No activity</option>
+                            <option selected disabled data-i18n-value="sarnat.selectOne">Select one</option>
+                            <option id="activity1" value="1" data-i18n-value="sarnat.activity.1">Normal</option>
+                            <option id="activity2" value="2" data-i18n-value="sarnat.activity.2">Decreased, with or without periods of excessive activity</option>
+                            <option id="activity3" value="3" data-i18n-value="sarnat.activity.3">Decreased</option>
+                            <option id="activity4" value="4" data-i18n-value="sarnat.activity.4">No activity</option>
                           </select>
                       </fieldset>
                   </div><!-- Question 2 -->
 
                   <div class="form-group mt-3"><!-- Question 3 -->
                       <fieldset class="form-group">
-                        <label for="posture" class="select-label">NM Control - Posture</label>
+                        <label for="posture" class="select-label" data-i18n="sarnat.labels.posture">NM Control - Posture</label>
                           <select class="form-control custom-select" name="question3" id="posture">
-                            <option selected disabled>Select one</option>
-                            <option id="posture1" value="1">Predominantly flexed when quiet</option>
-                            <option id="posture2" value="2">Mild flexion of distal joints (fingers, wrist)</option>
-                            <option id="posture3" value="3">Strong distal flexion, complete extension</option>
-                            <option id="posture4" value="4">Intermittent decerebration</option>
+                            <option selected disabled data-i18n-value="sarnat.selectOne">Select one</option>
+                            <option id="posture1" value="1" data-i18n-value="sarnat.posture.1">Predominantly flexed when quiet</option>
+                            <option id="posture2" value="2" data-i18n-value="sarnat.posture.2">Mild flexion of distal joints (fingers, wrist)</option>
+                            <option id="posture3" value="3" data-i18n-value="sarnat.posture.3">Strong distal flexion, complete extension</option>
+                            <option id="posture4" value="4" data-i18n-value="sarnat.posture.4">Intermittent decerebration</option>
                           </select>
                       </fieldset>
                   </div><!-- Question 3 -->
 
                   <div class="form-group mt-3"><!-- Question 4 -->
                       <fieldset class="form-group">
-                        <label for="tone" class="select-label">NM Control - Muscle Tone</label>
+                        <label for="tone" class="select-label" data-i18n="sarnat.labels.tone">NM Control - Muscle Tone</label>
                           <select class="form-control custom-select" name="question4" id="tone">
-                            <option selected disabled>Select one</option>
-                            <option id="tone1" value="1">Strong flexor tone in all extremities</option>
-                            <option id="tone2" value="2">Slightly increased peripheral tone</option>
-                            <option id="tone3" value="3">Hypotonia, Hypertonia</option>
-                            <option id="tone4" value="4">Flaccid, Rigid</option>
+                            <option selected disabled data-i18n-value="sarnat.selectOne">Select one</option>
+                            <option id="tone1" value="1" data-i18n-value="sarnat.tone.1">Strong flexor tone in all extremities</option>
+                            <option id="tone2" value="2" data-i18n-value="sarnat.tone.2">Slightly increased peripheral tone</option>
+                            <option id="tone3" value="3" data-i18n-value="sarnat.tone.3">Hypotonia, Hypertonia</option>
+                            <option id="tone4" value="4" data-i18n-value="sarnat.tone.4">Flaccid, Rigid</option>
                           </select>
                       </fieldset>
                   </div><!-- Question 4 -->
 
                   <div class="form-group mt-3"><!-- Question 5 -->
                       <fieldset class="form-group">
-                        <label for="suck" class="select-label">Primitive Reflexes - Suck</label>
+                        <label for="suck" class="select-label" data-i18n="sarnat.labels.suck">Primitive Reflexes - Suck</label>
                           <select class="form-control custom-select" name="question5" id="suck">
-                            <option selected disabled>Select one</option>
-                            <option id="suck1" value="1">Strong, easy to elicit</option>
-                            <option id="suck2" value="2">Weak, Poor</option>
-                            <option id="suck3" value="3">Weak or has bite</option>
-                            <option id="suck4" value="4">Absent</option>
+                            <option selected disabled data-i18n-value="sarnat.selectOne">Select one</option>
+                            <option id="suck1" value="1" data-i18n-value="sarnat.suck.1">Strong, easy to elicit</option>
+                            <option id="suck2" value="2" data-i18n-value="sarnat.suck.2">Weak, Poor</option>
+                            <option id="suck3" value="3" data-i18n-value="sarnat.suck.3">Weak or has bite</option>
+                            <option id="suck4" value="4" data-i18n-value="sarnat.suck.4">Absent</option>
                           </select>
                       </fieldset>
                   </div><!-- Question 5 -->
 
                   <div class="form-group mt-3"><!-- Question 6 -->
                       <fieldset class="form-group">
-                        <label for="moro" class="select-label">Primitive Reflexes - Moro</label>
+                        <label for="moro" class="select-label" data-i18n="sarnat.labels.moro">Primitive Reflexes - Moro</label>
                           <select class="form-control custom-select" name="question6" id="moro">
-                            <option selected disabled>Select one</option>
-                            <option id="moro1" value="1">Strong, easy to elicit</option>
-                            <option id="moro2" value="2">Low threshold to elicit</option>
-                            <option id="moro3" value="3">Incomplete</option>
-                            <option id="moro4" value="4">Absent</option>
+                            <option selected disabled data-i18n-value="sarnat.selectOne">Select one</option>
+                            <option id="moro1" value="1" data-i18n-value="sarnat.moro.1">Strong, easy to elicit</option>
+                            <option id="moro2" value="2" data-i18n-value="sarnat.moro.2">Low threshold to elicit</option>
+                            <option id="moro3" value="3" data-i18n-value="sarnat.moro.3">Incomplete</option>
+                            <option id="moro4" value="4" data-i18n-value="sarnat.moro.4">Absent</option>
                           </select>
                       </fieldset>
                   </div><!-- Question 6 -->
 
                   <div class="form-group mt-3"><!-- Question 7 -->
                       <fieldset class="form-group">
-                        <label for="pupils" class="select-label">Autonomic System - Pupils</label>
+                        <label for="pupils" class="select-label" data-i18n="sarnat.labels.pupils">Autonomic System - Pupils</label>
                           <select class="form-control custom-select" name="question7" id="pupils">
-                            <option selected disabled>Select one</option>
-                            <option id="pupils1" value="1">Normal size</option>
-                            <option id="pupils2" value="2">Mydriasis (> 5mm)</option>
-                            <option id="pupils3" value="3">Miosis (< 3mm)</option>
-                            <option id="pupils4" value="4">Deviation/Dilated/Non-reactive</option>
+                            <option selected disabled data-i18n-value="sarnat.selectOne">Select one</option>
+                            <option id="pupils1" value="1" data-i18n-value="sarnat.pupils.1">Normal size</option>
+                            <option id="pupils2" value="2" data-i18n-value="sarnat.pupils.2">Mydriasis (> 5mm)</option>
+                            <option id="pupils3" value="3" data-i18n-value="sarnat.pupils.3">Miosis (< 3mm)</option>
+                            <option id="pupils4" value="4" data-i18n-value="sarnat.pupils.4">Deviation/Dilated/Non-reactive</option>
                           </select>
                       </fieldset>
                   </div><!-- Question 7 -->
 
                   <div class="form-group mt-3"><!-- Question 8 -->
                       <fieldset class="form-group">
-                        <label for="rate" class="select-label">Autonomic System - Heart Rate</label>
+                        <label for="rate" class="select-label" data-i18n="sarnat.labels.rate">Autonomic System - Heart Rate</label>
                           <select class="form-control custom-select" name="question8" id="rate">
-                            <option selected disabled>Select one</option>
-                            <option id="rate1" value="1">Normal heart rate</option>
-                            <option id="rate2" value="2">Tachycardia (> 160 bpm)</option>
-                            <option id="rate3" value="3">Bradycardia (< 100 bpm)</option>
-                            <option id="rate4" value="4">Variable heart rate</option>
+                            <option selected disabled data-i18n-value="sarnat.selectOne">Select one</option>
+                            <option id="rate1" value="1" data-i18n-value="sarnat.rate.1">Normal heart rate</option>
+                            <option id="rate2" value="2" data-i18n-value="sarnat.rate.2">Tachycardia (> 160 bpm)</option>
+                            <option id="rate3" value="3" data-i18n-value="sarnat.rate.3">Bradycardia (< 100 bpm)</option>
+                            <option id="rate4" value="4" data-i18n-value="sarnat.rate.4">Variable heart rate</option>
                           </select>
                       </fieldset>
                   </div><!-- Question 8 -->
 
                   <div class="form-group mt-3 mb-3"><!-- Question 9 -->
                       <fieldset class="form-group">
-                        <label for="resp" class="select-label">Autonomic System - Respirations</label>
+                        <label for="resp" class="select-label" data-i18n="sarnat.labels.resp">Autonomic System - Respirations</label>
                           <select class="form-control custom-select" name="question9" id="resp">
-                            <option selected disabled>Select one</option>
-                            <option id="resp1" value="1">Normal</option>
-                            <option id="resp2" value="2">Hyperventilation (> 80/min)</option>
-                            <option id="resp3" value="3">Periodic breathing</option>
-                            <option id="resp4" value="4">Apnea or on ventilator with or without spontaneous respirations</option>
+                            <option selected disabled data-i18n-value="sarnat.selectOne">Select one</option>
+                            <option id="resp1" value="1" data-i18n-value="sarnat.resp.1">Normal</option>
+                            <option id="resp2" value="2" data-i18n-value="sarnat.resp.2">Hyperventilation (> 80/min)</option>
+                            <option id="resp3" value="3" data-i18n-value="sarnat.resp.3">Periodic breathing</option>
+                            <option id="resp4" value="4" data-i18n-value="sarnat.resp.4">Apnea or on ventilator with or without spontaneous respirations</option>
                           </select>
                       </fieldset>
                   </div><!-- Question 9 -->
@@ -294,7 +300,7 @@
                 </div><!-- row -->
               </div> <!-- Card body -->
               <div class="card-footer text-center"> <!-- Card Footer -->
-                <button id="submit3" type="submit" class="btn mx-auto submit-button" disabled="true">Continue</button>
+                <button id="submit3" type="submit" class="btn mx-auto submit-button" disabled="true" data-i18n="buttons.continue">Continue</button>
               </div> <!-- Card Footer -->
             </div> <!-- Card -->
           </form>
@@ -307,21 +313,21 @@
         <div class="col-12">
           <form id="s4">
             <div class="card border-top-0 border-bottom-0 mt-2 mb-2 mx-auto content-cards"> <!-- Card -->
-              <h4 class="card-header" style="text-align: center;">Qualifying Questions</h4> <!-- Card Header -->
+              <h4 class="card-header" style="text-align: center;" data-i18n="forms.form4.title">Qualifying Questions</h4> <!-- Card Header -->
               <div class="card-body"> <!-- Card body -->
 
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 mb-3" id="s4q1"> <!-- Question 1 -->
                   <div class="flex-grow-1 mb-2 mb-md-0 pr-md-3">
-                    <p class="card-text mb-0 text-center text-md-left">Is the infant's gestational age 36 weeks or more?</p>
+                    <p class="card-text mb-0 text-center text-md-left" data-i18n="forms.form4.q1">Is the infant's gestational age 36 weeks or more?</p>
                   </div>
                   <div class="flex-shrink-0"><!-- Radio Buttons -->
                     <fieldset class="form-group mb-0">
                       <div class="btn-group radio-buttons" data-toggle="buttons">
                         <label class="btn btn-secondary">
-                          <input type="radio" name="s4q1" id="s4q1_no" autocomplete="off" value="0">No
+                          <input type="radio" name="s4q1" id="s4q1_no" autocomplete="off" value="0"><span data-i18n="buttons.no">No</span>
                         </label>
                         <label class="btn btn-secondary">
-                          <input type="radio" name="s4q1" id="s4q1_yes" autocomplete="off" value="1">Yes
+                          <input type="radio" name="s4q1" id="s4q1_yes" autocomplete="off" value="1"><span data-i18n="buttons.yes">Yes</span>
                         </label>
                       </div>
                     </fieldset>
@@ -330,16 +336,16 @@
 
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 mb-3" id="s4q2"> <!-- Question 2 -->
                   <div class="flex-grow-1 mb-2 mb-md-0 pr-md-3">
-                    <p class="card-text mb-0 text-center text-md-left">Is the infant 6 hours old or less?</p>
+                    <p class="card-text mb-0 text-center text-md-left" data-i18n="forms.form4.q2">Is the infant 6 hours old or less?</p>
                   </div>
                   <div class="flex-shrink-0"><!-- Radio Buttons -->
                     <fieldset class="form-group mb-0">
                       <div class="btn-group radio-buttons" data-toggle="buttons">
                         <label class="btn btn-secondary">
-                          <input type="radio" name="s4q2" id="s4q2_no" autocomplete="off" value="0">No
+                          <input type="radio" name="s4q2" id="s4q2_no" autocomplete="off" value="0"><span data-i18n="buttons.no">No</span>
                         </label>
                         <label class="btn btn-secondary">
-                          <input type="radio" name="s4q2" id="s4q2_yes" autocomplete="off" value="1">Yes
+                          <input type="radio" name="s4q2" id="s4q2_yes" autocomplete="off" value="1"><span data-i18n="buttons.yes">Yes</span>
                         </label>
                       </div>
                     </fieldset>
@@ -348,16 +354,16 @@
 
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 mb-3" id="s4q3"> <!-- Question 3 -->
                   <div class="flex-grow-1 mb-2 mb-md-0 pr-md-3">
-                    <p class="card-text mb-0 text-center text-md-left">Is the infant's birth weight 1800g or more?</p>
+                    <p class="card-text mb-0 text-center text-md-left" data-i18n="forms.form4.q3">Is the infant's birth weight 1800g or more?</p>
                   </div>
                   <div class="flex-shrink-0"><!-- Radio Buttons -->
                     <fieldset class="form-group mb-0">
                       <div class="btn-group radio-buttons" data-toggle="buttons">
                         <label class="btn btn-secondary">
-                          <input type="radio" name="s4q3" id="s4q3_no" autocomplete="off" value="0">No
+                          <input type="radio" name="s4q3" id="s4q3_no" autocomplete="off" value="0"><span data-i18n="buttons.no">No</span>
                         </label>
                         <label class="btn btn-secondary">
-                          <input type="radio" name="s4q3" id="s4q3_yes" autocomplete="off" value="1">Yes
+                          <input type="radio" name="s4q3" id="s4q3_yes" autocomplete="off" value="1"><span data-i18n="buttons.yes">Yes</span>
                         </label>
                       </div>
                     </fieldset>
@@ -366,16 +372,16 @@
 
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 mb-3" id="s4q4"> <!-- Question 4 -->
                   <div class="flex-grow-1 mb-2 mb-md-0 pr-md-3">
-                    <p class="card-text mb-0 text-center text-md-left">Absence of congenital abnormalities?</p>
+                    <p class="card-text mb-0 text-center text-md-left" data-i18n="forms.form4.q4">Absence of congenital abnormalities?</p>
                   </div>
                   <div class="flex-shrink-0"><!-- Radio Buttons -->
                     <fieldset class="form-group mb-0">
                       <div class="btn-group radio-buttons" data-toggle="buttons">
                         <label class="btn btn-secondary">
-                          <input type="radio" name="s4q4" id="s4q4_no" autocomplete="off" value="0">No
+                          <input type="radio" name="s4q4" id="s4q4_no" autocomplete="off" value="0"><span data-i18n="buttons.no">No</span>
                         </label>
                         <label class="btn btn-secondary">
-                          <input type="radio" name="s4q4" id="s4q4_yes" autocomplete="off" value="1">Yes
+                          <input type="radio" name="s4q4" id="s4q4_yes" autocomplete="off" value="1"><span data-i18n="buttons.yes">Yes</span>
                         </label>
                       </div>
                     </fieldset>
@@ -384,16 +390,16 @@
 
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 mb-3" id="s4q5"> <!-- Question 5 -->
                   <div class="flex-grow-1 mb-2 mb-md-0 pr-md-3">
-                    <p class="card-text mb-0 text-center text-md-left">Absence of chromosomal anomalies?</p>
+                    <p class="card-text mb-0 text-center text-md-left" data-i18n="forms.form4.q5">Absence of chromosomal anomalies?</p>
                   </div>
                   <div class="flex-shrink-0"><!-- Radio Buttons -->
                     <fieldset class="form-group mb-0">
                       <div class="btn-group radio-buttons" data-toggle="buttons">
                         <label class="btn btn-secondary">
-                          <input type="radio" name="s4q5" id="s4q5_no" autocomplete="off" value="0">No
+                          <input type="radio" name="s4q5" id="s4q5_no" autocomplete="off" value="0"><span data-i18n="buttons.no">No</span>
                         </label>
                         <label class="btn btn-secondary">
-                          <input type="radio" name="s4q5" id="s4q5_yes" autocomplete="off" value="1">Yes
+                          <input type="radio" name="s4q5" id="s4q5_yes" autocomplete="off" value="1"><span data-i18n="buttons.yes">Yes</span>
                         </label>
                       </div>
                     </fieldset>
@@ -402,16 +408,16 @@
 
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 mb-3" id="s4q6"> <!-- Question 6 -->
                   <div class="flex-grow-1 mb-2 mb-md-0 pr-md-3">
-                    <p class="card-text mb-0 text-center text-md-left">Absence of alternate cause for encephalopathy?</p>
+                    <p class="card-text mb-0 text-center text-md-left" data-i18n="forms.form4.q6">Absence of alternate cause for encephalopathy?</p>
                   </div>
                   <div class="flex-shrink-0"><!-- Radio Buttons -->
                     <fieldset class="form-group mb-0">
                       <div class="btn-group radio-buttons" data-toggle="buttons">
                         <label class="btn btn-secondary">
-                          <input type="radio" name="s4q6" id="s4q6_no" autocomplete="off" value="0">No
+                          <input type="radio" name="s4q6" id="s4q6_no" autocomplete="off" value="0"><span data-i18n="buttons.no">No</span>
                         </label>
                         <label class="btn btn-secondary">
-                          <input type="radio" name="s4q6" id="s4q6_yes" autocomplete="off" value="1">Yes
+                          <input type="radio" name="s4q6" id="s4q6_yes" autocomplete="off" value="1"><span data-i18n="buttons.yes">Yes</span>
                         </label>
                       </div>
                     </fieldset>
@@ -420,7 +426,7 @@
 
               </div> <!-- Card body -->
               <div class="card-footer text-center"> <!-- Card Footer -->
-                <button id="submit4" type="submit" class="btn mx-auto submit-button" disabled="true">Continue</button>
+                <button id="submit4" type="submit" class="btn mx-auto submit-button" disabled="true" data-i18n="buttons.continue">Continue</button>
               </div> <!-- Card Footer -->
             </div> <!-- Card -->
           </form>
@@ -433,21 +439,21 @@
         <div class="col-12">
           <form id="s5">
             <div class="card border-top-0 border-bottom-0 mt-2 mb-2 mx-auto content-cards"> <!-- Card -->
-              <h4 class="card-header" style="text-align: center;">Blood Gas Questions</h4> <!-- Card Header -->
+              <h4 class="card-header" style="text-align: center;" data-i18n="forms.form5.title">Blood Gas Questions</h4> <!-- Card Header -->
               <div class="card-body"> <!-- Card body -->
 
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 mb-3"> <!-- Question 1 -->
                   <div class="flex-grow-1 mb-2 mb-md-0 pr-md-3">
-                    <p class="card-text mb-0 text-center text-md-left">Is there an available Cord or Postnatal Blood Gas pH obtained within 1hr of birth?</p>
+                    <p class="card-text mb-0 text-center text-md-left" data-i18n="forms.form5.q1">Is there an available Cord or Postnatal Blood Gas pH obtained within 1hr of birth?</p>
                   </div>
                   <div class="flex-shrink-0"><!-- Radio Buttons -->
                     <fieldset class="form-group mb-0">
                       <div id="s5q1" class="btn-group radio-buttons" data-toggle="buttons">
                         <label class="btn btn-secondary" onclick="hideBloodGas()">
-                          <input type="radio" name="s5q1" id="s5q1_no" autocomplete="off" value="0">No
+                          <input type="radio" name="s5q1" id="s5q1_no" autocomplete="off" value="0"><span data-i18n="buttons.no">No</span>
                         </label>
                         <label class="btn btn-secondary" onclick="showBloodGas()">
-                          <input type="radio" name="s5q1" id="s5q1_yes" autocomplete="off" value="1">Yes
+                          <input type="radio" name="s5q1" id="s5q1_yes" autocomplete="off" value="1"><span data-i18n="buttons.yes">Yes</span>
                         </label>
                       </div>
                     </fieldset>
@@ -460,20 +466,20 @@
 
                     <div class="d-flex flex-column flex-md-row align-items-center mt-3 mb-3">
                       <div class="flex-md-grow-1 mb-2 mb-md-0 pr-md-3">
-                        <p class="card-text mb-0 text-center text-md-left">Enter Base Deficit:</p>
+                        <p class="card-text mb-0 text-center text-md-left" data-i18n="forms.form5.baseDeficitLabel">Enter Base Deficit:</p>
                       </div>
                       <div class="flex-md-shrink-0" style="min-width: 200px;">
                         <div class="input-group input-group-sm">
                           <span class="input-group-addon">-</span>
                           <input id="baseDeficit" type="text" class="form-control">
-                          <span class="input-group-addon">mEq/L</span>
+                          <span class="input-group-addon" data-i18n="forms.form5.baseDeficitUnit">mEq/L</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="d-flex flex-column flex-md-row align-items-center mt-3 mb-3">
                       <div class="flex-md-grow-1 mb-2 mb-md-0 pr-md-3">
-                        <p class="card-text mb-0 text-center text-md-left">Enter Cord or Postnatal Blood Gas pH obtained within 1hr of age:</p>
+                        <p class="card-text mb-0 text-center text-md-left" data-i18n="forms.form5.phLabel">Enter Cord or Postnatal Blood Gas pH obtained within 1hr of age:</p>
                       </div>
                       <div class="flex-md-shrink-0" style="min-width: 200px;">
                         <div class="input-group">
@@ -488,7 +494,7 @@
 
               </div> <!-- Card body -->
               <div class="card-footer text-center"> <!-- Card Footer -->
-                <button id="submit5" type="submit" class="btn mx-auto submit-button" disabled="true">Continue</button>
+                <button id="submit5" type="submit" class="btn mx-auto submit-button" disabled="true" data-i18n="buttons.continue">Continue</button>
               </div> <!-- Card Footer -->
             </div> <!-- Card -->
           </form>
@@ -502,21 +508,21 @@
         <div class="col-12">
           <form id="s6">
             <div class="card border-top-0 border-bottom-0 mt-2 mb-2 mx-auto content-cards"> <!-- Card -->
-              <h4 class="card-header" style="text-align: center;">History Questions</h4> <!-- Card Header -->
+              <h4 class="card-header" style="text-align: center;" data-i18n="forms.form6.title">History Questions</h4> <!-- Card Header -->
               <div class="card-body"> <!-- Card body -->
 
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 mb-3"> <!-- Question 1 -->
                   <div class="flex-grow-1 mb-2 mb-md-0 pr-md-3">
-                    <p class="card-text mb-0 text-center text-md-left">History of an acute event?</p>
+                    <p class="card-text mb-0 text-center text-md-left" data-i18n="forms.form6.q1">History of an acute event?</p>
                   </div>
                   <div class="flex-shrink-0"><!-- Radio Buttons -->
                     <fieldset class="form-group mb-0">
                       <div id="s6q1" class="btn-group radio-buttons" data-toggle="buttons">
                         <label class="btn btn-secondary" onclick="hideAcuteHistory()">
-                          <input type="radio" name="s6q1" id="s6q1_no" autocomplete="off" value="0">No
+                          <input type="radio" name="s6q1" id="s6q1_no" autocomplete="off" value="0"><span data-i18n="buttons.no">No</span>
                         </label>
                         <label class="btn btn-secondary" onclick="showAcuteHistory()">
-                          <input type="radio" name="s6q1" id="s6q1_yes" autocomplete="off" value="1">Yes
+                          <input type="radio" name="s6q1" id="s6q1_yes" autocomplete="off" value="1"><span data-i18n="buttons.yes">Yes</span>
                         </label>
                       </div>
                     </fieldset>
@@ -530,16 +536,16 @@
                       <div class="col-12 col-md-6">
                         <div class="form-group mt-3 mb-3"><!-- Acute Event Select -->
                           <fieldset class="form-group">
-                            <label for="acute" class="select-label">Type of Acute Event</label>
+                            <label for="acute" class="select-label" data-i18n="forms.form6.acuteEventLabel">Type of Acute Event</label>
                               <select class="form-control custom-select" name="acuteEvent" id="acute">
-                                <option id="acute0" value="0">Select one</option>
-                                <option id="acute1" value="1">Abruptio Placenta</option>
-                                <option id="acute2" value="2">Cord Prolapse</option>
-                                <option id="acute3" value="3">Severe Fetal HR Abnormality</option>
-                                <option id="acute4" value="4">Uterine Rupture</option>
-                                <option id="acute5" value="5">Maternal Trauma</option>
-                                <option id="acute6" value="6">Maternal Cardiac Arrest</option>
-                                <option id="acute7" value="7">Other</option>
+                                <option id="acute0" value="0" data-i18n-value="acuteEvents.selectOne">Select one</option>
+                                <option id="acute1" value="1" data-i18n-value="acuteEvents.1">Abruptio Placenta</option>
+                                <option id="acute2" value="2" data-i18n-value="acuteEvents.2">Cord Prolapse</option>
+                                <option id="acute3" value="3" data-i18n-value="acuteEvents.3">Severe Fetal HR Abnormality</option>
+                                <option id="acute4" value="4" data-i18n-value="acuteEvents.4">Uterine Rupture</option>
+                                <option id="acute5" value="5" data-i18n-value="acuteEvents.5">Maternal Trauma</option>
+                                <option id="acute6" value="6" data-i18n-value="acuteEvents.6">Maternal Cardiac Arrest</option>
+                                <option id="acute7" value="7" data-i18n-value="acuteEvents.7">Other</option>
                               </select>
                           </fieldset>
                         </div><!-- Acute Event Select -->
@@ -552,7 +558,7 @@
 
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 mb-3"> <!-- Question 3 -->
                   <div class="flex-grow-1 mb-2 mb-md-0 pr-md-3">
-                    <p class="card-text mb-0 text-center text-md-left">Enter 10 minute Apgar score:</p>
+                    <p class="card-text mb-0 text-center text-md-left" data-i18n="forms.form6.apgarLabel">Enter 10 minute Apgar score:</p>
                   </div>
                   <div class="flex-shrink-0" style="min-width: 150px;">
                     <div class="input-group">
@@ -563,16 +569,16 @@
 
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 mb-3"> <!-- Question 4 -->
                   <div class="flex-grow-1 mb-2 mb-md-0 pr-md-3">
-                    <p class="card-text mb-0 text-center text-md-left">Assisted ventilation from birth continued for at least 10 min?</p>
+                    <p class="card-text mb-0 text-center text-md-left" data-i18n="forms.form6.q4">Assisted ventilation from birth continued for at least 10 min?</p>
                   </div>
                   <div class="flex-shrink-0"><!-- Radio Buttons -->
                     <fieldset class="form-group mb-0">
                       <div id="s6q4" class="btn-group radio-buttons" data-toggle="buttons">
                         <label class="btn btn-secondary">
-                          <input type="radio" name="s6q4" id="s6q4_no" autocomplete="off" value="0">No
+                          <input type="radio" name="s6q4" id="s6q4_no" autocomplete="off" value="0"><span data-i18n="buttons.no">No</span>
                         </label>
                         <label class="btn btn-secondary" >
-                          <input type="radio" name="s6q4" id="s6q4_yes" autocomplete="off" value="1">Yes
+                          <input type="radio" name="s6q4" id="s6q4_yes" autocomplete="off" value="1"><span data-i18n="buttons.yes">Yes</span>
                         </label>
                       </div>
                     </fieldset>
@@ -582,7 +588,7 @@
 
               </div> <!-- Card body -->
               <div class="card-footer text-center"> <!-- Card Footer -->
-                <button id="submit6" type="submit" class="btn mx-auto submit-button" disabled="true">Continue</button>
+                <button id="submit6" type="submit" class="btn mx-auto submit-button" disabled="true" data-i18n="buttons.continue">Continue</button>
               </div> <!-- Card Footer -->
             </div> <!-- Card -->
           </form>
@@ -594,7 +600,7 @@
         <div class="col-12">
           <!-- <form id="s6"> -->
             <div class="card border-top-0 border-bottom-0 mt-2 mb-2 mx-auto content-cards"> <!-- Card -->
-              <h4 class="card-header" style="text-align: center;">Result</h4> <!-- Card Header -->
+              <h4 class="card-header" style="text-align: center;" data-i18n="result.title">Result</h4> <!-- Card Header -->
               <div class="card-body"> <!-- Card body -->
 
                 <p class="card-text">Based on the current literature, this patient <span id="recommendation"></span> meet criteria for therapeutic hypothermia treatment<span id="recommendation2"></span> Please use your clinical judgement to decide the best course of treatment for your patient.</p>
@@ -603,7 +609,7 @@
                 <p id="summary"><p>
               </div> <!-- Card body -->
               <div class="card-footer text-center"> <!-- Card Footer -->
-                <button id="restart" type="submit" class="btn mx-auto submit-button">Restart</button>
+                <button id="restart" type="submit" class="btn mx-auto submit-button" data-i18n="buttons.restart">Restart</button>
               </div> <!-- Card Footer -->
             </div> <!-- Card -->
           <!-- </form> -->
@@ -617,7 +623,7 @@
 
     <footer class="footer">
       <div class="container" style="text-align: center;">
-        <span class="text-muted">Neonatal Encephalopathy Cooling Guidelines</span>
+        <span class="text-muted" data-i18n="footer.text">Neonatal Encephalopathy Cooling Guidelines</span>
       </div>
     </footer>
 
@@ -627,6 +633,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <script src='assets/javascript/nprogress.js'></script>
+    <script src="assets/javascript/i18n.js"></script>
     <script src="assets/javascript/main.js"></script>
   </body>
 </html>

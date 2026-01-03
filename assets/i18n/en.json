@@ -1,0 +1,179 @@
+{
+  "header": {
+    "title": "Neonatal Encephalopathy Cooling Guidelines",
+    "pageTitle": "NECG"
+  },
+  "nav": {
+    "what": "What",
+    "pearls": "Pearls",
+    "why": "Why",
+    "references": "References",
+    "team": "The Team"
+  },
+  "info": {
+    "what": {
+      "content": "The Neonatal Encephalopathy Cooling Guidelines (NECG) Tool identifies patients at risk for neonatal encephalopathy and incorporates the numerous criteria that must be met in order for a patient to meet current guidelines for therapeutic hypothermia treatment."
+    },
+    "pearls": {
+      "p1": "Neonatal encephalopathy is defined as a condition in neonates when two of the following signs are present: altered consciousness, altered muscle tone, or abnormal primitive reflexes.",
+      "p2": "Therapeutic hypothermia is an active treatment that aims to achieve and maintain a specific body temperature for a duration of time in an effort to improve health outcomes in infants with perinatal brain injury. In order for therapeutic hypothermia to be recommended, the patient must meet clinical and biochemical criteria.",
+      "p3": "Sarnat staging is used to categorize encephalopathic infants as normal, mild, moderate, or severe. To meet the current criteria for therapeutic hypothermia, infants must be moderately or severely encephalopathic.",
+      "p4": "Neonates who are encephalopathic are eligible for therapeutic hypothermia, however, encephalopathy can have many causes. Therefore, clinical judgement should be used to determine if a patient should receive therapeutic hypothermia treatment on a case by case basis."
+    },
+    "why": {
+      "content": "Therapeutic hypothermia is one of the only treatments available to decrease neurological morbidity in patients with perinatal brain injury. The Neonatal Neurocritical Care Group at the Children's Hospital of Wisconsin has identified that physicians often incompletely document clinical and biochemical criteria needed to support decisions to initiate therapeutic hypothermia. The purpose of this tool is to assist healthcare providers with decision making and documentation in cases where therapeutic hypothermia treatment is a consideration."
+    }
+  },
+  "buttons": {
+    "yes": "Yes",
+    "no": "No",
+    "continue": "Continue",
+    "restart": "Restart"
+  },
+  "forms": {
+    "form1": {
+      "title": "Qualifying Questions",
+      "question": "Is the neonate's condition suggestive of encephalopathy?"
+    },
+    "form2": {
+      "title": "Neurological Questions: Seizures",
+      "question": "Does the neonate present with seizures?"
+    },
+    "form3": {
+      "title": "Neurological Exam: Sarnat"
+    },
+    "form4": {
+      "title": "Qualifying Questions",
+      "q1": "Is the infant's gestational age 36 weeks or more?",
+      "q2": "Is the infant 6 hours old or less?",
+      "q3": "Is the infant's birth weight 1800g or more?",
+      "q4": "Absence of congenital abnormalities?",
+      "q5": "Absence of chromosomal anomalies?",
+      "q6": "Absence of alternate cause for encephalopathy?"
+    },
+    "form5": {
+      "title": "Blood Gas Questions",
+      "q1": "Is there an available Cord or Postnatal Blood Gas pH obtained within 1hr of birth?",
+      "baseDeficitLabel": "Enter Base Deficit:",
+      "baseDeficitUnit": "mEq/L",
+      "phLabel": "Enter Cord or Postnatal Blood Gas pH obtained within 1hr of age:",
+      "phPlaceholder": "pH"
+    },
+    "form6": {
+      "title": "History Questions",
+      "q1": "History of an acute event?",
+      "acuteEventLabel": "Type of Acute Event",
+      "apgarLabel": "Enter 10 minute Apgar score:",
+      "apgarPlaceholder": "Apgar",
+      "q4": "Assisted ventilation from birth continued for at least 10 min?"
+    }
+  },
+  "sarnat": {
+    "labels": {
+      "consciousness": "Level of Consciousness",
+      "activity": "Spontaneous Activity",
+      "posture": "NM Control - Posture",
+      "tone": "NM Control - Muscle Tone",
+      "suck": "Primitive Reflexes - Suck",
+      "moro": "Primitive Reflexes - Moro",
+      "pupils": "Autonomic System - Pupils",
+      "rate": "Autonomic System - Heart Rate",
+      "resp": "Autonomic System - Respirations"
+    },
+    "selectOne": "Select one",
+    "consciousness": {
+      "1": "Alert, responsive to external stimuli",
+      "2": "Hyper-alert, has a stare, jitteriness, high pitched cry, exaggerated response to minimal stimuli, inconsolable",
+      "3": "Lethargic/Obtunded",
+      "4": "Stupor/Coma"
+    },
+    "activity": {
+      "1": "Normal",
+      "2": "Decreased, with or without periods of excessive activity",
+      "3": "Decreased",
+      "4": "No activity"
+    },
+    "posture": {
+      "1": "Predominantly flexed when quiet",
+      "2": "Mild flexion of distal joints (fingers, wrist)",
+      "3": "Strong distal flexion, complete extension",
+      "4": "Intermittent decerebration"
+    },
+    "tone": {
+      "1": "Strong flexor tone in all extremities",
+      "2": "Slightly increased peripheral tone",
+      "3": "Hypotonia, Hypertonia",
+      "4": "Flaccid, Rigid"
+    },
+    "suck": {
+      "1": "Strong, easy to elicit",
+      "2": "Weak, Poor",
+      "3": "Weak or has bite",
+      "4": "Absent"
+    },
+    "moro": {
+      "1": "Strong, easy to elicit",
+      "2": "Low threshold to elicit",
+      "3": "Incomplete",
+      "4": "Absent"
+    },
+    "pupils": {
+      "1": "Normal size",
+      "2": "Mydriasis (> 5mm)",
+      "3": "Miosis (< 3mm)",
+      "4": "Deviation/Dilated/Non-reactive"
+    },
+    "rate": {
+      "1": "Normal heart rate",
+      "2": "Tachycardia (> 160 bpm)",
+      "3": "Bradycardia (< 100 bpm)",
+      "4": "Variable heart rate"
+    },
+    "resp": {
+      "1": "Normal",
+      "2": "Hyperventilation (> 80/min)",
+      "3": "Periodic breathing",
+      "4": "Apnea or on ventilator with or without spontaneous respirations"
+    }
+  },
+  "acuteEvents": {
+    "selectOne": "Select one",
+    "1": "Abruptio Placenta",
+    "2": "Cord Prolapse",
+    "3": "Severe Fetal HR Abnormality",
+    "4": "Uterine Rupture",
+    "5": "Maternal Trauma",
+    "6": "Maternal Cardiac Arrest",
+    "7": "Other"
+  },
+  "result": {
+    "title": "Result",
+    "does": "DOES",
+    "doesNot": "DOES NOT",
+    "messageTemplate": "Based on the current literature, this patient {{recommendation}} meet criteria for therapeutic hypothermia treatment{{period}} Please use your clinical judgement to decide the best course of treatment for your patient.",
+    "period": ".",
+    "forFollowingReasons": " for the following reasons."
+  },
+  "validation": {
+    "notSuggestive": "Neonate's condition is not suggestive of encephalopathy.",
+    "noModerateSevere": "The neonate does not meet criteria for moderate/severe encephalopathy",
+    "gestationalAge": "The infant's gestational age is less than 36 weeks.",
+    "age": "The infant is greater than 6 hours old.",
+    "birthWeight": "The infants birth weight is less than 1800g.",
+    "congenital": "The infant suffers from congenital abnormalities.",
+    "chromosomal": "The infant suffers from chromosomal abnormalities.",
+    "alternateCause": "There is an alternate cause for encephalopathy.",
+    "bloodGas": "The cord or postnatal blood gas pH is greater than 7.15 and the base deficit is less than -10 mEq/L.",
+    "apgarVentilation": "The 10 minute Apgar score is greater than 5 and the infant was not mechanically ventilated from birth for at least 10 minutes.",
+    "noAcuteEvent": "There is no history of an acute event."
+  },
+  "summary": {
+    "seizures": "Patient presents with seizures.",
+    "sarnatNormal": "Patient's neurological exam is normal according to Sarnat staging.",
+    "sarnatMild": "Patient meets criteria for mild encephalopathy according to Sarnat staging.",
+    "sarnatModerateSevere": "Patient meets criteria for moderate/severe encephalopathy according to Sarnat staging."
+  },
+  "footer": {
+    "text": "Neonatal Encephalopathy Cooling Guidelines"
+  }
+}
