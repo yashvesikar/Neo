@@ -15,34 +15,8 @@
     <link rel='stylesheet' href='assets/css/nprogress.css'/>
     <!-- Custom Style sheet  -->
     <link rel="stylesheet" href="assets/css/main.css"/>
-    <!-- Favicons -->
-<!--     <link rel="apple-touch-icon" sizes="57x57" href="./img/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="./img/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="./img/favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="./img/favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="./img/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="./img/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="./img/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="./img/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="./img/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="./img/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon/favicon-16x16.png">
-    <link rel="manifest" href="./img/favicon/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff"> -->
-    <!-- /favicons -->
   </head>
   <body>
-    <!-- Image and text -->
-    <!-- Uncomment for header, change image in img folder and file path for <img> -->
-    <!-- <nav class="navbar navbar-light bg-light" style="background-color: #f0f0f0;">
-      <a href="https://www.chw.org/" class="navbar-brand">
-        <img  id="logo" src="img/childrens_hospital_wisconsin.png" width="150" alt="Children's Hospital of Wisconsin Logo">
-      </a>
-    </nav> -->
 
     <div class="container">
 
@@ -50,24 +24,16 @@
 
       <!-- Info -->
       <div class="row">
-        <div class="col 12">
+        <div class="col-12">
           <div class="card mb-2 mx-auto info-cards">
-          <!--<div class="card border-top-0 border-bottom-0 mt-2 mb-2 mx-auto content-cards"> &lt;!&ndash; Card &ndash;&gt;-->
-
-              <div class="card-body mx-auto">
+              <div class="card-body mx-auto info-card-body">
               <!-- Button Group -->
-              <div class="btn-group" data-toggle="buttons">
-                <button id="WhatButton" class="btn btn-secondary" type="button" onclick="show(event)">What</button>
-                <button id="PerilsButton" class="btn btn-secondary" type="button" onclick="show(event)">Pearls</button>
-                <button id="WhyButton" class="btn btn-secondary" type="button" onclick="show(event)">Why</button>
-                <button id="RefButton" class="btn btn-secondary" type="button" onclick="show(event)">References</button>
-                <button id="AckButton" class="btn btn-secondary" type="button" onclick="show(event)">The Team</button>
-              </div>
+                <button id="WhatButton" class="btn btn-secondary info-button" type="button" onclick="show(event)">What</button>
+                <button id="PerilsButton" class="btn btn-secondary info-button" type="button" onclick="show(event)">Pearls</button>
+                <button id="WhyButton" class="btn btn-secondary info-button" type="button" onclick="show(event)">Why</button>
+                <button id="RefButton" class="btn btn-secondary info-button" type="button" onclick="show(event)">References</button>
+                <button id="AckButton" class="btn btn-secondary info-button" type="button" onclick="show(event)">The Team</button>
               <!-- Button Group End-->
-
-              <!-- Collapses -->
-
-              <!-- Collapses End -->
             </div>
           </div>
 
@@ -132,17 +98,17 @@
 
       <!-- Section One -->
       <div class="row" id="form1">
-        <div class="col 12">
+        <div class="col-12">
           <form id="s1">
             <div class="card border-top-0 border-bottom-0 mt-2 mb-2 mx-auto content-cards"> <!-- Card -->
               <h4 class="card-header" style="text-align: center;">Qualifying Questions</h4> <!-- Card Header -->
               <div class="card-body"> <!-- Card body -->
-                <div class="row mt-1"> <!-- Form Group -->
-                  <div class="col-8 my-auto">
-                    <span class="text-card"><p class="card-text">Is the neonate's condition suggestive of encephalopathy?</p></span>
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 mb-3"> <!-- Form Group -->
+                  <div class="flex-grow-1 mb-2 mb-md-0 pr-md-3">
+                    <p class="card-text mb-0 text-center text-md-left">Is the neonate's condition suggestive of encephalopathy?</p>
                   </div>
-                  <div class="col-4 my-auto"><!-- Radio Buttons -->
-                    <fieldset class="form-group">
+                  <div class="flex-shrink-0"><!-- Radio Buttons -->
+                    <fieldset class="form-group mb-0">
                       <div class="btn-group radio-buttons" data-toggle="buttons">
                         <label name="s1q1_label" class="btn btn-secondary">
                           <input type="radio" name="s1q1" id="s1q1_no" autocomplete="off" value="0">No
@@ -167,17 +133,17 @@
 
       <!-- Section Two -->
       <div class="row" id="form2">
-        <div class="col 12">
+        <div class="col-12">
           <form id="s2">
             <div class="card border-top-0 border-bottom-0 mt-2 mb-2 mx-auto content-cards"> <!-- Card -->
               <h4 class="card-header" style="text-align: center;">Neurological Questions: Seizures</h4> <!-- Card Header -->
               <div class="card-body"> <!-- Card body -->
-                <div class="row mt-2"> <!-- Form Group -->
-                  <div class="col-8 my-auto">
-                    <span class="text-card align-bottom"><p class="card-text">Does the neonate present with seizures?</p></span>
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 mb-3"> <!-- Form Group -->
+                  <div class="flex-grow-1 mb-2 mb-md-0 pr-md-3">
+                    <p class="card-text mb-0 text-center text-md-left">Does the neonate present with seizures?</p>
                   </div>
-                  <div class="col-4 my-auto"><!-- Radio Buttons -->
-                    <fieldset class="form-group">
+                  <div class="flex-shrink-0"><!-- Radio Buttons -->
+                    <fieldset class="form-group mb-0">
                       <div class="btn-group radio-buttons" data-toggle="buttons">
                         <label name="s2q1_label" class="btn btn-secondary">
                           <input type="radio" name="s2q1" id="s2q1_no" autocomplete="off" value="0">No
@@ -206,8 +172,9 @@
             <div class="card border-top-0 border-bottom-0 mt-2 mb-2 mx-auto content-cards"> <!-- Card -->
               <h4 class="card-header" style="text-align: center;">Neurological Exam: Sarnat</h4> <!-- Card Header -->
               <div class="card-body"> <!-- Card body -->
-                <div class="col-6">
-                  <div class="form-row mt-2"><!-- Question 1 -->
+                <div class="row">
+                  <div class="col-12 col-lg-6">
+                  <div class="form-group mt-3"><!-- Question 1 -->
                       <fieldset class="form-group">
                         <label for="consciousness" class="select-label">Level of Consciousness</label>
                           <select class="form-control custom-select" name="question1" id="consciousness">
@@ -220,7 +187,7 @@
                       </fieldset>
                   </div><!-- Question 1 -->
 
-                  <div class="form-row mt-2"><!-- Question 2 -->
+                  <div class="form-group mt-3"><!-- Question 2 -->
                       <fieldset class="form-group">
                         <label for="activity" class="select-label">Spontaneous Activity</label>
                           <select class="form-control custom-select" name="question2" id="activity">
@@ -233,7 +200,7 @@
                       </fieldset>
                   </div><!-- Question 2 -->
 
-                  <div class="form-row mt-2"><!-- Question 3 -->
+                  <div class="form-group mt-3"><!-- Question 3 -->
                       <fieldset class="form-group">
                         <label for="posture" class="select-label">NM Control - Posture</label>
                           <select class="form-control custom-select" name="question3" id="posture">
@@ -246,7 +213,7 @@
                       </fieldset>
                   </div><!-- Question 3 -->
 
-                  <div class="form-row mt-2"><!-- Question 4 -->
+                  <div class="form-group mt-3"><!-- Question 4 -->
                       <fieldset class="form-group">
                         <label for="tone" class="select-label">NM Control - Muscle Tone</label>
                           <select class="form-control custom-select" name="question4" id="tone">
@@ -259,7 +226,7 @@
                       </fieldset>
                   </div><!-- Question 4 -->
 
-                  <div class="form-row mt-2"><!-- Question 5 -->
+                  <div class="form-group mt-3"><!-- Question 5 -->
                       <fieldset class="form-group">
                         <label for="suck" class="select-label">Primitive Reflexes - Suck</label>
                           <select class="form-control custom-select" name="question5" id="suck">
@@ -272,7 +239,7 @@
                       </fieldset>
                   </div><!-- Question 5 -->
 
-                  <div class="form-row mt-2"><!-- Question 6 -->
+                  <div class="form-group mt-3"><!-- Question 6 -->
                       <fieldset class="form-group">
                         <label for="moro" class="select-label">Primitive Reflexes - Moro</label>
                           <select class="form-control custom-select" name="question6" id="moro">
@@ -285,7 +252,7 @@
                       </fieldset>
                   </div><!-- Question 6 -->
 
-                  <div class="form-row mt-2"><!-- Question 7 -->
+                  <div class="form-group mt-3"><!-- Question 7 -->
                       <fieldset class="form-group">
                         <label for="pupils" class="select-label">Autonomic System - Pupils</label>
                           <select class="form-control custom-select" name="question7" id="pupils">
@@ -298,7 +265,7 @@
                       </fieldset>
                   </div><!-- Question 7 -->
 
-                  <div class="form-row mt-2"><!-- Question 8 -->
+                  <div class="form-group mt-3"><!-- Question 8 -->
                       <fieldset class="form-group">
                         <label for="rate" class="select-label">Autonomic System - Heart Rate</label>
                           <select class="form-control custom-select" name="question8" id="rate">
@@ -311,7 +278,7 @@
                       </fieldset>
                   </div><!-- Question 8 -->
 
-                  <div class="form-row mt-2 mb-2"><!-- Question 9 -->
+                  <div class="form-group mt-3 mb-3"><!-- Question 9 -->
                       <fieldset class="form-group">
                         <label for="resp" class="select-label">Autonomic System - Respirations</label>
                           <select class="form-control custom-select" name="question9" id="resp">
@@ -323,7 +290,8 @@
                           </select>
                       </fieldset>
                   </div><!-- Question 9 -->
-                </div>
+                  </div><!-- col-12 col-lg-6 -->
+                </div><!-- row -->
               </div> <!-- Card body -->
               <div class="card-footer text-center"> <!-- Card Footer -->
                 <button id="submit3" type="submit" class="btn mx-auto submit-button" disabled="true">Continue</button>
@@ -336,18 +304,18 @@
 
       <!-- Section Four -->
       <div class="row" id="form4">
-        <div class="col 12">
+        <div class="col-12">
           <form id="s4">
             <div class="card border-top-0 border-bottom-0 mt-2 mb-2 mx-auto content-cards"> <!-- Card -->
               <h4 class="card-header" style="text-align: center;">Qualifying Questions</h4> <!-- Card Header -->
               <div class="card-body"> <!-- Card body -->
 
-                <div class="form-row q-question" id="s4q1"> <!-- Question 1 -->
-                  <div class="col-8 my-auto">
-                    <p class="card-text">Is the infant's gestational age 36 weeks or more?</p>
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 mb-3" id="s4q1"> <!-- Question 1 -->
+                  <div class="flex-grow-1 mb-2 mb-md-0 pr-md-3">
+                    <p class="card-text mb-0 text-center text-md-left">Is the infant's gestational age 36 weeks or more?</p>
                   </div>
-                  <div class="col-4 my-a"><!-- Radio Buttons -->
-                    <fieldset class="form-group">
+                  <div class="flex-shrink-0"><!-- Radio Buttons -->
+                    <fieldset class="form-group mb-0">
                       <div class="btn-group radio-buttons" data-toggle="buttons">
                         <label class="btn btn-secondary">
                           <input type="radio" name="s4q1" id="s4q1_no" autocomplete="off" value="0">No
@@ -360,12 +328,12 @@
                   </div><!-- Radio buttons -->
                 </div> <!-- Question 1  -->
 
-                <div class="form-row q-question" id="s4q2"> <!-- Question 2 -->
-                  <div class="col-8 my-auto">
-                    <p class="card-text align-text-bottom">Is the infant 6 hours old or less?</p>
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 mb-3" id="s4q2"> <!-- Question 2 -->
+                  <div class="flex-grow-1 mb-2 mb-md-0 pr-md-3">
+                    <p class="card-text mb-0 text-center text-md-left">Is the infant 6 hours old or less?</p>
                   </div>
-                  <div class="col-4 my-auto"><!-- Radio Buttons -->
-                    <fieldset class="form-group">
+                  <div class="flex-shrink-0"><!-- Radio Buttons -->
+                    <fieldset class="form-group mb-0">
                       <div class="btn-group radio-buttons" data-toggle="buttons">
                         <label class="btn btn-secondary">
                           <input type="radio" name="s4q2" id="s4q2_no" autocomplete="off" value="0">No
@@ -378,12 +346,12 @@
                   </div><!-- Radio buttons -->
                 </div> <!-- Question 2  -->
 
-                <div class="form-row q-question" id="s4q3"> <!-- Question 3 -->
-                  <div class="col-8 my-auto">
-                    <p class="card-text">Is the infant's birth weight 1800g or more?</p>
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 mb-3" id="s4q3"> <!-- Question 3 -->
+                  <div class="flex-grow-1 mb-2 mb-md-0 pr-md-3">
+                    <p class="card-text mb-0 text-center text-md-left">Is the infant's birth weight 1800g or more?</p>
                   </div>
-                  <div class="col-4 my-auto"><!-- Radio Buttons -->
-                    <fieldset class="form-group">
+                  <div class="flex-shrink-0"><!-- Radio Buttons -->
+                    <fieldset class="form-group mb-0">
                       <div class="btn-group radio-buttons" data-toggle="buttons">
                         <label class="btn btn-secondary">
                           <input type="radio" name="s4q3" id="s4q3_no" autocomplete="off" value="0">No
@@ -396,12 +364,12 @@
                   </div><!-- Radio buttons -->
                 </div> <!-- Question 3  -->
 
-                <div class="form-row q-question" id="s4q4"> <!-- Question 4 -->
-                  <div class="col-8 my-auto">
-                    <p class="card-text">Absence of congenital abnormalities?</p>
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 mb-3" id="s4q4"> <!-- Question 4 -->
+                  <div class="flex-grow-1 mb-2 mb-md-0 pr-md-3">
+                    <p class="card-text mb-0 text-center text-md-left">Absence of congenital abnormalities?</p>
                   </div>
-                  <div class="col-4 my-auto"><!-- Radio Buttons -->
-                    <fieldset class="form-group">
+                  <div class="flex-shrink-0"><!-- Radio Buttons -->
+                    <fieldset class="form-group mb-0">
                       <div class="btn-group radio-buttons" data-toggle="buttons">
                         <label class="btn btn-secondary">
                           <input type="radio" name="s4q4" id="s4q4_no" autocomplete="off" value="0">No
@@ -414,12 +382,12 @@
                   </div><!-- Radio buttons -->
                 </div> <!-- Question 4  -->
 
-                <div class="form-row q-question" id="s4q5"> <!-- Question 5 -->
-                  <div class="col-8 my-auto">
-                    <p class="card-text">Absence of chromosomal anomalies?</p>
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 mb-3" id="s4q5"> <!-- Question 5 -->
+                  <div class="flex-grow-1 mb-2 mb-md-0 pr-md-3">
+                    <p class="card-text mb-0 text-center text-md-left">Absence of chromosomal anomalies?</p>
                   </div>
-                  <div class="col-4 my-auto"><!-- Radio Buttons -->
-                    <fieldset class="form-group">
+                  <div class="flex-shrink-0"><!-- Radio Buttons -->
+                    <fieldset class="form-group mb-0">
                       <div class="btn-group radio-buttons" data-toggle="buttons">
                         <label class="btn btn-secondary">
                           <input type="radio" name="s4q5" id="s4q5_no" autocomplete="off" value="0">No
@@ -432,12 +400,12 @@
                   </div><!-- Radio buttons -->
                 </div> <!-- Question 5  -->
 
-                <div class="form-row q-question" id="s4q6"> <!-- Question 6 -->
-                  <div class="col-8 my-auto">
-                    <p class="card-text">Absence of alternate cause for encephalopathy?</p>
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 mb-3" id="s4q6"> <!-- Question 6 -->
+                  <div class="flex-grow-1 mb-2 mb-md-0 pr-md-3">
+                    <p class="card-text mb-0 text-center text-md-left">Absence of alternate cause for encephalopathy?</p>
                   </div>
-                  <div class="col-4 my-auto"><!-- Radio Buttons -->
-                    <fieldset class="form-group">
+                  <div class="flex-shrink-0"><!-- Radio Buttons -->
+                    <fieldset class="form-group mb-0">
                       <div class="btn-group radio-buttons" data-toggle="buttons">
                         <label class="btn btn-secondary">
                           <input type="radio" name="s4q6" id="s4q6_no" autocomplete="off" value="0">No
@@ -462,18 +430,18 @@
 
       <!-- Section Five Blood Gas questions-->
       <div class="row" id="form5">
-        <div class="col 12">
+        <div class="col-12">
           <form id="s5">
             <div class="card border-top-0 border-bottom-0 mt-2 mb-2 mx-auto content-cards"> <!-- Card -->
               <h4 class="card-header" style="text-align: center;">Blood Gas Questions</h4> <!-- Card Header -->
               <div class="card-body"> <!-- Card body -->
 
-                <div class="form-row mt-2"> <!-- Question 1 -->
-                  <div class="col-8">
-                    <span class="text-card align-bottom"><p class="card-text">Is there an available Cord or Postnatal Blood Gas pH obtained within 1hr of birth?</p></span>
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 mb-3"> <!-- Question 1 -->
+                  <div class="flex-grow-1 mb-2 mb-md-0 pr-md-3">
+                    <p class="card-text mb-0 text-center text-md-left">Is there an available Cord or Postnatal Blood Gas pH obtained within 1hr of birth?</p>
                   </div>
-                  <div class="col-4"><!-- Radio Buttons -->
-                    <fieldset class="form-group">
+                  <div class="flex-shrink-0"><!-- Radio Buttons -->
+                    <fieldset class="form-group mb-0">
                       <div id="s5q1" class="btn-group radio-buttons" data-toggle="buttons">
                         <label class="btn btn-secondary" onclick="hideBloodGas()">
                           <input type="radio" name="s5q1" id="s5q1_no" autocomplete="off" value="0">No
@@ -490,11 +458,11 @@
 
                   <div class="card card-body"> <!-- Inner card -->
 
-                    <div class="form-row mt-2">
-                      <div class="col-6 my-auto">
-                        <span class="text-card align-bottom"><p class="card-text">Enter Base Deficit:</p></span>
+                    <div class="d-flex flex-column flex-md-row align-items-center mt-3 mb-3">
+                      <div class="flex-md-grow-1 mb-2 mb-md-0 pr-md-3">
+                        <p class="card-text mb-0 text-center text-md-left">Enter Base Deficit:</p>
                       </div>
-                      <div class="col-6 my-auto">
+                      <div class="flex-md-shrink-0" style="min-width: 200px;">
                         <div class="input-group input-group-sm">
                           <span class="input-group-addon">-</span>
                           <input id="baseDeficit" type="text" class="form-control">
@@ -503,11 +471,11 @@
                       </div>
                     </div>
 
-                    <div class="form-row mt-4">
-                      <div class="col-8 my-auto">
-                        <span class="text-card align-bottom"><p class="card-text">Enter Cord or Postnatal Blood Gas pH obtained within 1hr of age:</p></span>
+                    <div class="d-flex flex-column flex-md-row align-items-center mt-3 mb-3">
+                      <div class="flex-md-grow-1 mb-2 mb-md-0 pr-md-3">
+                        <p class="card-text mb-0 text-center text-md-left">Enter Cord or Postnatal Blood Gas pH obtained within 1hr of age:</p>
                       </div>
-                      <div class="col-4 my-auto">
+                      <div class="flex-md-shrink-0" style="min-width: 200px;">
                         <div class="input-group">
                           <input id="pH" type="text" class="form-control" placeholder="pH" aria-describedby="basic-addon2">
                         </div>
@@ -531,18 +499,18 @@
 
       <!-- Section Six -->
       <div class="row" id="form6">
-        <div class="col 12">
+        <div class="col-12">
           <form id="s6">
             <div class="card border-top-0 border-bottom-0 mt-2 mb-2 mx-auto content-cards"> <!-- Card -->
               <h4 class="card-header" style="text-align: center;">History Questions</h4> <!-- Card Header -->
               <div class="card-body"> <!-- Card body -->
 
-                <div class="form-row mt-2"> <!-- Question 1 -->
-                  <div class="col-8">
-                    <span class="text-card align-bottom"><p class="card-text">History of an acute event?</p></span>
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 mb-3"> <!-- Question 1 -->
+                  <div class="flex-grow-1 mb-2 mb-md-0 pr-md-3">
+                    <p class="card-text mb-0 text-center text-md-left">History of an acute event?</p>
                   </div>
-                  <div class="col-4"><!-- Radio Buttons -->
-                    <fieldset class="form-group">
+                  <div class="flex-shrink-0"><!-- Radio Buttons -->
+                    <fieldset class="form-group mb-0">
                       <div id="s6q1" class="btn-group radio-buttons" data-toggle="buttons">
                         <label class="btn btn-secondary" onclick="hideAcuteHistory()">
                           <input type="radio" name="s6q1" id="s6q1_no" autocomplete="off" value="0">No
@@ -558,8 +526,9 @@
                 <div class="collapse" id="acuteHistory"> <!-- Collapse -->
 
                   <div class="card card-body"> <!-- Inner card -->
-                    <div class="col-6">
-                      <div class="form-row mt-2"><!-- Acute Event Select -->
+                    <div class="row">
+                      <div class="col-12 col-md-6">
+                        <div class="form-group mt-3 mb-3"><!-- Acute Event Select -->
                           <fieldset class="form-group">
                             <label for="acute" class="select-label">Type of Acute Event</label>
                               <select class="form-control custom-select" name="acuteEvent" id="acute">
@@ -573,30 +542,31 @@
                                 <option id="acute7" value="7">Other</option>
                               </select>
                           </fieldset>
-                      </div><!-- Acute Event Select -->
-                  </div>
+                        </div><!-- Acute Event Select -->
+                      </div>
+                    </div>
 
                   </div> <!-- Inner card -->
 
                 </div> <!-- Collapse -->
 
-                <div class="form-row mt-4"> <!-- Question 3 -->
-                  <div class="col-8">
-                    <span class="text-card align-bottom"><p class="card-text">Enter 10 minute Apgar score: </p></span>
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 mb-3"> <!-- Question 3 -->
+                  <div class="flex-grow-1 mb-2 mb-md-0 pr-md-3">
+                    <p class="card-text mb-0 text-center text-md-left">Enter 10 minute Apgar score:</p>
                   </div>
-                  <div class="col-4">
+                  <div class="flex-shrink-0" style="min-width: 150px;">
                     <div class="input-group">
                       <input id="apgar" type="text" class="form-control" placeholder="Apgar">
                     </div>
                   </div>
                 </div> <!-- Question 3 -->
 
-                <div class="form-row mt-4 "> <!-- Question 4 -->
-                  <div class="col-8">
-                    <span class="text-card align-bottom"><p class="card-text">Assisted ventilation from birth continued for at least 10 min?</p></span>
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 mb-3"> <!-- Question 4 -->
+                  <div class="flex-grow-1 mb-2 mb-md-0 pr-md-3">
+                    <p class="card-text mb-0 text-center text-md-left">Assisted ventilation from birth continued for at least 10 min?</p>
                   </div>
-                  <div class="col-4"><!-- Radio Buttons -->
-                    <fieldset class="form-group">
+                  <div class="flex-shrink-0"><!-- Radio Buttons -->
+                    <fieldset class="form-group mb-0">
                       <div id="s6q4" class="btn-group radio-buttons" data-toggle="buttons">
                         <label class="btn btn-secondary">
                           <input type="radio" name="s6q4" id="s6q4_no" autocomplete="off" value="0">No
@@ -621,7 +591,7 @@
       <!-- Section Six -->
 
       <div class="row" id="result">
-        <div class="col 12">
+        <div class="col-12">
           <!-- <form id="s6"> -->
             <div class="card border-top-0 border-bottom-0 mt-2 mb-2 mx-auto content-cards"> <!-- Card -->
               <h4 class="card-header" style="text-align: center;">Result</h4> <!-- Card Header -->

@@ -1,32 +1,44 @@
 /* Extra small devices (portrait phones, less than 576px)
    No media query since this is the default in Bootstrap */
 
- .header {
-     font-family: 'Raleway', sans-serif;
-     text-align: center;
-     font-weight:300;
-     margin-top: 30px;
-     margin-bottom: 30px;
- }
+.header {
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  font-weight: 300;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
 
- .content-cards {
-    box-shadow: 1px 2px rgba(0,0,0,0.2);
- }
+.content-cards {
+  box-shadow: 1px 2px rgba(0, 0, 0, 0.2);
+}
 
- /* .radio-buttons{
-   float: right;
- } */
 
- .submit-button {
-   /* margin-top: 5%; */
-   width: 70%;
-   background-color: #0181B6;
-   border-color: #0181B6;
-   color: white;
- }
-.q-question {
-  margin-top: 10px;
-  margin-bottom: 10px;
+.submit-button {
+  /* margin-top: 5%; */
+  width: 70%;
+  background-color: #0181B6;
+  border-color: #0181B6;
+  color: white;
+}
+
+
+.info-card-body {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  flex-wrap: wrap;
+}
+
+.info-button {
+  margin: 0.25rem;
+}
+
+/* Remove default label margin in button groups for proper alignment */
+.btn-group label {
+  margin-bottom: 0;
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -39,19 +51,14 @@
 @media (min-width: 992px) {
 
   .header {
-      text-align: center;
-      font-weight:300;
-      margin-top: 30px;
-      margin-bottom: 30px;
+    text-align: center;
+    font-weight: 300;
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
 
   .content-cards {
     width: 75%;
-  }
-
-  .radio-buttons{
-    float: right;
-    margin-top: 5%;
   }
 
   .select-label {
@@ -71,16 +78,11 @@
     color: white;
   }
 
-  .q-question{
-    margin-top: 0px;
-    margin-bottom: 0px;
+  .info-cards {
+    width: 75%;
   }
 
-  .info-cards{
-      width: 75%;
-  }
-
- }
+}
 
 /* Extra large devices (large desktops, 1200px and up) */
 /* @media (min-width: 1200px) {  } */
@@ -93,7 +95,8 @@ body {
   font-family: 'Roboto', sans-serif;
   display: flex;
   flex-direction: column;
-  height: 100vh; /* Avoid the IE 10-11 `min-height` bug. */
+  height: 100vh;
+  /* Avoid the IE 10-11 `min-height` bug. */
 }
 
 p {
@@ -105,7 +108,13 @@ td {
   font-size: 0.8em;
   font-weight: 300;
 }
-#form2, #form3, #form4, #form5, #form6,#result {
+
+#form2,
+#form3,
+#form4,
+#form5,
+#form6,
+#result {
   display: none;
 }
 
@@ -114,23 +123,30 @@ td {
   font-weight: bold;
 }
 
-.btn-secondary:not([disabled]):not(.disabled).active{
-    color: #fff;
-    background-color: #0181B6;
-    border-color: #0181B6; /*set the color you want here*/
-    box-shadow: 0 0 0 0.1rem rgba(134,142,150,.5);
-} 
-.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active, .btn.btn-secondary.focus.active{
-    color: #fff;
-    background-color: #0181B6;
-    border-color: #0181B6; /*set the color you want here*/
+.btn-secondary:not([disabled]):not(.disabled).active {
+  color: #fff;
+  background-color: #0181B6;
+  border-color: #0181B6;
+  box-shadow: 0 0 0 0.1rem rgba(134, 142, 150, .5);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:active,
+.btn.btn-secondary.focus.active {
+  color: #fff;
+  background-color: #0181B6;
+  border-color: #0181B6;
 }
 
 .container {
-  flex: 1 0 auto; /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
+  flex: 1 0 auto;
+  /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
   padding: 20px;
 }
+
 .footer {
-  flex-shrink: 0; /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
+  flex-shrink: 0;
+  /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
   padding: 20px;
 }
