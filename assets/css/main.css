@@ -41,6 +41,40 @@
   margin-bottom: 0;
 }
 
+/* Language selector and header container */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  gap: 1rem;
+}
+
+#languageSelector {
+  max-width: 180px;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+/* Small devices (landscape phones, less than 576px) */
+@media (max-width: 575px) {
+  .header-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  #languageSelector {
+    width: 100%;
+    max-width: none;
+  }
+}
+
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {}
 
